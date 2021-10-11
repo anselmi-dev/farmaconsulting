@@ -1,0 +1,25 @@
+// animations styling
+
+@mixin fade-in {
+    animation: fadeIn 2s ease-in forwards;
+}
+@keyframes fadeIn {
+    0% {
+        @apply opacity-0;
+    }
+    100% {
+        @apply opacity-100;
+    }
+}
+
+@mixin fade-out {
+    animation: fadeOut 3s ease-out 1s forwards;
+}
+@keyframes fadeOut {
+    0% {
+        @apply opacity-100;
+    }
+    100% {
+        @apply opacity-0 z-0;
+    }
+}

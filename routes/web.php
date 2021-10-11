@@ -20,18 +20,22 @@ Route::post('/login', [App\Http\Controllers\Auth\AuthXmlController::class, 'auth
 Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
 Route::middleware('auth')->group(function () {
-
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('home');
+    Route::view('/', 'pages.home')->name('home');
 
     Route::get('/account', [App\Http\Controllers\AppController::class, 'account'])->name('account');
-
     Route::get('/conditions', [App\Http\Controllers\AppController::class, 'conditions'])->name('conditions');
     Route::get('/terms', [App\Http\Controllers\AppController::class, 'terms'])->name('terms');
     Route::get('/news', [App\Http\Controllers\AppController::class, 'news'])->name('news');
     Route::get('/faqs', [App\Http\Controllers\AppController::class, 'faqs'])->name('faqs');
     Route::get('/contact', [App\Http\Controllers\AppController::class, 'contact'])->name('contact');
-    Route::get('/consulting', [App\Http\Controllers\AppController::class, 'consulting'])->name('consulting');
+    Route::get('/farmaconsulting-responde', [App\Http\Controllers\AppController::class, 'consulting'])->name('consulting');
     Route::get('/farmaconsulting', [App\Http\Controllers\AppController::class, 'farmaconsulting'])->name('farmaconsulting');
+
+    // subpages of contact
+    Route::view('/cuentanos-tu-consulta', 'pages.mail')->name('contact.mail');
+    Route::view('/nosostros-te-llamamos', 'pages.callback')->name('contact.callback');
+    Route::view('/concertamos-reunion-en-nuestras-oficinas', 'pages.shops')->name('contact.shops');
+
+    Route::post('/update/account', [App\Http\Controllers\Api\MyAccountController::class, 'updateAccount'])->name('update-account');
+    Route::post('/update/preferences', [App\Http\Controllers\Api\MyAccountController::class, 'updatePreferences'])->name('update-preferences');
 });

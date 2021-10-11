@@ -1,0 +1,222 @@
+// importing required sass files
+@import "../mixins/utilities.scss";
+@import "general.scss";
+@import "typography.scss";
+
+// forms and formfield styling
+input,
+textarea {
+    @apply w-full px-7 py-4 w-full;
+    border: 1px solid $color-gray;
+    border-radius: 25px;
+    transition: $trans-all-3;
+    background: $color-white;
+}
+label {
+    @apply mb-2;
+}
+input {
+    height: 55px;
+
+    &::placeholder {
+        color: $color-gray;
+    }
+    &:active,
+    &:focus {
+        @extend .field--active;
+    }
+}
+textarea {
+    resize: none;
+
+    &::placeholder {
+        color: $color-gray;
+    }
+    &:active,
+    &:focus {
+        @extend .field--active;
+    }
+}
+.field--active {
+    border: 1px solid $color-primary;
+    transition: $trans-all-3;
+    color: $color-secondary;
+    transition: $trans-all-3;
+}
+.field--error {
+    border: 1px solid $color-error;
+    transition: $trans-all-3;
+    color: $color-error;
+}
+.custom-radio-btn__container {
+    @apply relative pl-7 cursor-pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        @apply absolute opacity-0 cursor-pointer left-0 w-full h-full z-10;
+
+        &:checked ~ .custom-radio-btn__item:after {
+            @apply block;
+        }
+    }
+}
+.custom-radio-btn__item {
+    @apply absolute left-0 rounded-full;
+    height: 18px;
+    width: 18px;
+    background-color: $color-white;
+    border: 1px solid $color-gray-other;
+    transition: $trans-all-3;
+
+    &:after {
+        @apply absolute hidden rounded-full h-3 w-3 top-0.5 left-0.5;
+        content: '';
+        background: $color-primary;
+    }
+}
+.custom-checkbox {
+    @apply mx-auto;
+}
+.custom-checkbox__container {
+    @apply relative pl-6 cursor-pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        @apply absolute opacity-0 cursor-pointer left-0 w-full h-full z-10;
+
+        &:checked ~ .custom-checkbox__check {
+            @apply opacity-100;
+            transition: $trans-all-3;
+        }
+    }
+
+}
+.custom-checkbox__item {
+    @apply absolute left-0;
+    background-color: $color-white;
+    border: 1px solid $color-gray-other;
+    height: 19px;
+    width: 19px;
+    transition: $trans-all-3;
+    margin-top: 1px;
+}
+.custom-checkbox__check {
+    @include center-vertical;
+    @apply opacity-0 left-1;
+    transition: $trans-all-3;
+    margin-top: 1px;
+}
+// to style select like list
+.custom-select__container {
+    @apply w-full px-7 py-4;
+    border: 1px solid $color-gray;
+    border-radius: 25px;
+    background: $color-white;
+    height: 55px;
+}
+.custom-select__container.field--active {
+    @extend .field--active;
+}
+.custom-select__container--active {
+    @apply rounded-b-none;
+    border-bottom: 1px solid $color-white;
+}
+.custom-select__arrow {
+    @apply self-center;
+    transition: $trans-all-3;
+}
+.custom-select__arrow--active {
+    transform: scaleY(-1);
+    transition: $trans-all-3;
+}
+.custom-select__option-check {
+    @apply hidden mt-1;
+}
+.custom-select__option-check--active {
+    @apply block;
+}
+.custom-select__option-input {
+    @apply hidden;
+    &:checked ~ .custom-select__option-check {
+        @apply block;
+    }
+}
+.custom-select__options-container {
+    @apply py-4 -top-px overflow-auto hidden transform -translate-y-full h-auto;
+    max-height: 380px;
+    background: $color-white;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 1px solid $color-gray;
+    border-top: 1px solid $color-white;
+    transition: $trans-transform-9;
+}
+.custom-select__options-container--active {
+    @apply transform translate-y-0 block;
+    transition: $trans-transform-9;
+}
+.custom-select__options-subtitle {
+    @apply my-2 mx-7;
+}
+.custom-select__option {
+    @extend .line-row-between;
+    @apply px-7 pt-5 pb-3;
+    border-bottom: 1px solid $color-gray-other-op5;
+}
+.custom-select__option--active {
+    color: $color-primary;
+}
+.custom-select__selected {
+    @apply hidden mb-2 capitalize;
+}
+.custom-select__selected--active {
+    @apply block;
+}
+
+// sidebar form
+.options__item {
+    @apply mb-5;
+
+    label {
+        @apply uppercase mb-0 py-2 px-5;
+        color: $color-secondary;
+    }
+    input {
+        @apply border-0 px-5 py-2 rounded-none bg-transparent h-auto;
+        border-bottom: 1px solid $color-gray-other-op5;
+        color: $color-gray-dark;
+
+        &::placeholder {
+            @extend .typography--regular;
+        }
+    }
+}
+.options__input-container {
+    @apply relative w-full;
+}
+.options__close-btn {
+    @include center-vertical;
+    @apply hidden absolute right-0 rounded-full h-5 w-5 mb-2;
+    background: $color-gray-other-op5;
+    transform: $trans-all-3;
+}
+.options__close-btn--active,
+.options__sub-label--active {
+    display: block !important;
+    transition: $trans-all-3;
+}
+.options__sub-label {
+    @apply hidden px-5 pt-2;
+    transform: $trans-all-3;
+}
+.options__save-btn {
+    @extend .typography--small;
+    @apply uppercase mr-0 block ml-auto;
+    color: $color-primary;
+}

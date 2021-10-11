@@ -1,0 +1,123 @@
+// import tailwindcss
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+// import fonts
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400&display=swap');
+
+// import sass files
+@import "_variables.scss";
+@import "partials/typography.scss";
+@import "partials/buttons.scss";
+@import "partials/icons.scss";
+@import "partials/forms.scss";
+@import "partials/nav.scss";
+// @import "partials/sidebar.scss";
+@import "partials/general.scss";
+@import "partials/modal.scss";
+@import "mixins/utilities.scss";
+@import "mixins/animations.scss";
+@import "pages/intro.scss";
+@import "pages/contact.scss";
+
+.content-qr {
+    background: #a4d1a4;
+    min-height: calc(100vh - 90px);
+}
+.content-qr__button {
+    background-color: #a9a9a9cf;
+    padding: .5rem;
+    position: absolute;
+    bottom: -46px;
+}
+.content-canvas {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    max-width: 80%;
+    max-height: 80%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.content-canvas__b0 {
+    content: "";
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    border-top: 4px solid green;
+    border-right: 4px solid green;
+    position: absolute;
+}
+.content-canvas__b1 {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-top: 4px solid green;
+    border-left: 4px solid green;
+    position: absolute;
+}
+.content-canvas__b2 {
+    content: "";
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    border-bottom: 4px solid green;
+    border-right: 4px solid green;
+    position: absolute;
+}
+.content-canvas__b3 {
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-bottom: 4px solid green;
+    border-left: 4px solid green;
+    position: absolute;
+}
+
+.bg-gradiente-primary {
+    background: transparent linear-gradient(180deg, #9bb52e 0%, #000000 38%) 0% 0% no-repeat padding-box;
+}
+
+#modal-account .modal__container {
+    background: $color-primary-bg;
+}
+#swiper-home .swiper-slide {
+    position: relative;
+}
+#swiper-home .swiper-slide:before {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: transparent linear-gradient(180deg, #9bb52e 0%, #000000 38%) 0% 0% no-repeat padding-box;
+    top: 0px;
+    z-index: 10;
+    opacity: 0.6;
+    content: "";
+}
+#swiper-home .swiper-button-prev,
+#swiper-home .swiper-button-next {
+    @apply hidden;
+}
+#swiper-home .swiper-pagination-bullet-active {
+    @apply bg-primary;
+}
+
+#swiper-home .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+    @apply opacity-10 bg-transparent;
+    border: 2px solid rgb(225, 225, 225);
+}
+#swiper-home .swiper-pagination-bullet {
+    height: 15px;
+    width: 15px;
+}

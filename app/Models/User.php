@@ -25,6 +25,7 @@ class User extends Authenticatable
         'lastname2',
         'inversor',
         'fcia',
+        'phone',
         'fcia_name',
         'fc_provincias',
         'fc_facturacion',
@@ -65,5 +66,15 @@ class User extends Authenticatable
     public function getFullNameAttribute ()
     {
         return $this->name .' '. $this->lastaname .' '. $this->lastname2;
+    }
+
+    public function getProvinciasAttribute ()
+    {
+        $provincias = [];
+        foreach (explode("-", auth()->user()->fc_provincias) as $provincia) {
+            if ($provincia)
+                $provincias[] = $provincia;
+        }
+        return $provincias;
     }
 }

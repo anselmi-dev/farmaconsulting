@@ -1,0 +1,47 @@
+// importing required sass files
+@import "../partials/sidebar.scss";
+@import "../partials/typography.scss";
+@import "../partials/general.scss";
+
+// contact page styling
+.contact__option {
+    @extend .sidebar__option;
+    @apply py-7;
+}
+.contact-option__icon-container {
+    @apply w-10 mr-10;
+}
+.contact-option__title {
+    @extend .typography--dark-green;
+    @apply mr-10;
+}
+.contact-option__arrow {
+    @extend .option__arrow;
+    @apply transform -rotate-90;
+}
+.contact-option__shops {
+    @apply flex flex-col h-full justify-between;
+}
+
+// modal styling
+.contact__modal {
+    @apply w-screen h-screen z-50 fixed top-0 p-4 flex transform -right-full;
+    background: $color-gray-other-op8;
+    transition: $trans-all-9;
+}
+.contact__modal--active {
+    @apply -right-0;
+    transition: $trans-all-9;
+}
+.contact-modal__container {
+    @apply flex flex-col justify-end w-full;
+    max-width: 378px;
+}
+.contact-modal__btn {
+    @extend .typography--blue;
+    @apply px-10 py-6 mb-2 w-full;
+    font-size: $font-22;
+    background: $color-white;
+    border-radius: 13px;
+    height: 82px;
+}

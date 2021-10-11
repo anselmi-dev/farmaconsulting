@@ -26,7 +26,8 @@ class LoginRequest extends FormRequest
         return [
             'email'      => 'required',
             'password'   => 'required',
-            'catalogue'  => 'required'
+            // 'terms'      => 'required'
+            // 'catalogue'  => 'required'
         ];
     }
 }

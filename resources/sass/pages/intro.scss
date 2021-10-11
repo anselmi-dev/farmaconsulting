@@ -1,0 +1,53 @@
+// importing necessary sass files
+@import "../mixins/utilities.scss";
+@import "../mixins/animations.scss";
+
+// home styling
+.intro {
+    @apply h-screen w-screen overflow-hidden;
+}
+.first-screen {
+    @apply absolute top-0 z-30;
+
+    .full-screen__background::after {
+        opacity: 0.35;
+    }
+}
+.first-screen__logo {
+    @apply opacity-0;
+    @include center-total;
+    @include fade-in;
+}
+.intro-swiper {
+    @apply hidden;
+
+    .swiper-wrapper {
+        @apply absolute top-0;
+    }
+    .swiper-pagination {
+        margin-bottom: 8%;
+
+        .swiper-pagination-bullet {
+            @apply h-2.5 w-2.5 bg-transparent;
+            border: 1px solid $color-tertiary;
+        }
+        .swiper-pagination-bullet-active {
+            background: $color-tertiary;
+        }
+    }
+    .swiper-slide-title {
+        @include center-horizontal;
+        @apply text-center p-4 w-full z-20;
+        color: $color-primary;
+        top: 68%;
+        max-width: 400px;
+    }
+}
+.intro-swiper__close {
+    @apply absolute top-0 right-0 py-5 px-6 z-20;
+}
+.intro-swiper__logo {
+    @include center-total;
+    @apply z-20;
+    top: 55%;
+}

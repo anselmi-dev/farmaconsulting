@@ -1,0 +1,47 @@
+// global variables
+
+// colors
+$color-primary: #A2BD30;
+$color-primary-op5: rgba(162, 189, 48, .5);
+$color-primary-op1: rgba(162, 189, 48, .11);
+$color-primary-bg: #F5F8E9;
+$color-secondary: #405921;
+$color-tertiary: #86A834;
+$color-gray-dark: #414141;
+$color-gray: #BFBFBF;
+$color-gray-light: #E8E8E8;
+$color-gray-other: #707070;
+$color-gray-other-op5: rgba(191, 191, 191, .5);
+$color-gray-other-op8: #bfbfbfb3;
+$color-gray-nav-bg: #f8f7f7;
+$color-white: #ffffff;
+$color-error: #F34235;
+$color-info: #0367CC;
+$color-gradient: transparent linear-gradient(180deg, $color-primary 0%, #3E5720 33%, #0D1207 100%) 0% 0% no-repeat padding-box;
+$color-gradient-bg: transparent linear-gradient(180deg, $color-white 0%, #091205 100%) 0% 0% no-repeat padding-box;
+
+// font families
+$font-primary: 'Playfair Display', serif;
+$font-secondary: 'Roboto', sans-serif;
+
+// font-sizes
+$font-9: 9px;
+$font-12: 12px;
+$font-16: 16px;
+$font-22: 22px;
+$font-26: 26px;
+$font-77: 77px;
+
+//line-heights
+$line-11: 11px;
+$line-17: 17px;
+$line-20: 20px;
+$line-29: 29px;
+$line-35: 35px;
+$line-90: 90px;
+
+// animations
+$trans-all-3: all .3s ease;
+$trans-all-5: all .5s ease;
+$trans-all-9: all .9s ease;
+$trans-transform-9: transform .9s ease-in-out;

@@ -1,0 +1,21 @@
+// useful mixins
+
+@mixin center {
+    @apply flex justify-center items-center;
+}
+@mixin center-vertical {
+    @apply absolute top-1/2 transform -translate-y-1/2;
+}
+@mixin center-horizontal {
+    @apply absolute left-1/2 transform -translate-x-1/2;
+}
+@mixin center-total {
+    @apply absolute top-1/2 transform -translate-y-1/2 left-1/2 transform -translate-x-1/2;
+}
+@mixin img-cover {
+    @apply object-cover object-center h-full w-full;
+}
+@mixin img-gradient-layer {
+    background: $color-gradient-bg;
+    mix-blend-mode: multiply;
+}

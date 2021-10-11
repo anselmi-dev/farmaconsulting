@@ -1,0 +1,64 @@
+// typography styling
+
+// font families
+.font-primery {
+    font-family: $font-primary;
+}
+.font-secondary {
+    font-family: $font-secondary;
+}
+
+body,
+.typography--regular {
+    @apply font-normal;
+    font-family: $font-secondary;
+    line-height: $line-20;
+    color: $color-gray-dark;
+}
+h1, h2,
+.typography--h1,
+.typography--h2 {
+    font-family: $font-primary;
+}
+h1,
+.typography--h1 {
+    font-size: $font-77;
+    line-height: $line-90;
+}
+h2,
+.typography--h2 {
+    font-size: $font-26;
+    line-height: $line-35;
+}
+.typography--large {
+    font-size: $font-22;
+    line-height: $line-29;
+}
+.typography--small {
+    font-size: $font-12;
+    line-height: $line-17;
+}
+.typography--xsmall {
+    font-size: $font-9;
+    line-height: $line-11;
+}
+.typography--white {
+    color: $color-white;
+}
+.typography--green {
+    color: $color-primary;
+}
+.typography--dark-green {
+    color: $color-secondary;
+}
+.typography--links {
+    @apply underline;
+    color: $color-primary;
+}
+.typography--error {
+    color: $color-error;
+    transition: $trans-all-3;
+}
+.typography--blue {
+    color: $color-info;
+}

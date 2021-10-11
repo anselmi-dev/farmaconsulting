@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42">
+  <g transform="translate(130 -3)">
+    <path id="Path_2555" data-name="Path 2555" d="M-119,39.3V5.765A1.763,1.763,0,0,1-117.236,4h26.471A1.763,1.763,0,0,1-89,5.765V39.3c0,2.924-1.8,4.434-5.294,4.7H-120.47" fill="none" stroke="#405921" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_2556" data-name="Path 2556" d="M-124,44h-.588c-.867,0-4.412-.836-4.412-3.818V23.414a1.765,1.765,0,0,1,1.766-1.764H-119V40.182C-119,42.619-121,44-124,44Z" fill="none" stroke="#405921" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <line id="Line_40" data-name="Line 40" x1="9.121" transform="translate(-124 44)" fill="none" stroke="#405921" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <line id="Line_41" data-name="Line 41" x2="15.884" transform="translate(-111.884 11.061)" fill="none" stroke="#405921" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <line id="Line_42" data-name="Line 42" x2="15.884" transform="translate(-111.884 18.119)" fill="none" stroke="#405921" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <line id="Line_43" data-name="Line 43" x2="15.884" transform="translate(-111.75 24.979)" fill="none" stroke="#405921" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>

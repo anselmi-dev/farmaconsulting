@@ -1,0 +1,137 @@
+//importing required sass files
+@import "general.scss";
+
+.nav {
+    height: 60px;
+    @apply bg-primary-600 fixed items-center justify-between top-0 left-0 w-full z-10 flex px-5 py-2;
+    @screen md {
+        height: 45px;
+    }
+    @screen lg {
+        height: 30px;
+    }
+    &__content {
+        @apply flex items-center -mx-2;
+        & > * {
+            @apply mx-2;
+        }
+    }
+    &__profile {
+        height: 100%;
+        &-icon {
+            height: 100%;
+        }
+    }
+    &__link {
+        @apply flex items-center justify-center relative px-3 py-3 hover:bg-gray-100 w-full space-x-2;
+        @screen md {
+            @apply py-2;
+        }
+        @screen lg {
+            @apply py-1;
+        }
+        border-bottom: 1px solid rgba(191, 191, 191, 0.5);
+        .icon {
+            width: 35px;
+            height: 35px;
+            & > * {
+                max-height: 100%;
+                max-width: 100%;
+            }
+            @screen md {
+                width: 28px;
+                height: 28px;
+            }
+        }
+        .label {
+            @apply w-full uppercase;
+            @screen md {
+                @apply text-sm;
+            }
+        }
+    }
+}
+
+.menu {
+    @apply fixed w-full bottom-0 bg-white border-t border-gray-200;
+    &__content {
+        @apply w-full grid grid-cols-5 items-center justify-center gap-4 h-full;
+    }
+    &__blink {
+        @apply text-center;
+        svg {
+            fill:#FFF;
+            max-height: 35px;
+        }
+        &.active {
+            svg {
+                fill:#a2bd30
+            }
+        }
+    }
+}
+
+#content {
+    padding-bottom: 90px;
+    padding-top: 60px;
+    @screen md {
+        padding-top: 45px;
+    }
+    @screen lg {
+        padding-top: 30px;
+    }
+}
+// // navigation styling
+// .nav-top,
+// .nav-bottom {
+//     @apply fixed w-full z-30;
+// }
+// .nav-top {
+//     @apply top-0 px-4 pb-4 pt-5 flex items-center;
+//     background: $color-secondary;
+//     height: 100px;
+// }
+// .nav-top__title::first-letter {
+//     @apply capitalize;
+// }
+// .nav-top__secondary {
+//     @apply hidden;
+// }
+// .nav-top__back-btn {
+//     @apply p-5 -ml-5;
+// }
+// .nav-bottom {
+//     @apply bottom-0 px-3 pb-2.5 pt-4;
+//     background: $color-gray-nav-bg;
+// }
+// .nav-item {
+//     @apply text-center;
+
+//     .icon--medium {
+//         margin-top: 5px;
+//         margin-bottom: 5px;
+//     }
+
+// }
+// .nav-item--active {
+//     @apply opacity-100;
+//     color: $color-secondary;
+// }
+// .nav-item--inactive {
+//     @apply opacity-50;
+
+//     path {
+//         fill: $color-white;
+//         stroke: $color-gray-dark;
+//     }
+//     rect {
+//         fill: transparent;
+//         stroke: $color-gray-dark;
+//     }
+//     #Rectangle_274 {
+//         stroke: transparent;
+//     }
+//     line {
+//         stroke: $color-gray-dark;
+//     }
+// }

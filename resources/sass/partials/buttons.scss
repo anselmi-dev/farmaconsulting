@@ -1,0 +1,38 @@
+// buttons styling
+
+.btn {
+    @apply w-full rounded-full uppercase w-full;
+    color:  $color-white;
+    height: 55px;
+}
+.btn--primary {
+    @extend .btn;
+    background: $color-primary;
+    transition: $trans-all-3;
+
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus {
+        background: $color-secondary;
+        transition: $trans-all-3;
+    }
+}
+.btn--secondary {
+    @extend .btn;
+    background: $color-secondary;
+    transition: $trans-all-3;
+
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus {
+        background: $color-primary;
+        transition: $trans-all-3;
+    }
+}
+.btn--inactive-primary {
+    @extend .btn--primary;
+    background: $color-primary-op5;
+    transition: $trans-all-3;
+}

@@ -1,0 +1,71 @@
+// importing required sass files
+
+
+// sidebar styling
+.sidebar {
+    @apply min-h-screen w-full h-full fixed z-40 overflow-y-auto -left-full top-0;
+    transition: $trans-all-9;
+    background: $color-primary-bg;
+
+}
+.sidebar--active {
+    @apply left-0;
+    transition: $trans-all-9;
+}
+.sidebar__topbar {
+    @apply sticky z-50;
+}
+.sidebar__back-btn {
+    @apply p-2 -ml-2;
+}
+.sidebar__option {
+    @apply py-4 w-full relative;
+    border-bottom: 1px solid $color-gray-other-op5;
+}
+.option__icon-container {
+    @apply mr-8;
+    width: 35px;
+
+    svg {
+        @apply mx-auto;
+    }
+}
+.option__arrow {
+    @apply self-center mr-5;
+    transition: $trans-all-3;
+}
+.option__arrow--active {
+    transform: scaleY(-1);
+    transition: $trans-all-3;
+
+    path {
+        stroke: $color-secondary;
+        transition: $trans-all-3;
+    }
+}
+.option__title {
+    @apply uppercase mr-11;
+}
+.sidebar__footer {
+    @apply text-center;
+}
+.option__options {
+    @apply hidden mt-10;
+    transition: $trans-all-3;
+    transition: $trans-transform-9;
+}
+.option__options--active {
+    @apply block transform translate-y-0;
+    transition: $trans-all-3;
+    transition: $trans-transform-9;
+}
+.options__description {
+    @apply mb-8;
+}
+.options__catalog-number {
+    @apply text-center mb-5 -mt-5;
+    @extend .typography--h1;
+}
+.options__catalog-description {
+    @apply text-center;
+}

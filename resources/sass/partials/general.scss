@@ -1,0 +1,133 @@
+// importing required sass files
+@import "../mixins/utilities.scss";
+@import "../mixins/animations.scss";
+
+// common classes styling
+main {
+    @apply relative;
+}
+.wrapper,
+.wrapper--larger {
+    @apply w-full mx-auto p-4;
+}
+.wrapper {
+    max-width: calc(300px + 32px);
+}
+.wrapper--larger {
+    max-width: calc(330px + 32px);
+}
+.line-row {
+    @apply flex items-center;
+}
+.line-row-center {
+    @apply flex items-center justify-center;
+}
+.line-row-between {
+    @apply flex justify-between w-full;
+}
+.line-col {
+    @apply flex flex-col;
+}
+.line-col-center {
+    @apply flex flex-col items-center;
+}
+.line-col-between {
+    @apply flex flex-col justify-between h-full;
+}
+button, input,
+textarea, select,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+button:active,
+input:active,
+textarea:active,
+select:active {
+    outline: none;
+}
+.full-screen {
+    @apply h-screen w-screen;
+}
+.full-screen__background {
+    @extend .full-screen;
+
+    img {
+        @include img-cover;
+    }
+
+    &::after {
+        @include img-gradient-layer;
+        @extend .full-screen;
+        @apply z-10 absolute top-0;
+        content: '';
+    }
+}
+.full-height {
+    @apply h-full w-screen absolute top-0;
+    z-index: -1;
+}
+.full-height__background {
+    @extend .full-height;
+
+    img {
+        @include img-cover;
+    }
+
+    &::after {
+        @include img-gradient-layer;
+        @extend .full-height;
+        @apply z-10 absolute top-0;
+        content: '';
+    }
+}
+.fade-out-animation {
+    @include fade-out;
+}
+// margins
+.margin-bottom--4xsmall {
+    @apply mb-1;
+}
+.margin-bottom--3xsmall {
+    @apply mb-2;
+}
+.margin-bottom--2xsmall {
+    @apply mb-3;
+}
+.margin-bottom--xsmall {
+    @apply mb-3.5;
+}
+.margin-bottom--small {
+    @apply mb-4;
+}
+.margin-bottom--medium {
+    @apply mb-5;
+}
+.margin-bottom--large {
+    @apply mb-6;
+}
+.margin-bottom--xlarge {
+    @apply mb-7;
+}
+.margin-bottom--2xlarge {
+    @apply mb-8;
+}
+.margin-bottom--3xlarge {
+    @apply mb-10;
+}
+.margin-bottom--4xlarge {
+    @apply mb-12;
+}
+.margin-bottom--5xlarge {
+    @apply mb-14;
+}
+.url-content {
+    @apply w-full z-0;
+    height: calc(100vh - 150px);
+    @screen lg {
+        height: calc(100vh - 135px);
+    }
+}
+.scanner {
+    background: $color-gray-dark;
+}

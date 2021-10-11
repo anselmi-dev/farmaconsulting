@@ -1,0 +1,26 @@
+// icons styling
+
+.icon--logo {
+    @apply w-auto;
+   height: 27px;
+}
+.icon-xsmall {
+    @apply w-auto;
+    height: 9px;
+}
+.icon--medium {
+    @apply w-auto;
+    height: 35px;
+}
+.icon--large {
+    @apply w-auto;
+    height: 45px;
+}
+.icon--xlarge {
+    @apply w-auto;
+    height: 64px;
+}
+.icon--2xlarge {
+    @apply w-auto;
+    height: 90px;
+}

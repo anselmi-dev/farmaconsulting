@@ -10,8 +10,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -19,29 +17,44 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <!-- Alpine Plugins -->
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Alpine Core -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    @stack('styles')
+
     @laravelPWA
 
 </head>
-<body>
+<body class="{{ Route::currentRouteName() }}">
 
     <div>
-        {{-- @includeIf('layouts.parts.header') --}}
+        @guest
+            @includeIf('layouts.parts.intro')
+        @endguest
 
         <div>
-            @includeIf('components.menuTop')
+            @includeIf('layouts.parts.header.nav')
 
-            <div class="relative min-h-screen" style="padding-bottom: 90px">
+            <div class="relative min-h-screen" id="content">
 
                 @yield('content')
             </div>
 
-            @includeIf('components.menu')
+            @includeIf('layouts.parts.menu')
         </div>
 
-        {{-- @includeIf('layouts.parts.footer') --}}
     </div>
+
+    <script src="{{ asset('js/app.js') }}"></script>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    @yield('scripts')
+    @stack('scripts')
+
+    <style>
+        .url-content {
+        }
+    </style>
 </body>
 </html>

@@ -49,7 +49,6 @@ trait ApiFarmaconsulting {
                 <CatalogoLogin xmlns="http://tempuri.org/">
                     <Usuario>'.$user.'</Usuario>
                     <Passw>'.$pass.'</Passw>
-                    <Catalogo>'.$catalogue.'</Catalogo>
                 </CatalogoLogin>
             </Body>
         </Envelope>',
@@ -66,6 +65,56 @@ trait ApiFarmaconsulting {
         $parser = $this->transformXml($output);
 
         return (array)$parser->CatalogoLoginResponse->CatalogoLoginResult;
+    }
+
+    /**
+     * Actualizar los datos del usuario
+     *
+     * @param   \App\Models\User  $user
+     *
+     * @return  response
+     */
+    public function DatosUsuarioUpdate ($user)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => 'http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl',
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => '',
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 0,
+          CURLOPT_FOLLOWLOCATION => true,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => 'POST',
+          CURLOPT_POSTFIELDS =>'<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+            <Body>
+                <DatosUsuarioUpdate xmlns="http://tempuri.org/">
+                    <Email>'.$user->email.'</Email>
+                    <Nombre>'.$user->name.'</Nombre>
+                    <Apellido1>'.$user->lastname.'</Apellido1>
+                    <Apellido2>'.$user->lastname2.'</Apellido2>
+                    <TfnoMovil>'.$user->phone.'</TfnoMovil>
+                    <FC_Provincias>'.$user->fc_provincias.'</FC_Provincias>
+                    <FC_Facturacion>'.$user->fc_facturacion.'</FC_Facturacion>
+                </DatosUsuarioUpdate>
+            </Body>
+        </Envelope>',
+          CURLOPT_HTTPHEADER => array(
+            'Content-Type: text/xml; charset=utf-8',
+            'Authorization: Basic YXAxXzI6RmN0QWNicDEyMw=='
+          ),
+        ));
+
+        $output = curl_exec($curl);
+
+        curl_close($curl);
+
+        logger($output);
+
+        $parser = $this->transformXml($output);
+
+        return (array)$parser->DatosUsuarioUpdateResponse->DatosUsuarioUpdateResult;
     }
 
     /**

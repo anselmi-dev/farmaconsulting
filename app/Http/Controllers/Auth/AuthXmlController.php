@@ -54,10 +54,10 @@ class AuthXmlController extends Controller
      */
     public function authXml (LoginRequest $request)
     {
-        $xml = $this->catalogoLogin($request->email, $request->password, $request->catalogue);
+        $xml = $this->catalogoLogin($request->email, md5($request->password), $request->catalogue);
 
         if ($xml['Error'] == -1) {
-            return \Redirect::back()->withInput($request->all())->withErrors(array('message' => $xml['Msg']));
+            return \Redirect::back()->withInput($request->all())->withErrors([$xml['Msg']]);
         }
 
         $user = $this->createOrUpdate($request->email, $request->password, $request->catalogue);
@@ -75,11 +75,12 @@ class AuthXmlController extends Controller
             'email'     =>  $datosUsuario['Email'],
             'password'  =>  \Hash::make($password),
             'name'      =>  $datosUsuario['Nombre'],
-            'lastname'  =>  $datosUsuario['Apellido1'],
-            'lastname2' =>  $datosUsuario['Apellido2'],
-            'inversor'  =>  (boolean)$datosUsuario['Inversor'],
-            'fcia'      =>  (boolean)$datosUsuario['TieneFcia'],
-            'fcia_name'         =>  $datosUsuario['Fcia_Name'],
+            'lastname'  =>  isset($datosUsuario['Apellido1']) ?  $datosUsuario['Apellido1'] : NULL,
+            'lastname2' =>  isset($datosUsuario['Apellido2']) ?  $datosUsuario['Apellido2'] : NULL,
+            'phone'     =>  isset($datosUsuario['TfnoMovil']) ?  $datosUsuario['TfnoMovil'] : NULL,
+            'inversor'  =>  isset($datosUsuario['Inversor']) ? (boolean)$datosUsuario['Inversor'] : NULL,
+            'fcia'      =>  isset($datosUsuario['TieneFcia']) ? (boolean)$datosUsuario['TieneFcia'] : NULL,
+            'fcia_name'         =>  isset($datosUsuario['Fcia_Name']) ? $datosUsuario['Fcia_Name'] : NULL,
             'fc_provincias'     =>  $datosUsuario['FC_Provincias'],
             'fc_facturacion'    =>  $datosUsuario['FC_Facturacion'],
             'catalogue'         =>  $catalogue
