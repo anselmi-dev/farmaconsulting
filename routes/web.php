@@ -38,4 +38,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/update/account', [App\Http\Controllers\Api\MyAccountController::class, 'updateAccount'])->name('update-account');
     Route::post('/update/preferences', [App\Http\Controllers\Api\MyAccountController::class, 'updatePreferences'])->name('update-preferences');
+
+    Route::post('/contact/consultation', [App\Http\Controllers\Api\ContactController::class, 'consultation'])->name('contact-consultation');
+    Route::post('/contact/general', [App\Http\Controllers\Api\ContactController::class, 'general'])->name('contact-general');
 });

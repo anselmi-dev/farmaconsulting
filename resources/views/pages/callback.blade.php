@@ -32,21 +32,24 @@
     </div>
     <div class="wrapper">
         <div class="margin-bottom--4xlarge">
-            <form action="" class="line-col-center callback-form">
+            <form method="POST" action="{{ route('contact-general') }}" id="form-general" class="line-col-center callback-form">
+                @csrf
+                {{-- Name --}}
                 <div class="margin-bottom--2xsmall w-full">
                     <label class="typography--small" for="name">Nombre</label>
-                    <input class="mt-1 field--active" type="text" name="name" value="Nombre auto completado" readonly>
+                    <input class="mt-1 field--active" type="text" name="name" placeholder="Nombre auto completado" value="{{ auth()->user()->name }}" readonly>
                 </div>
+                {{-- lastname --}}
                 <div class="margin-bottom--2xsmall w-full">
-                    <label class="typography--small" for="surnames">Apellidos</label>
-                    <input class="mt-1 field--active" type="text" name="surnames"
-                        value="Apellidos auto completados" readonly>
+                    <label class="typography--small" for="lastname">Apellido</label>
+                    <input class="mt-1 field--active" type="text" name="lastname" placeholder="Apellidos auto completados" value="{{ auth()->user()->lastname }}" readonly>
                 </div>
+                {{-- Phone --}}
                 <div class="margin-bottom--2xsmall w-full">
-                    <label class="typography--small" for="mobile">Teléfono móvil</label>
-                    <input class="mt-1 field--active" type="number" name="mobile" value="Móvil auto completado"
-                        readonly>
+                    <label class="typography--small" for="phone">Teléfono móvil</label>
+                    <input class="mt-1 field--active" type="number" name="phone" value="{{ auth()->user()->phone }}" readonly>
                 </div>
+                {{-- Franja horaria --}}
                 <div class="margin-bottom--2xsmall w-full">
                     <div class="margin-bottom--4xsmall">
                         <p class="typography--small">Franja horaria</p>
@@ -74,40 +77,47 @@
                         <div class="custom-select__options-subtitle">
                             <p class="typography--small">Selecciona la franja horaria que te interese</p>
                         </div>
+                        @php
+                            $timezones = [
+                                0 => '09:00 - 13:00',
+                                1 => '15:00 - 18:00',
+                            ];
+                        @endphp
                         <ul>
-                            <li class="custom-select__option">
-                                <span class="uppercase">09:00 - 13:00</span>
-                                <span class="custom-select__option-check">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25"
-                                        viewBox="0 0 12.362 8.25">
-                                        <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
-                                            transform="translate(251.448 -245.085) rotate(90)" fill="none"
-                                            stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" />
-                                    </svg>
-                                </span>
-                            </li>
-                            <li class="custom-select__option">
-                                <span class="uppercase">15:00 - 18:00</span>
-                                <span class="custom-select__option-check">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25"
-                                        viewBox="0 0 12.362 8.25">
-                                        <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
-                                            transform="translate(251.448 -245.085) rotate(90)" fill="none"
-                                            stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" />
-                                    </svg>
-                                </span>
-                            </li>
+                            @foreach ($timezones as $key => $timezone)
+                                <li>
+                                    <label for="timezone_{{ $key }}" class="custom-select__option">
+                                        <span class="uppercase">{{ $timezone }}</span>
+                                        <input
+                                            type="checkbox"
+                                            name="timezone[]"
+                                            id="timezone_{{ $key }}"
+                                            value="{{ $key }}"
+                                            class="custom-select__option-input">
+                                        <span class="custom-select__option-check">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12.362"
+                                            height="8.25" viewBox="0 0 12.362 8.25">
+                                                <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
+                                                transform="translate(251.448 -245.085) rotate(90)"
+                                                    fill="none" stroke="#a2bd30"
+                                                    stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2"></path>
+                                            </svg>
+                                        </span>
+                                    </label>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
+                {{-- Message --}}
                 <div class="margin-bottom--medium w-full">
                     <label for="message" class="typography--small">
                         {{ __('Tu consulta') }}
                     </label>
                     <textarea class="mt-1" name="message" cols="30" rows="8" placeholder="Cómo podemos ayudarte..."></textarea>
                 </div>
+                {{-- Terms --}}
                 <div class="margin-bottom--medium w-full">
                     <div class="line-row">
                         <label for="save-data" class="custom-checkbox__container">
@@ -130,6 +140,9 @@
                         </label>
                     </div>
                 </div>
+                <div class="w-full text-center" id="status">
+
+                </div>
                 <div class="w-full">
                     <button class="btn--inactive-primary">
                         {{ __('ENVIAR') }}
@@ -139,3 +152,58 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            // get the form elements defined in your form HTML above
+
+            var form = document.getElementById("form-general");
+            // var button = document.getElementById("my-form-button");
+            var status = document.getElementById("status");
+
+            // Success and Error functions for after the form is submitted
+            function success(response, responseType) {
+                try {
+                    const parse = JSON.parse(response);
+                    document.getElementById('full-name-profile').innerHTML = parse.user.name + ' ' + parse.user.lastname;
+                } catch (error) {
+                    console.error(error);
+                }
+                status.classList.add("success");
+                status.innerHTML = "Mensaje enviado";
+            }
+
+            function error() {
+                status.classList.add("error");
+                status.innerHTML = "¡Ups! Ocurrió un problema";
+            }
+
+            // handle the form submission event
+            form.addEventListener("submit", function (ev) {
+                ev.preventDefault();
+                status.innerHTML = "";
+                var data = new FormData(form);
+                ajax(form.method, form.action, data, success, error);
+            });
+        });
+
+        // helper function for sending an AJAX request
+        function ajax(method, url, data, success, error) {
+            var xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== XMLHttpRequest.DONE)
+                    return;
+                if (xhr.status === 200) {
+                    success(xhr.response, xhr.responseText);
+                } else {
+                    error(xhr.status, xhr.response, xhr.responseType);
+                }
+            };
+            xhr.send(data);
+        }
+
+    </script>
+@endpush

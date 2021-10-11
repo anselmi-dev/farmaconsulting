@@ -1,5 +1,5 @@
 <div class="w-full grid grid-cols-1 items-center justify-center gap-2 lg:gap-1">
-    <div class="w-full">
+    {{-- <div class="w-full">
         <button class="modal__close" aria-label="Close modal" data-micromodal-close>
             <svg xmlns="http://www.w3.org/2000/svg" width="25.414" height="20.828" viewBox="0 0 25.414 20.828">
                 <g transform="translate(1.414 1.414)">
@@ -13,7 +13,7 @@
                 </g>
             </svg>
         </button>
-    </div>
+    </div> --}}
     <div class="w-full relative text-center uppercase flex flex-wrap justify-center text-2xl lg:text-lg">
         <span>{{ __('Mi perfil') }}</span>
     </div>
