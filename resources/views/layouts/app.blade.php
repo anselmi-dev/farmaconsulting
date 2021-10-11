@@ -16,7 +16,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('plugins/notifications/dist/notifications.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/notifications/notifications.css') }}" rel="stylesheet">
 
     <!-- Alpine Plugins -->
     <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
@@ -50,7 +50,7 @@
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('plugins/notifications/dist/notifications.js') }}"></script>
+    <script src="{{ asset('plugins/notifications/notifications.js') }}"></script>
     <script>
         const myNotification = window.createNotification({
             showDuration: 3500,
