@@ -84,11 +84,9 @@
     border-left: 4px solid green;
     position: absolute;
 }
-
 .bg-gradiente-primary {
     background: transparent linear-gradient(180deg, #9bb52e 0%, #000000 38%) 0% 0% no-repeat padding-box;
 }
-
 #modal-account .modal__container {
     background: $color-primary-bg;
 }
@@ -112,7 +110,6 @@
 #swiper-home .swiper-pagination-bullet-active {
     @apply bg-primary;
 }
-
 #swiper-home .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
     @apply opacity-10 bg-transparent;
     border: 2px solid rgb(225, 225, 225);

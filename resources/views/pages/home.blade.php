@@ -1,96 +1,76 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="loadingMessage"></div>
-    <div class="url-content content-qr flex flex-wrap items-center justify-center">
-        <div class="content-canvas">
-            <div class="content-canvas__b0"></div>
-            <div class="content-canvas__b1"></div>
-            <div class="content-canvas__b2"></div>
-            <div class="content-canvas__b3"></div>
-            <canvas id="canvas" hidden class="max-w-full max-h-full" style="opacity: 0"></canvas>
-            <button class="content-qr__button" type="button" onclick="readQr();">
-                {{ __('Escanea el código QR') }}
-            </button>
+    <div id="container" class="url-content flex items-center justify-center bg-primary">
+        <div class="p-4 border border-gray-500 bg-white opacity-80">
+            <canvas hidden="" id="qr-canvas" style="max-width: 100%; max-height: 100%"></canvas>
+            <a href="javascript:void(0);" id="btn-scan-qr">
+                <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2017/07/1499401426qr_icon.svg" style="max-height: 40vh; max-width: 100%; width: 300px;" class="mx-auto"/>
+            </a>
         </div>
-    </div>
-    <div style="display: none">
-        <div id="output" hidden>
-            <div id="outputMessage">No QR code detected.</div>
-            <div hidden><b>Data:</b> <span id="outputData"></span></div>
+
+
+        <div id="qr-result" hidden="">
+            <span id="outputData"></span>
         </div>
     </div>
 @endsection
 
-@section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.0.4/dist/jsQR.min.js"></script>
-    <script>
-        var video = document.createElement("video");
-        var canvasElement = document.getElementById("canvas");
-        var canvas = canvasElement.getContext("2d");
-        var loadingMessage = document.getElementById("loadingMessage");
-        var outputContainer = document.getElementById("output");
-        var outputMessage = document.getElementById("outputMessage");
-        var outputData = document.getElementById("outputData");
+@push('scripts')
+    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+    <script type="text/javascript">
+        const _qrcode = window.qrcode;
+        const video = document.createElement("video");
+        const canvasElement = document.getElementById("qr-canvas");
+        const canvas = canvasElement.getContext("2d");
+        const qrResult = document.getElementById("qr-result");
+        const outputData = document.getElementById("outputData");
+        const btnScanQR = document.getElementById("btn-scan-qr");
+        let scanning = false;
+        _qrcode.callback = res => {
+            if (res) {
+                window.location = res;
+                scanning = false;
 
-        function drawBox(begin, b, c, d, color) {
-            canvas.beginPath();
-            canvas.moveTo(begin.x, begin.y);
-            canvas.lineTo(b.x, b.y);
-            canvas.lineTo(c.x, c.y);
-            canvas.lineTo(d.x, d.y);
-            canvas.lineTo(begin.x, begin.y);
-            canvas.lineWidth = 4;
-            canvas.strokeStyle = color;
-            canvas.stroke();
-        }
+                video.srcObject.getTracks().forEach(track => {
+                    track.stop();
+                });
 
-        // Use facingMode: environment to attemt to get the front camera on phones
-        navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
-            video.srcObject = stream;
-            video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
-            video.play();
-            requestAnimationFrame(tick);
-        });
+                qrResult.hidden = false;
+                canvasElement.hidden = true;
+                btnScanQR.hidden = false;
+            }
+        };
+
+        btnScanQR.onclick = () => {
+            navigator.mediaDevices
+                .getUserMedia({ video: { facingMode: "environment" } })
+                .then(function(stream) {
+                scanning = true;
+                qrResult.hidden = true;
+                btnScanQR.hidden = true;
+                canvasElement.hidden = false;
+                video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+                video.srcObject = stream;
+                video.play();
+                tick();
+                scan();
+            });
+        };
 
         function tick() {
-        loadingMessage.innerText = "⌛ Loading video...";
-            if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                loadingMessage.hidden = true;
-                canvasElement.hidden = false;
-                outputContainer.hidden = false;
-
-                canvasElement.height = video.videoHeight;
-                canvasElement.width = video.videoWidth;
-                canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
-
-                var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-
-                var code = jsQR(imageData.data, imageData.width, imageData.height);
-
-                    if (code) {
-                        drawBox(
-                            code.location.topLeftCorner,
-                            code.location.topRightCorner,
-                            code.location.bottomRightCorner,
-                            code.location.bottomLeftCorner,
-                            code.location.topLeftCorner,
-                            "#FF3B58"
-                        );
-                        outputMessage.hidden = true;
-                        outputData.parentElement.hidden = false;
-                        outputData.innerText = code.data;
-                        alert(code.data);
-                    } else {
-                        outputMessage.hidden = false;
-                        outputData.parentElement.hidden = true;
-                    }
-            }
-            requestAnimationFrame(tick);
+            canvasElement.height = video.videoHeight;
+            canvasElement.width = video.videoWidth;
+            canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+            scanning && requestAnimationFrame(tick);
         }
 
-        function readQr () {
-            document.getElementById('canvas').style.opacity = '100%';
+        function scan() {
+            try {
+                _qrcode.decode();
+            } catch (e) {
+                setTimeout(scan, 300);
+            }
         }
     </script>
-@endsection
+@endpush
