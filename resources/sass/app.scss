@@ -16,6 +16,7 @@
 @import "partials/icons.scss";
 @import "partials/forms.scss";
 @import "partials/nav.scss";
+@import "partials/loading.scss";
 // @import "partials/sidebar.scss";
 @import "partials/general.scss";
 @import "partials/modal.scss";
@@ -26,7 +27,6 @@
 
 .content-qr {
     background: #a4d1a4;
-    min-height: calc(100vh - 90px);
 }
 .content-qr__button {
     background-color: #a9a9a9cf;

@@ -8,14 +8,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Título -->
+    <title>@section('title', config('app.name', 'Farmaconsulting'))</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('plugins/notifications.css') }}" rel="stylesheet">
 
     <!-- Alpine Plugins -->
@@ -40,7 +41,6 @@
             @includeIf('layouts.parts.header.nav')
 
             <div class="relative min-h-screen" id="content">
-
                 @yield('content')
             </div>
 
@@ -49,7 +49,7 @@
 
     </div>
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ asset('plugins/notifications.js') }}"></script>
     <script>
         const myNotification = window.createNotification({
@@ -58,12 +58,16 @@
             displayCloseButton: true,
         });
     </script>
+    <script>
+        const slider = document.querySelectorAll('[toggle-slider]');
+        for (let index = 0; index < slider.length; index++) {
+            slider[index].addEventListener('click', () => {
+                const id = slider[index].getAttribute('toggle-slider');
+                document.getElementById(id).classList.toggle('active');
+            });
+        }
+    </script>
     <!-- Scripts -->
     @stack('scripts')
-
-    <style>
-        .url-content {
-        }
-    </style>
 </body>
 </html>

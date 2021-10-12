@@ -119,15 +119,38 @@ select:active {
     @apply mb-12;
 }
 .margin-bottom--5xlarge {
-    @apply mb-14;
+    // @apply mb-14;
 }
 .url-content {
     @apply w-full z-0;
     height: calc(100vh - 150px);
     @screen lg {
-        height: calc(100vh - 135px);
+        height: calc(100vh - 160px);
     }
 }
 .scanner {
     background: $color-gray-dark;
+}
+
+.slider__content,
+.custom-select__options-container {
+    /* width */
+    &::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: rgb(162, 189, 48);
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgb(162, 189, 48);
+    }
 }

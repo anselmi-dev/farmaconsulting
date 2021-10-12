@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AccountRequest;
 use App\Traits\ApiFarmaconsulting;
@@ -17,10 +18,17 @@ class MyAccountController extends Controller
 
         $datosUsuario = $this->DatosUsuarioUpdate(auth()->user());
 
-        if ($datosUsuario['Error'])
-            return response()->json(['error' => false], 500);
+        if ($datosUsuario['Error']) {
+            if($request->ajax())
+                return response()->json(['error' => false], 500);
 
-        return response()->json(['success' => true, 'user' => $request->all()]);
+            return back()->withInput()->withErrors(['error' => 'Ocurrió un error inesperado']);
+        }
+
+        if($request->ajax())
+            return response()->json(['success' => true, 'user' => $request->all()]);
+
+        return back()->withInput()->withErrors(['success' => 'Datos actualizados']);
     }
 
     /**

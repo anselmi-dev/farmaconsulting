@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Province;
 
 class Contact extends Model
 {
@@ -24,4 +25,11 @@ class Contact extends Model
         'message'
     ];
 
+    public function getLabelProvinceAttribute ()
+    {
+        if ($this->province && $p = Province::where('code', $this->province)->first()) {
+            return $p->name;
+        }
+        return $this->province;
+    }
 }

@@ -5,7 +5,7 @@
         <div class="options__item">
             <label for="name">Nombre</label>
             <div class="options__input-container">
-                <input class="options__input" type="text" name="name" value="{{ auth()->user()->name }}" placeholder="{{ __('Nombre') }}">
+                <input data-rule="required" class="options__input" type="text" name="name" value="{{ auth()->user()->name }}" placeholder="{{ __('Nombre') }}">
                 <button class="options__close-btn" type="button">
                     <svg class="icon-xsmall mx-auto" xmlns="http://www.w3.org/2000/svg"
                         width="19.092" height="19.092" viewBox="0 0 19.092 19.092">
@@ -31,7 +31,7 @@
             <label for="lastname">{{ __('Primer apellido') }}</label>
             <div class="line-row-between">
                 <div class="options__input-container">
-                    <input class="options__input" type="text" value="{{ auth()->user()->lastname }}" name="lastname"
+                    <input data-rule="required" class="options__input" type="text" value="{{ auth()->user()->lastname }}" name="lastname"
                         placeholder="{{ __('Apellido') }}">
                     <button class="options__close-btn" type="button">
                         <svg class="icon-xsmall mx-auto"
@@ -60,7 +60,7 @@
             <label for="lastname2">Segundo apellido</label>
             <div class="line-row-between">
                 <div class="options__input-container">
-                    <input class="options__input" type="text" value="{{ auth()->user()->lastname2 }}" name="lastname2"
+                    <input data-rule="required" class="options__input" type="text" value="{{ auth()->user()->lastname2 }}" name="lastname2"
                         placeholder="{{ __('Apellido') }}">
                     <button class="options__close-btn" type="button">
                         <svg class="icon-xsmall mx-auto"
@@ -89,7 +89,7 @@
             <label for="email">{{ __('Email') }}</label>
             <div class="line-row-between">
                 <div class="options__input-container">
-                    <input class="options__input" type="text" value="{{ auth()->user()->email }}" name="email"
+                    <input data-rule="required|email" class="options__input" type="text" value="{{ auth()->user()->email }}" name="email"
                         placeholder="{{ __('nombre@email.com') }}">
                     <button class="options__close-btn" type="button">
                         <svg class="icon-xsmall mx-auto"
@@ -118,7 +118,7 @@
             <label for="phone">{{ __('Teléfono móvil') }}</label>
             <div class="line-row-between">
                 <div class="options__input-container">
-                    <input class="options__input" type="number" value="{{ auth()->user()->phone }}" name="phone"
+                    <input data-rule="required" class="options__input" type="number" value="{{ auth()->user()->phone }}" name="phone"
                         placeholder="666 666 666">
                     <button class="options__close-btn" type="button">
                         <svg class="icon-xsmall mx-auto"
@@ -144,7 +144,7 @@
         </div>
         {{-- GUARDAR CAMBIOS --}}
         <div class="margin-bottom--medium">
-            <div id="status"></div>
+            <div id="status" class="message-form"></div>
             <button class="options__save-btn">
                 {{ __('GUARDAR CAMBIOS') }}
             </button>
@@ -156,7 +156,6 @@
     <script>
         window.addEventListener("DOMContentLoaded", function () {
             // get the form elements defined in your form HTML above
-
             var form = document.getElementById("form-my-account");
             // var button = document.getElementById("my-form-button");
             var status = document.getElementById("status");
@@ -169,11 +168,13 @@
                 } catch (error) {
                     console.error(error);
                 }
+                form.classList.remove('loading');
                 status.classList.add("success");
                 status.innerHTML = "Datos actualizados";
             }
 
             function error() {
+                form.classList.remove('loading');
                 status.classList.add("error");
                 status.innerHTML = "¡UPS! Hay un problema.";
             }
@@ -182,7 +183,12 @@
             form.addEventListener("submit", function (ev) {
                 ev.preventDefault();
                 status.innerHTML = "";
+                try {
+                    status.classList.remove("error");
+                    status.classList.remove("success");
+                } catch (error) {}
                 var data = new FormData(form);
+                form.classList.add('loading');
                 ajax(form.method, form.action, data, success, error);
             });
         });
@@ -203,6 +209,5 @@
             };
             xhr.send(data);
         }
-
     </script>
 @endpush

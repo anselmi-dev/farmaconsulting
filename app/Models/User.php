@@ -68,10 +68,20 @@ class User extends Authenticatable
         return $this->name .' '. $this->lastaname .' '. $this->lastname2;
     }
 
+    public function getFacturacionsAttribute ()
+    {
+        $facturacions = [];
+        foreach (explode("-", $this->fc_facturacion) as $facturacion) {
+            if ($facturacion)
+                $facturacions[] = $facturacion;
+        }
+        return $facturacions;
+    }
+
     public function getProvinciasAttribute ()
     {
         $provincias = [];
-        foreach (explode("-", auth()->user()->fc_provincias) as $provincia) {
+        foreach (explode("-", $this->fc_provincias) as $provincia) {
             if ($provincia)
                 $provincias[] = $provincia;
         }

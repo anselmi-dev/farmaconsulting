@@ -115,21 +115,18 @@
                     </div>
                 </div>
                 <div class="custom-select__options-container">
-                    <div class="custom-select__options-subtitle">
-                        <p class="typography--small">Selecciona</p>
-                    </div>
                     @php
                         $facturacions = [
-                            'A' => 'hasta 150.00',
-                            'B' => '150.000 a 300.000',
-                            'C' => '300.000 a 500.000',
-                            'D' => '500.000 a 700.000',
-                            'E' => '700.000 a 1.000.000',
-                            'F' => '1.000.000 a 1.500.000',
-                            'G' => '1.500.000 a 2.000.000',
-                            'H' => 'más de 2.000.000'
+                            'A' => 'hasta 150.00 €',
+                            'B' => '150.000 a 300.000 €',
+                            'C' => '300.000 a 500.000 €',
+                            'D' => '500.000 a 700.000 €',
+                            'E' => '700.000 a 1.000.000 €',
+                            'F' => '1.000.000 a 1.500.000 €',
+                            'G' => '1.500.000 a 2.000.000 €',
+                            'H' => 'más de 2.000.000 €'
                         ];
-                        $old_facturacions = [];
+                        $old_facturacions = auth()->user()->fc_facturacion;
                     @endphp
                     <ul>
                         @foreach ($facturacions as $key => $factura)
@@ -141,7 +138,7 @@
                                         name="fc_facturacion[]"
                                         id="fc_facturacion_{{ $key }}"
                                         value="{{ $key }}"
-                                        {{ isset($old_facturacions[$key]) ? 'checked' : NULL }}
+                                        {{ strpos($old_facturacions, $key) ? 'checked' : NULL }}
                                         class="custom-select__option-input">
                                     <span class="custom-select__option-check">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12.362"
@@ -160,6 +157,7 @@
                 </div>
             </div>
         </div>
+        <div id="status-preferences" class="message-form"></div>
         <div class="margin-bottom--medium">
             <button class="options__save-btn">GUARDAR CAMBIOS</button>
         </div>
@@ -173,7 +171,7 @@
 
             var form = document.getElementById("form-preferences");
             // var button = document.getElementById("my-form-button");
-            var status = document.getElementById("status");
+            var status = document.getElementById("status-preferences");
 
             // Success and Error functions for after the form is submitted
             function success(response, responseType) {
@@ -183,11 +181,13 @@
                 } catch (error) {
                     console.error(error);
                 }
+                form.classList.remove('loading');
                 status.classList.add("success");
                 status.innerHTML = "Datos actualizados";
             }
 
             function error() {
+                form.classList.remove('loading');
                 status.classList.add("error");
                 status.innerHTML = "¡UPS! Hay un problema.";
             }
@@ -196,7 +196,12 @@
             form.addEventListener("submit", function (ev) {
                 ev.preventDefault();
                 status.innerHTML = "";
+                try {
+                    status.classList.remove("error");
+                    status.classList.remove("success");
+                } catch (error) {}
                 var data = new FormData(form);
+                form.classList.add('loading');
                 ajax(form.method, form.action, data, success, error);
             });
         });

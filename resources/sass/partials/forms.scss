@@ -221,3 +221,17 @@ textarea {
     @apply uppercase mr-0 block ml-auto;
     color: $color-primary;
 }
+
+.message-form {
+    &.success {
+        background: #ecf8b8;
+        border-radius: 4px;
+        text-align: center;
+        margin-bottom: 10px;
+        padding: 4px;
+        font-size: .9rem;
+    }
+    &.error {
+        background: #fcbcb8;
+    }
+}

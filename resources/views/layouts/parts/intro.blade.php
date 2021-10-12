@@ -9,9 +9,9 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide bg-center bg-cover" style="background-image: url({{ asset('img/backgrounds/intro-slider-1.jpg') }}")>
+        <div class="swiper-slide bg-center bg-cover" style="background-image: url({{ asset('images/backgrounds/intro-slider-1.jpg') }}")>
             <div class="h-full w-full flex items-center justify-end flex-col relative z-10 pb-sw">
-                <img src="{{ asset('/img/logos/logo-primary-white.png') }}" alt="logo-white" class="mb-5">
+                <img src="{{ asset('/images/logos/logo-primary-white.png') }}" alt="logo-white" class="mb-5">
                 <div class="text-primary mx-auto text-2xl text-center font-primery px-3">
                     <h2>
                         Líderes en compra y venta de farmacias en Espanã
@@ -19,9 +19,9 @@
                 </div>
             </div>
         </div>
-        <div class="swiper-slide bg-center bg-cover" style="background-image: url({{ asset('img/backgrounds/intro-slider-2.jpg') }}")>
+        <div class="swiper-slide bg-center bg-cover" style="background-image: url({{ asset('images/backgrounds/intro-slider-2.jpg') }}")>
             <div class="h-full w-full flex items-center justify-end flex-col relative z-10 pb-sw">
-                <img src="{{ asset('/img/logos/logo-primary-white.png') }}" alt="logo-white" class="mb-5">
+                <img src="{{ asset('/images/logos/logo-primary-white.png') }}" alt="logo-white" class="mb-5">
                 <div class="text-primary mx-auto text-2xl text-center font-primery px-3">
                     <h2>
                         Más de 3.000 transmisiones de Farmacias
@@ -29,9 +29,9 @@
                 </div>
             </div>
         </div>
-        <div class="swiper-slide bg-center bg-cover" style="background-image: url({{ asset('img/backgrounds/intro-slider-3.jpg') }}")>
+        <div class="swiper-slide bg-center bg-cover" style="background-image: url({{ asset('images/backgrounds/intro-slider-3.jpg') }}")>
             <div class="h-full w-full flex items-center justify-end flex-col relative z-10 pb-sw">
-                <img src="{{ asset('/img/logos/logo-primary-white.png') }}" alt="logo-white" class="mb-5">
+                <img src="{{ asset('/images/logos/logo-primary-white.png') }}" alt="logo-white" class="mb-5">
                 <div class="text-primary mx-auto text-2xl text-center font-primery px-3">
                     <h2>
                         30 Años de Experiencia
@@ -39,9 +39,9 @@
                 </div>
             </div>
         </div>
-        <div class="swiper-slide bg-center bg-cover" style="background-image: url({{ asset('img/backgrounds/intro-slider-4.jpg') }}")>
+        <div class="swiper-slide bg-center bg-cover" style="background-image: url({{ asset('images/backgrounds/intro-slider-4.jpg') }}")>
             <div class="h-full w-full flex items-center justify-end flex-col relative z-10 pb-sw">
-                <img src="{{ asset('/img/logos/logo-primary-white.png') }}" alt="logo-white" class="mb-5">
+                <img src="{{ asset('/images/logos/logo-primary-white.png') }}" alt="logo-white" class="mb-5">
                 <div class="text-primary mx-auto text-2xl text-center font-primery px-3">
                     <h2>
                         Te acompañamos durante todo el processo de Compra de tu Farmacia

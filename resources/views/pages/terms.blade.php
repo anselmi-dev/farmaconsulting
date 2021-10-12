@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('breadcrumbs', 'Términos y condiciones')
+
 @section('content')
     <div class="p-6">
         <div class="flex flex-wrap items-center jutify-center pr-16">

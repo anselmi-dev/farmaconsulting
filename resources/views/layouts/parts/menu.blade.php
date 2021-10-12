@@ -1,4 +1,4 @@
-<div class="menu" style="height: 90px">
+<div class="menu">
     <div class="menu__content">
         <div class="menu__blink {{ request()->routeIs('farmaconsulting*') ? 'active' : 'opacity-50' }}">
             <a href="{{route('farmaconsulting')}}" class="py-0 px-2 block" title="{{ __('Farmaconsulting') }}">

@@ -22,12 +22,11 @@ Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logou
 Route::middleware('auth')->group(function () {
     Route::view('/', 'pages.home')->name('home');
 
-    Route::get('/account', [App\Http\Controllers\AppController::class, 'account'])->name('account');
     Route::get('/conditions', [App\Http\Controllers\AppController::class, 'conditions'])->name('conditions');
     Route::get('/terms', [App\Http\Controllers\AppController::class, 'terms'])->name('terms');
-    Route::get('/news', [App\Http\Controllers\AppController::class, 'news'])->name('news');
+    Route::get('/noticias', [App\Http\Controllers\AppController::class, 'news'])->name('news');
     Route::get('/faqs', [App\Http\Controllers\AppController::class, 'faqs'])->name('faqs');
-    Route::get('/contact', [App\Http\Controllers\AppController::class, 'contact'])->name('contact');
+    Route::get('/contacto', [App\Http\Controllers\AppController::class, 'contact'])->name('contact');
     Route::get('/farmaconsulting-responde', [App\Http\Controllers\AppController::class, 'consulting'])->name('consulting');
     Route::get('/farmaconsulting', [App\Http\Controllers\AppController::class, 'farmaconsulting'])->name('farmaconsulting');
 

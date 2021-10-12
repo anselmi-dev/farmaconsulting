@@ -140,9 +140,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="w-full text-center" id="status">
-
-                </div>
+                <div class="message-form" id="from-general__status"></div>
                 <div class="w-full">
                     <button class="btn--inactive-primary">
                         {{ __('ENVIAR') }}
@@ -160,16 +158,11 @@
 
             var form = document.getElementById("form-general");
             // var button = document.getElementById("my-form-button");
-            var status = document.getElementById("status");
+            var status = document.getElementById("from-general__status");
 
             // Success and Error functions for after the form is submitted
             function success(response, responseType) {
-                try {
-                    const parse = JSON.parse(response);
-                    document.getElementById('full-name-profile').innerHTML = parse.user.name + ' ' + parse.user.lastname;
-                } catch (error) {
-                    console.error(error);
-                }
+                form.classList.remove('loading');
                 status.classList.add("success");
                 status.innerHTML = "Mensaje enviado";
             }
@@ -183,7 +176,12 @@
             form.addEventListener("submit", function (ev) {
                 ev.preventDefault();
                 status.innerHTML = "";
+                try {
+                    status.classList.remove("error");
+                    status.classList.remove("success");
+                } catch (error) {}
                 var data = new FormData(form);
+                form.classList.add('loading');
                 ajax(form.method, form.action, data, success, error);
             });
         });

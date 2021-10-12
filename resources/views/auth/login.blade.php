@@ -13,13 +13,13 @@
         </div>
     @endif
     <div
-        style="background-image: url({{ asset('img/backgrounds/intro-slider-1.jpg') }})"
+        style="background-image: url({{ asset('images/backgrounds/intro-slider-1.jpg') }})"
         class="min-h-screen bg-green-400 flex justify-center items-center relative overflow-hidden bg-cover bg-center">
         <div class="z-0 bg-gray-900 absolute top-0 right-0 w-full h-full bg-gradiente-primary opacity-60"></div>
         <div class="wrapper--larger z-10">
             <div class="line-col-center mt-16">
                 <div class="margin-bottom--2xlarge">
-                    <img class="mx-auto" src="{{ asset('img/logos/logo-secondary-white.png') }}" alt="Farmaconsulting secondary logo">
+                    <img class="mx-auto" src="{{ asset('images/logos/logo-secondary-white.png') }}" alt="Farmaconsulting secondary logo">
                 </div>
                 <div class="margin-bottom--4xlarge px-4">
                     <p class="typography--regular typography--white text-center">

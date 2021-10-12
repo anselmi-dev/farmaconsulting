@@ -66,7 +66,7 @@
                                         </a>
                                     </div>
                                     <div class="">
-                                        <a href="{{ route('mail') }}">
+                                        <a href="{{ route('contact.mail') }}">
                                             <span class="typography--green font-bold">Pide tu cita ahora</span>
                                         </a>
                                     </div>
@@ -113,7 +113,7 @@
                                         </a>
                                     </div>
                                     <div class="">
-                                        <a href="{{ route('mail') }}">
+                                        <a href="{{ route('contact.mail') }}">
                                             <span class="typography--green font-bold">Pide tu cita ahora</span>
                                         </a>
                                     </div>
@@ -161,7 +161,7 @@
                                         </a>
                                     </div>
                                     <div class="">
-                                        <a href="{{ route('mail') }}">
+                                        <a href="{{ route('contact.mail') }}">
                                             <span class="typography--green font-bold">Pide tu cita ahora</span>
                                         </a>
                                     </div>
@@ -208,7 +208,7 @@
                                         </a>
                                     </div>
                                     <div class="">
-                                        <a href="{{ route('mail') }}">
+                                        <a href="{{ route('contact.mail') }}">
                                             <span class="typography--green font-bold">Pide tu cita ahora</span>
                                         </a>
                                     </div>
@@ -256,7 +256,7 @@
                                         </a>
                                     </div>
                                     <div class="">
-                                        <a href="{{ route('mail') }}">
+                                        <a href="{{ route('contact.mail') }}">
                                             <span class="typography--green font-bold">Pide tu cita ahora</span>
                                         </a>
                                     </div>
@@ -303,7 +303,7 @@
                                         </a>
                                     </div>
                                     <div class="">
-                                        <a href="{{ route('mail') }}">
+                                        <a href="{{ route('contact.mail') }}">
                                             <span class="typography--green font-bold">Pide tu cita ahora</span>
                                         </a>
                                     </div>

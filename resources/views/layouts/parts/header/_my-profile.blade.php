@@ -1,19 +1,4 @@
 <div class="w-full grid grid-cols-1 items-center justify-center gap-2 lg:gap-1">
-    {{-- <div class="w-full">
-        <button class="modal__close" aria-label="Close modal" data-micromodal-close>
-            <svg xmlns="http://www.w3.org/2000/svg" width="25.414" height="20.828" viewBox="0 0 25.414 20.828">
-                <g transform="translate(1.414 1.414)">
-                    <g transform="translate(-240.5 -387.5)" style="isolation: isolate">
-                        <g>
-                            <line x1="9" y1="9" transform="translate(240.5 396.5)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
-                            <line x1="9" y2="9" transform="translate(240.5 387.5)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
-                        </g>
-                        <line x1="23" transform="translate(240.5 396.5)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
-                    </g>
-                </g>
-            </svg>
-        </button>
-    </div> --}}
     <div class="w-full relative text-center uppercase flex flex-wrap justify-center text-2xl lg:text-lg">
         <span>{{ __('Mi perfil') }}</span>
     </div>
@@ -26,4 +11,7 @@
         </g>
     </svg>
     <span id="full-name-profile" class="text-center">{{ auth()->user()->full_name }}</span>
+    <div class="w-full text-center text-gray-600 text-sm">
+        <a href="{{ route('logout') }}">Cerrar sesión</a>
+    </div>
 </div>

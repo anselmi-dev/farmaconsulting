@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('content')
+@section('breadcrumbs', 'Contacto')
 
+@section('content')
     <div class="main__container">
         <div class="wrapper--larger">
             <div class="margin-bottom--xlarge">
@@ -110,19 +111,19 @@
                         </div>
                         <div class="margin-bottom--small">
                             <label for="interested_Comprar" class="custom-radio-btn__container">Comprar Farmacia
-                                <input type="radio" name="interested" id="interested_Comprar">
+                                <input type="radio" name="interested" id="interested_Comprar" value="Comprar Farmacia">
                                 <span class="custom-radio-btn__item"></span>
                             </label>
                         </div>
                         <div class="margin-bottom--small">
                             <label for="interested_Vender" class="custom-radio-btn__container">Vender Farmacia
-                                <input type="radio" name="interested" id="interested_Vender">
+                                <input type="radio" name="interested" id="interested_Vender" value="Vender Farmacia">
                                 <span class="custom-radio-btn__item"></span>
                             </label>
                         </div>
                         <div class="margin-bottom--small">
                             <label for="interested_Otros" class="custom-radio-btn__container">Otros
-                                <input type="radio" name="interested" id="interested_Otros">
+                                <input type="radio" name="interested" id="interested_Otros" value="Otros">
                                 <span class="custom-radio-btn__item"></span>
                             </label>
                         </div>
@@ -189,7 +190,7 @@
                 status.innerHTML = "";
                 try {
                     status.classList.remove("error");
-                    status.classList.success("error");
+                    status.classList.remove("success");
                 } catch (error) {}
                 var data = new FormData(form);
                 ajax(form.method, form.action, data, success, error);
