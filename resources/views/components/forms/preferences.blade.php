@@ -181,6 +181,7 @@
                 } catch (error) {
                     console.error(error);
                 }
+                form.reset();
                 form.classList.remove('loading');
                 status.classList.add("success");
                 status.innerHTML = "Datos actualizados";

@@ -173,6 +173,7 @@
             function success(response, responseType) {
                 form.reset();
                 status.classList.add("success");
+                form.classList.remove('loading');
                 myNotification({
                     message: "Mensaje enviado"
                 });
@@ -180,6 +181,7 @@
             }
 
             function error() {
+                form.classList.remove('loading');
                 status.classList.add("error");
                 status.innerHTML = "¡Ups! Ocurrió un problema";
             }
@@ -192,6 +194,7 @@
                     status.classList.remove("error");
                     status.classList.remove("success");
                 } catch (error) {}
+                form.classList.add('loading');
                 var data = new FormData(form);
                 ajax(form.method, form.action, data, success, error);
             });

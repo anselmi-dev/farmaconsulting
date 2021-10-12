@@ -162,6 +162,7 @@
 
             // Success and Error functions for after the form is submitted
             function success(response, responseType) {
+                form.reset();
                 form.classList.remove('loading');
                 status.classList.add("success");
                 status.innerHTML = "Mensaje enviado";
