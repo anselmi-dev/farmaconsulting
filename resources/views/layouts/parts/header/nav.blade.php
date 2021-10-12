@@ -113,7 +113,7 @@
                     </li>
                 </ul>
 
-                <div class="text-center mt-10">
+                <div class="text-center mt-10 pt-10">
                     <div class="margin-bottom--xlarge">
                         <p class="typography--small">Farmaconsulting App Versión 0.1</p>
                         <p class="class typography--small">
