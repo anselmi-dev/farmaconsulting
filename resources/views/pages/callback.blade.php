@@ -168,6 +168,7 @@
             }
 
             function error() {
+                form.classList.remove('loading');
                 status.classList.add("error");
                 status.innerHTML = "¡Ups! Ocurrió un problema";
             }

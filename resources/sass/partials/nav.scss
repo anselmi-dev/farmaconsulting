@@ -2,6 +2,7 @@
 
 .nav {
     height: 60px;
+    z-index: 100;
     @apply bg-primary-600 fixed items-center justify-between top-0 left-0 w-full z-10 flex px-5 py-2;
     @screen md {
         height: 45px;
