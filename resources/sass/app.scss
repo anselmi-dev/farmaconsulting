@@ -24,6 +24,7 @@
 @import "mixins/animations.scss";
 @import "pages/intro.scss";
 @import "pages/contact.scss";
+@import "pages/landings.scss";
 
 .content-qr {
     background: #a4d1a4;
@@ -117,4 +118,15 @@
 #swiper-home .swiper-pagination-bullet {
     height: 15px;
     width: 15px;
+}
+
+.linear-gradient:before {
+    background: transparent linear-gradient(180deg,#9bb52e,#000 38%) 0 0 no-repeat padding-box;
+    content: "";
+    height: 100%;
+    opacity: .6;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
 }

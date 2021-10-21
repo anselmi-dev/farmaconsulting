@@ -1,5 +1,5 @@
 <div class="w-full grid grid-cols-1 items-center justify-center gap-2 lg:gap-1">
-    <div class="w-full relative text-center uppercase flex flex-wrap justify-center text-2xl lg:text-lg">
+    <div class="w-full relative text-center uppercase flex flex-wrap justify-center text-2xl lg:text-lg mt-5">
         <span>{{ __('Mi perfil') }}</span>
     </div>
     <svg class="w-20 mx-auto" xmlns="http://www.w3.org/2000/svg" width="63" height="64" viewBox="0 0 63 64">
@@ -11,7 +11,7 @@
         </g>
     </svg>
     <span id="full-name-profile" class="text-center">{{ auth()->user()->full_name }}</span>
-    <div class="w-full text-center text-gray-600 text-sm">
+    <div class="w-full text-center text-gray-600 text-sm mb-5">
         <a href="{{ route('logout') }}">Cerrar sesión</a>
     </div>
 </div>

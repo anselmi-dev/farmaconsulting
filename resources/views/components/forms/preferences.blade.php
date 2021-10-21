@@ -8,159 +8,161 @@
             <div class="options__item">
                 <label class="custom-radio-btn__container">
                     {{ __('Sí') }}
-                    <input type="radio" name="preferences-option">
+                    <input type="radio" name="inversor" disabled value="1" {{ auth()->user()->inversor ? 'checked' : NULL }}>
                     <span class="custom-radio-btn__item"></span>
                 </label>
             </div>
             <div class="options__item ml-3">
                 <label class="custom-radio-btn__container">
                     {{ __('No') }}
-                    <input type="radio" name="preferences-option">
+                    <input type="radio" name="inversor" disabled value="0" {{ auth()->user()->inversor ? : 'checked' }}>
                     <span class="custom-radio-btn__item"></span>
                 </label>
             </div>
         </div>
-        <div class="options__item">
-            <div class="margin-bottom--2xsmall">
-                <p class="typography--xsmall">
-                    {{ __('Provincias de mi interés') }}
-                </p>
-            </div>
-            {{-- <div class="custom-select__selected">
-                <span class="typography--green">
-                    {{ __('A Coruña, Albacete') }}
-                </span>
-            </div> --}}
-            <div>
-                <div class="custom-select__container">
-                    <div class="line-row-between">
-                        <div class="custom-select__subtitle">
-                            <p class="typography--dark-green">
-                                {{ __('Preferencia de provincias') }}
+        @if (auth()->user()->inversor)
+            <div class="options__item">
+                <div class="margin-bottom--2xsmall">
+                    <p class="typography--small">
+                        {{ __('Provincias de mi interés') }}
+                    </p>
+                </div>
+                {{-- <div class="custom-select__selected">
+                    <span class="typography--green">
+                        {{ __('A Coruña, Albacete') }}
+                    </span>
+                </div> --}}
+                <div>
+                    <div class="custom-select__container">
+                        <div class="line-row-between">
+                            <div class="custom-select__subtitle">
+                                <p class="typography--dark-green">
+                                    {{ __('Preferencia de provincias') }}
+                                </p>
+                            </div>
+                            <div class="custom-select__arrow">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14.012"
+                                    height="8.25" viewBox="0 0 14.012 8.25">
+                                    <path d="M246.5,251.685l5.836-5.592L246.5,240.5"
+                                        transform="translate(253.099 -245.085) rotate(90)"
+                                        fill="none" stroke="#e8e8e8" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="custom-select__options-container">
+                        <div class="custom-select__options-subtitle">
+                            <p class="typography--small">
+                                {{ __('Selecciona las provincias que te interesen') }}
                             </p>
                         </div>
-                        <div class="custom-select__arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14.012"
-                                height="8.25" viewBox="0 0 14.012 8.25">
-                                <path d="M246.5,251.685l5.836-5.592L246.5,240.5"
-                                    transform="translate(253.099 -245.085) rotate(90)"
-                                    fill="none" stroke="#e8e8e8" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="custom-select__options-container">
-                    <div class="custom-select__options-subtitle">
-                        <p class="typography--small">
-                            {{ __('Selecciona las provincias que te interesen') }}
-                        </p>
-                    </div>
-                    <ul>
-                        @php
-                            $old_provincias = auth()->user()->provincias;
-                        @endphp
-                        @foreach (\App\Models\Province::all() as $province)
-                            <li>
-                                <label class="custom-select__option" for="fc_provincias_{{ $province->id }}">
-                                    <span class="uppercase">
-                                        {{ $province->name }}
-                                    </span>
-                                    <input
-                                        type="checkbox"
-                                        name="fc_provincias[]"
-                                        id="fc_provincias_{{ $province->id }}"
-                                        value="{{ $province->id }}"
-                                        {{ in_array($province->id, $old_provincias) ? 'checked' : NULL }}
-                                        class="custom-select__option-input">
-                                    <span class="custom-select__option-check">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12.362"
-                                            height="8.25" viewBox="0 0 12.362 8.25">
-                                            <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
-                                            transform="translate(251.448 -245.085) rotate(90)"
-                                            fill="none" stroke="#a2bd30"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"></path>
-                                        </svg>
-                                    </span>
-                                </label>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="options__item">
-            <div class="margin-bottom--2xsmall">
-                <p class="typography--xsmall">Preferencia de facturación</p>
-            </div>
-            <div class="custom-select__selected">
-                <span class="typography--green">Uno, Dos</span>
-            </div>
-            <div>
-                <div class="custom-select__container">
-                    <div class="line-row-between">
-                        <div class="custom-select__subtitle">
-                            <p class="typography--dark-green">Tramos de facturación</p>
-                        </div>
-                        <div class="custom-select__arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14.012"
-                                height="8.25" viewBox="0 0 14.012 8.25">
-                                <path d="M246.5,251.685l5.836-5.592L246.5,240.5"
-                                    transform="translate(253.099 -245.085) rotate(90)"
-                                    fill="none" stroke="#e8e8e8" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="custom-select__options-container">
-                    @php
-                        $facturacions = [
-                            'A' => 'hasta 150.00 €',
-                            'B' => '150.000 a 300.000 €',
-                            'C' => '300.000 a 500.000 €',
-                            'D' => '500.000 a 700.000 €',
-                            'E' => '700.000 a 1.000.000 €',
-                            'F' => '1.000.000 a 1.500.000 €',
-                            'G' => '1.500.000 a 2.000.000 €',
-                            'H' => 'más de 2.000.000 €'
-                        ];
-                        $old_facturacions = auth()->user()->fc_facturacion;
-                    @endphp
-                    <ul>
-                        @foreach ($facturacions as $key => $factura)
-                            <li>
-                                <label for="fc_facturacion_{{ $key }}" class="custom-select__option">
-                                    <span class="uppercase">{{ $factura }}</span>
-                                    <input
-                                        type="checkbox"
-                                        name="fc_facturacion[]"
-                                        id="fc_facturacion_{{ $key }}"
-                                        value="{{ $key }}"
-                                        {{ strpos($old_facturacions, $key) ? 'checked' : NULL }}
-                                        class="custom-select__option-input">
-                                    <span class="custom-select__option-check">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12.362"
-                                        height="8.25" viewBox="0 0 12.362 8.25">
-                                            <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
-                                            transform="translate(251.448 -245.085) rotate(90)"
+                        <ul>
+                            @php
+                                $old_provincias = auth()->user()->provincias;
+                            @endphp
+                            @foreach (\App\Models\Province::all() as $province)
+                                <li>
+                                    <label class="custom-select__option" for="fc_provincias_{{ $province->id }}">
+                                        <span class="uppercase">
+                                            {{ $province->name }}
+                                        </span>
+                                        <input
+                                            type="checkbox"
+                                            name="fc_provincias[]"
+                                            id="fc_provincias_{{ $province->id }}"
+                                            value="{{ $province->id }}"
+                                            {{ in_array($province->id, $old_provincias) ? 'checked' : NULL }}
+                                            class="custom-select__option-input">
+                                        <span class="custom-select__option-check">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12.362"
+                                                height="8.25" viewBox="0 0 12.362 8.25">
+                                                <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
+                                                transform="translate(251.448 -245.085) rotate(90)"
                                                 fill="none" stroke="#a2bd30"
                                                 stroke-linecap="round" stroke-linejoin="round"
                                                 stroke-width="2"></path>
-                                        </svg>
-                                    </span>
-                                </label>
-                            </li>
-                        @endforeach
-                    </ul>
+                                            </svg>
+                                        </span>
+                                    </label>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="status-preferences" class="message-form"></div>
-        <div class="margin-bottom--medium">
-            <button class="options__save-btn">GUARDAR CAMBIOS</button>
-        </div>
+            <div class="options__item">
+                <div class="margin-bottom--2xsmall">
+                    <p class="typography--small">Preferencia de facturación</p>
+                </div>
+                <div class="custom-select__selected">
+                    <span class="typography--green">Uno, Dos</span>
+                </div>
+                <div>
+                    <div class="custom-select__container">
+                        <div class="line-row-between">
+                            <div class="custom-select__subtitle">
+                                <p class="typography--dark-green">Tramos de facturación</p>
+                            </div>
+                            <div class="custom-select__arrow">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14.012"
+                                    height="8.25" viewBox="0 0 14.012 8.25">
+                                    <path d="M246.5,251.685l5.836-5.592L246.5,240.5"
+                                        transform="translate(253.099 -245.085) rotate(90)"
+                                        fill="none" stroke="#e8e8e8" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="custom-select__options-container">
+                        @php
+                            $facturacions = [
+                                'A' => 'hasta 150.00 €',
+                                'B' => '150.000 a 300.000 €',
+                                'C' => '300.000 a 500.000 €',
+                                'D' => '500.000 a 700.000 €',
+                                'E' => '700.000 a 1.000.000 €',
+                                'F' => '1.000.000 a 1.500.000 €',
+                                'G' => '1.500.000 a 2.000.000 €',
+                                'H' => 'más de 2.000.000 €'
+                            ];
+                            $old_facturacions = auth()->user()->fc_facturacion;
+                        @endphp
+                        <ul>
+                            @foreach ($facturacions as $key => $factura)
+                                <li>
+                                    <label for="fc_facturacion_{{ $key }}" class="custom-select__option">
+                                        <span class="uppercase">{{ $factura }}</span>
+                                        <input
+                                            type="checkbox"
+                                            name="fc_facturacion[]"
+                                            id="fc_facturacion_{{ $key }}"
+                                            value="{{ $key }}"
+                                            {{ strpos($old_facturacions, $key) ? 'checked' : NULL }}
+                                            class="custom-select__option-input">
+                                        <span class="custom-select__option-check">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12.362"
+                                            height="8.25" viewBox="0 0 12.362 8.25">
+                                                <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
+                                                transform="translate(251.448 -245.085) rotate(90)"
+                                                    fill="none" stroke="#a2bd30"
+                                                    stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2"></path>
+                                            </svg>
+                                        </span>
+                                    </label>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="status-preferences" class="message-form"></div>
+            <div class="margin-bottom--medium">
+                <button class="options__save-btn">GUARDAR CAMBIOS</button>
+            </div>
+        @endif
     </div>
 </form>
 
@@ -170,21 +172,19 @@
             // get the form elements defined in your form HTML above
 
             var form = document.getElementById("form-preferences");
-            // var button = document.getElementById("my-form-button");
             var status = document.getElementById("status-preferences");
 
             // Success and Error functions for after the form is submitted
             function success(response, responseType) {
                 try {
                     const parse = JSON.parse(response);
-                    document.getElementById('full-name-profile').innerHTML = parse.user.name + ' ' + parse.user.lastname;
                 } catch (error) {
                     console.error(error);
                 }
                 form.reset();
                 form.classList.remove('loading');
                 status.classList.add("success");
-                status.innerHTML = "Datos actualizados";
+                status.innerHTML = "Contraseña actualizada";
             }
 
             function error() {

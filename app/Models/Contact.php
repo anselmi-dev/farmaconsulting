@@ -21,6 +21,7 @@ class Contact extends Model
         'email',
         'phone',
         'province',
+        'timezone',
         'interested',
         'message'
     ];
@@ -31,5 +32,15 @@ class Contact extends Model
             return $p->name;
         }
         return $this->province;
+    }
+
+    public function getLabelTimezoneAttribute ()
+    {
+        try {
+            $timezones = [0 => '09:00 - 13:00', 1 => '15:00 - 18:00'];
+            return $timezones[$this->timezone];
+        } catch (\Throwable $th) {
+            return $this->timezone;
+        }
     }
 }

@@ -1,11 +1,5 @@
 require('./bootstrap');
-// const jsQR = require("jsqr");
-// import jsQR from "jsqr";
-
-
-// ES6 import
-
-// CommonJS require
+window.validate = require("validate.js");
 
 // import Swiper bundle with all modules installed
 import Swiper from 'swiper/bundle';
@@ -32,9 +26,7 @@ if (document.getElementById('swiper-home')) {
 }
 
 import MicroModal from 'micromodal';  // es6 module
-// var MicroModal = require('micromodal'); // commonjs module
 MicroModal.init();
-
 
 // to toggle select like options && arrow
 document.querySelectorAll('.custom-select__container').forEach((item, index) => {
@@ -44,6 +36,7 @@ document.querySelectorAll('.custom-select__container').forEach((item, index) => 
         document.querySelectorAll('.custom-select__options-container')[index].classList.toggle('custom-select__options-container--active');
     })
 })
+
 document.querySelectorAll('.custom-select__option').forEach((item, index) => {
     item.addEventListener('click', () => {
         document.querySelectorAll('.custom-select__option')[index].classList.toggle('custom-select__option--active');

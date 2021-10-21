@@ -1,16 +1,29 @@
 @extends('layouts.app')
 
-@section('breadcrumbs', 'Contacto')
+@section('breadcrumbs')
+    <a href="{{ route('contact') }}" class="text-primary">Contacto</a>/<span>Cuentanos tu consulta</span>
+@endsection
+
+@section('nav-icon')
+    <a href="{{ route('contact') }}">
+        @includeIf('layouts.icons.back')
+    </a>
+@endsection
 
 @section('content')
     <div class="main__container">
         <div class="wrapper--larger">
             <div class="margin-bottom--xlarge">
-                <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" width="35.087" height="26.063" viewBox="0 0 35.087 26.063">
+                <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" width="35.087" height="26.063"
+                    viewBox="0 0 35.087 26.063">
                     <g transform="translate(-194.907 -10.94)">
-                      <path d="M228.994,11.94V32.994A3.016,3.016,0,0,1,225.985,36H198.916a3.017,3.017,0,0,1-3.009-3.009V11.94" fill="none" stroke="#A2BD30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                      <path d="M228.994,11.94,214.22,24.189a3.008,3.008,0,0,1-3.538,0L195.907,11.94Z" fill="none" stroke="#A2BD30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                      <line x2="33.087" transform="translate(195.907 11.94)" fill="none" stroke="#A2BD30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        <path
+                            d="M228.994,11.94V32.994A3.016,3.016,0,0,1,225.985,36H198.916a3.017,3.017,0,0,1-3.009-3.009V11.94"
+                            fill="none" stroke="#A2BD30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                        <path d="M228.994,11.94,214.22,24.189a3.008,3.008,0,0,1-3.538,0L195.907,11.94Z" fill="none"
+                            stroke="#A2BD30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                        <line x2="33.087" transform="translate(195.907 11.94)" fill="none" stroke="#A2BD30"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                     </g>
                 </svg>
             </div>
@@ -19,36 +32,46 @@
                     <h2 class="typography--green">¿Quieres comprar una farmacia? ¿Quieres vender una farmacia?</h2>
                 </div>
                 <div class="">
-                    <p>Nos pondremos en contacto contigo lo antes posible para ofrecerte las mejores ofertas en compra y venta de farmacias en España.</p>
+                    <p>Nos pondremos en contacto contigo lo antes posible para ofrecerte las mejores ofertas en compra y
+                        venta de farmacias en España.</p>
                 </div>
             </div>
         </div>
         <div class="wrapper">
             <div class="margin-bottom--4xlarge">
-                <form id="form-consultation" method="POST" action="{{ route('contact-consultation') }}" class="line-col-center mail-form">
+                <form name="demo-form-1" id="form-consultation" method="POST" action="{{ route('contact-consultation') }}"
+                    class="line-col-center mail-form">
                     @csrf
                     {{-- Name --}}
-                    <div class="margin-bottom--2xsmall w-full">
+                    <div class="margin-bottom--2xsmall w-full form-group">
                         <label class="typography--small" for="name">Nombre</label>
-                        <input class="mt-1 field--active" type="text" name="name" value="{{ auth()->user()->name }}" placeholder="Nombre auto completado" readonly>
+                        <input class="mt-1" type="text" name="name"
+                            value="{{ auth()->user()->name }}" placeholder="Nombre auto completado" readonly>
+                        <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
                     {{-- Lastaname --}}
-                    <div class="margin-bottom--2xsmall w-full">
+                    <div class="margin-bottom--2xsmall w-full form-group">
                         <label class="typography--small" for="lastname">Apellidos</label>
-                        <input class="mt-1 field--active" type="text" name="lastname" value="{{ auth()->user()->lastname }}" placeholder="Apellidos auto completados" readonly>
+                        <input class="mt-1" type="text" name="lastname"
+                            value="{{ auth()->user()->lastname }}" placeholder="Apellidos auto completados" readonly>
+                        <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
                     {{-- Email --}}
-                    <div class="margin-bottom--2xsmall w-full">
+                    <div class="margin-bottom--2xsmall w-full form-group">
                         <label class="typography--small" for="email">Email</label>
-                        <input class="mt-1 field--active" type="email" name="email" value="{{ auth()->user()->email }}" placeholder="nombre@email.com" readonly>
+                        <input data-rule="required" class="mt-1" type="email" name="email"
+                            value="{{ auth()->user()->email }}" placeholder="nombre@email.com" readonly>
+                        <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
                     {{-- Phone --}}
-                    <div class="margin-bottom--2xsmall w-full">
+                    <div class="margin-bottom--2xsmall w-full form-group">
                         <label class="typography--small" for="phone">Teléfono móvil</label>
-                        <input class="mt-1 field--active" type="number" name="phone" value="{{ auth()->user()->phone }}" placeholder="Móvil auto completado" readonly>
+                        <input data-rule="required" class="mt-1" type="number" name="phone"
+                            value="{{ auth()->user()->phone }}" placeholder="Móvil auto completado" readonly>
+                        <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
                     {{-- Providencia --}}
-                    <div class="margin-bottom--2xsmall w-full">
+                    <div class="margin-bottom--2xsmall w-full form-group">
                         <div class="custom-select__container">
                             <div class="line-row-between">
                                 <div class="custom-select__subtitle">
@@ -57,12 +80,11 @@
                                     </p>
                                 </div>
                                 <div class="custom-select__arrow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14.012"
-                                        height="8.25" viewBox="0 0 14.012 8.25">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14.012" height="8.25"
+                                        viewBox="0 0 14.012 8.25">
                                         <path d="M246.5,251.685l5.836-5.592L246.5,240.5"
-                                            transform="translate(253.099 -245.085) rotate(90)"
-                                            fill="none" stroke="#e8e8e8" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="2"></path>
+                                            transform="translate(253.099 -245.085) rotate(90)" fill="none" stroke="#e8e8e8"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                                     </svg>
                                 </div>
                             </div>
@@ -81,20 +103,15 @@
                                             <span class="uppercase">
                                                 {{ $province->name }}
                                             </span>
-                                            <input
-                                                type="radio"
-                                                name="province"
-                                                id="province_{{ $province->id }}"
-                                                value="{{ $province->id }}"
-                                                class="custom-select__option-input">
+                                            <input type="radio" name="province" id="province_{{ $province->id }}"
+                                                value="{{ $province->id }}" class="custom-select__option-input">
                                             <span class="custom-select__option-check">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.362"
-                                                    height="8.25" viewBox="0 0 12.362 8.25">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25"
+                                                    viewBox="0 0 12.362 8.25">
                                                     <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
-                                                    transform="translate(251.448 -245.085) rotate(90)"
-                                                    fill="none" stroke="#a2bd30"
-                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                    stroke-width="2"></path>
+                                                        transform="translate(251.448 -245.085) rotate(90)" fill="none"
+                                                        stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"></path>
                                                 </svg>
                                             </span>
                                         </label>
@@ -102,10 +119,11 @@
                                 @endforeach
                             </ul>
                         </div>
+                        <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
 
                     {{-- Interesting --}}
-                    <div class="margin-bottom--3xsmall w-full">
+                    <div class="margin-bottom--3xsmall w-full form-group">
                         <div class="margin-bottom--small">
                             <p class="typography--small">Interesado/a en*</p>
                         </div>
@@ -127,26 +145,37 @@
                                 <span class="custom-radio-btn__item"></span>
                             </label>
                         </div>
+                        <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
+
                     {{-- Message --}}
-                    <div class="margin-bottom--medium w-full">
+                    <div class="margin-bottom--medium w-full form-group">
                         <label for="message" class="typography--small">Tu consulta</label>
                         <textarea class="mt-1" name="message" cols="30" rows="8" placeholder="Cómo podemos ayudarte..."></textarea>
+                        <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
                     {{-- Terms --}}
-                    <div class="margin-bottom--medium w-full">
+                    <div class="margin-bottom--medium w-full form-group">
                         <div class="line-row">
-                            <label for="save-data" class="custom-checkbox__container">
-                                <input type="checkbox" name="save-data">
+                            <label for="terms" class="custom-checkbox__container">
+                                <input type="checkbox" name="terms" value="true">
                                 <span class="custom-checkbox__item"></span>
                                 <span class="custom-checkbox__check">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25" viewBox="0 0 12.362 8.25">
-                                        <path d="M248.916,250.037l3.419-3.945L246.5,240.5" transform="translate(251.448 -245.085) rotate(90)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                      </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25"
+                                        viewBox="0 0 12.362 8.25">
+                                        <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
+                                            transform="translate(251.448 -245.085) rotate(90)" fill="none" stroke="#a2bd30"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                    </svg>
                                 </span>
-                                <span class="typography--small">He leído y acepto los <a href="https://www.farmaconsulting.es/terminos-uso/" target="_blank" class="typography--links">Términos de uso</a> y <a href="https://www.farmaconsulting.es/politica-privacidad/" target="_blank" class="typography--links">Política de Privacidad</a></span>
+                                <span class="typography--small">He leído y acepto los <a
+                                        href="https://www.farmaconsulting.es/terminos-uso/" target="_blank"
+                                        class="typography--links">Términos de uso</a> y <a
+                                        href="https://www.farmaconsulting.es/politica-privacidad/" target="_blank"
+                                        class="typography--links">Política de Privacidad</a></span>
                             </label>
                         </div>
+                        <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
                     {{-- Status --}}
                     <div class="text-center w-full" id="status-consultation"></div>
@@ -161,61 +190,63 @@
 
 @push('scripts')
     <script>
-
-        window.addEventListener("DOMContentLoaded", function () {
-            // get the form elements defined in your form HTML above
-
-            var form = document.getElementById("form-consultation");
-            // var button = document.getElementById("my-form-button");
-            var status = document.getElementById("status-consultation");
-
-            // Success and Error functions for after the form is submitted
-            function success(response, responseType) {
-                form.reset();
-                status.classList.add("success");
-                form.classList.remove('loading');
-                myNotification({
-                    message: "Mensaje enviado"
-                });
-                status.innerHTML = "Mensaje enviado";
-            }
-
-            function error() {
-                form.classList.remove('loading');
-                status.classList.add("error");
-                status.innerHTML = "¡Ups! Ocurrió un problema";
-            }
-
-            // handle the form submission event
-            form.addEventListener("submit", function (ev) {
-                ev.preventDefault();
-                status.innerHTML = "";
-                try {
-                    status.classList.remove("error");
-                    status.classList.remove("success");
-                } catch (error) {}
-                form.classList.add('loading');
-                var data = new FormData(form);
-                ajax(form.method, form.action, data, success, error);
-            });
-        });
-
-        // helper function for sending an AJAX request
-        function ajax(method, url, data, success, error) {
-            var xhr = new XMLHttpRequest();
-            xhr.open(method, url);
-            xhr.setRequestHeader("Accept", "application/json");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState !== XMLHttpRequest.DONE)
-                    return;
-                if (xhr.status === 200) {
-                    success(xhr.response, xhr.responseText);
-                } else {
-                    error(xhr.status, xhr.response, xhr.responseType);
+        (function() {
+            const constraints = {
+                message: {
+                    presence: {
+                        message: '^Campo obligatorio',
+                    },
+                    length: {
+                        minimum: 3
+                    }
+                },
+                terms: {
+                    presence: {
+                        message: '^Campo obligatorio',
+                    },
+                },
+                interested: {
+                    presence: {
+                        message: '^Campo obligatorio',
+                    },
+                },
+                province: {
+                    presence: {
+                        message: '^Campo obligatorio',
+                    },
+                },
+                name: {
+                    presence: {
+                        message: '^Campo obligatorio',
+                    },
+                },
+                lastname: {
+                    presence: {
+                        message: '^Campo obligatorio',
+                    },
+                },
+                email: {
+                    presence: {
+                        message: '^Campo obligatorio',
+                    },
+                    email: true
                 }
             };
-            xhr.send(data);
-        }
+            const form = document.querySelector('form[name="demo-form-1"]');
 
+            form.addEventListener("submit", function(ev) {
+                ev.preventDefault();
+                handleFormSubmit(form, ajaxForm, constraints);
+            });
+
+            // Hook up the inputs to validate on the fly
+            var inputs = form.querySelectorAll('input, textarea, select');
+            for (var i = 0; i < inputs.length; ++i) {
+                inputs.item(i).addEventListener("change", function(ev) {
+                    var errors = validate(form, constraints) || {};
+                    showErrorsForInput(this, errors[this.name])
+                });
+            }
+        })();
     </script>
 @endpush

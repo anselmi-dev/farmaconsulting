@@ -96,5 +96,14 @@ class AppController extends Controller
         return view('pages.news');
     }
 
+    public function landing ($landing)
+    {
+
+        try {
+            return view('pages.landings.'.$landing);
+        } catch (\Throwable $th) {
+            abort(404);
+        }
+    }
 
 }

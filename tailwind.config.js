@@ -7,8 +7,11 @@ module.exports = {
     },
     extend: {
         colors: {
-            'primary': '#A2BD30',
-            'primary-600': '#405921'
+            'primary':   '#A2BD30',
+            'secondary': '#405921',
+            'base':     '#414141',
+            'base-600': '#BFBFBF',
+            'base-300': '#E8E8E8'
         },
         padding: {
             sw: '130px'

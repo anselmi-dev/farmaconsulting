@@ -38,9 +38,11 @@ h2,
     font-size: $font-12;
     line-height: $line-17;
 }
-.typography--xsmall {
-    font-size: $font-9;
-    line-height: $line-11;
+@media (max-width: 640px) {
+    .typography--xsmall {
+        font-size: $font-9;
+        line-height: $line-11;
+    }
 }
 .typography--white {
     color: $color-white;

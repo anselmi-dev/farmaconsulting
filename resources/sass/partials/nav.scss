@@ -3,7 +3,7 @@
 .nav {
     height: 60px;
     z-index: 100;
-    @apply bg-primary-600 fixed items-center justify-between top-0 left-0 w-full flex px-5 py-2;
+    @apply bg-secondary fixed items-center justify-between top-0 left-0 w-full flex px-5 py-2;
     @screen md {
         height: 45px;
     }
@@ -23,17 +23,27 @@
         }
     }
     &__link {
-        @apply flex items-center justify-center relative px-3 py-3 hover:bg-gray-100 w-full space-x-2;
+        @apply flex items-center justify-center relative px-3 py-3 w-full mb-5;
         @screen md {
             @apply py-2;
         }
         @screen lg {
             @apply py-1;
         }
-        border-bottom: 1px solid rgba(191, 191, 191, 0.5);
+        &,
+        &-expanded > div {
+            border-bottom: 1px solid rgba(191, 191, 191, 0.5);
+        }
+
+        & > *:not(:last-child) {
+            margin-right: 30px;
+        }
+        & > *:last-child {
+            margin-left: 30px;
+        }
         .icon {
-            width: 35px;
-            height: 35px;
+            width: 49px;
+            height: 45px;
             & > * {
                 max-height: 100%;
                 max-width: 100%;
@@ -53,25 +63,37 @@
 }
 .menu {
     @apply fixed w-full bottom-0 bg-white border-t border-gray-200;
-    height: 90px;
+    height: 109px;
     &__content {
-        @apply w-full grid grid-cols-5 items-center justify-center gap-4 h-full;
+        @apply w-full grid grid-cols-5 justify-center gap-4 h-full;
+        padding: 21px 11px 11px 11px;
+    }
+    &__dsvg {
+        height: 49px;
     }
     &__blink {
         @apply text-center;
         svg {
             fill:#FFF;
             max-height: 35px;
+            transition: all .5s;
+            &.complicated * {
+                fill: transparent;
+            }
         }
+        &:hover,
         &.active {
             svg {
-                fill:#a2bd30
+                fill:#a2bd30;
+                &.complicated * {
+                    fill:#a2bd30;
+                }
             }
         }
     }
 }
 #content {
-    padding-bottom: 90px;
+    padding-bottom: 109px;
     padding-top: 60px;
     @screen md {
         padding-top: 45px;

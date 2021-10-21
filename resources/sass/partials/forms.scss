@@ -23,7 +23,7 @@ input {
     }
     &:active,
     &:focus {
-        @extend .field--active;
+        // @extend .field--active;
     }
 }
 textarea {
@@ -34,7 +34,7 @@ textarea {
     }
     &:active,
     &:focus {
-        @extend .field--active;
+        // @extend .field--active;
     }
 }
 .field--active {
@@ -182,7 +182,7 @@ textarea {
 
 // sidebar form
 .options__item {
-    @apply mb-5;
+    @apply pb-5;
 
     label {
         @apply uppercase mb-0 py-2 px-5;
@@ -234,4 +234,27 @@ textarea {
     &.error {
         background: #fcbcb8;
     }
+}
+
+.form-group.has-error textarea,
+.form-group.has-error input,
+.form-group.has-error .custom-select__container {
+    border: 1px solid red;
+}
+.form-group.has-success input,
+.form-group.has-success textarea,
+.form-group.has-success .custom-select__container {
+    border: 1px solid #a2bd30;
+}
+.form-group--bottom.has-success input,
+.form-group--bottom.has-success textarea,
+.form-group--bottom.has-success .custom-select__container {
+    border: none;
+    border-bottom: 1px solid #a2bd30;
+}
+.form-group--bottom.has-error textarea,
+.form-group--bottom.has-error input,
+.form-group--bottom.has-error .custom-select__container {
+    border: none;
+    border-bottom: 1px solid red;
 }

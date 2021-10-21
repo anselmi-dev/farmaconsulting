@@ -34,14 +34,13 @@ class ContactController extends Controller
 
         try {
             $contact = Contact::create($request->all());
-
         } catch (\Throwable $th) {
             logger('Error al registrar una consulta. MODEL:CONTACT');
-            Mail::to('carlosanselmi2@gmail.com')->send(new WeCallYouMail($contact));
         }
 
+        Mail::to('carlosanselmi2@gmail.com')->send(new WeCallYouMail($contact));
 
-        return response()->json(['success' => true]);
+        return response()->json(['success' => true, 'message' => 'Consulta enviada']);
     }
 
     /**
@@ -65,13 +64,12 @@ class ContactController extends Controller
             $contact = Contact::create($request->all());
             $contact->type = 2;
             $contact->save();
-
         } catch (\Throwable $th) {
             logger('Error al registrar una consulta. MODEL:CONTACT');
         }
+
         Mail::to('carlosanselmi2@gmail.com')->send(new ConsultationMail($contact));
 
-
-        return response()->json(['success' => true]);
+        return response()->json(['success' => true, 'message' => 'Consulta enviada']);
     }
 }

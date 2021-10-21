@@ -22,9 +22,6 @@
                     </svg>
                 </button>
             </div>
-            <div class="options__sub-label options__sub-label--active">
-                <p class="typography--xsmall">Introduce tu nombre</p>
-            </div>
         </div>
         {{-- Primer apellido --}}
         <div class="options__item">
@@ -50,9 +47,6 @@
                         </svg>
                     </button>
                 </div>
-            </div>
-            <div class="options__sub-label">
-                <p class="typography--xsmall">Introduce tu primer apellido</p>
             </div>
         </div>
         {{-- Segundo apellido --}}
@@ -80,9 +74,6 @@
                     </button>
                 </div>
             </div>
-            <div class="options__sub-label">
-                <p class="typography--xsmall">Introduce tu segundo apellido</p>
-            </div>
         </div>
         {{-- Email --}}
         <div class="options__item">
@@ -109,9 +100,6 @@
                     </button>
                 </div>
             </div>
-            <div class="options__sub-label">
-                <p class="typography--xsmall">Introduce tu email</p>
-            </div>
         </div>
         {{-- Teléfono móvil --}}
         <div class="options__item">
@@ -137,9 +125,6 @@
                         </svg>
                     </button>
                 </div>
-            </div>
-            <div class="options__sub-label">
-                <p class="typography--xsmall">Introduce tu teléfono móvil</p>
             </div>
         </div>
         {{-- GUARDAR CAMBIOS --}}

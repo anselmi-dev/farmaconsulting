@@ -6,6 +6,9 @@ namespace App\Traits;
 // use Illuminate\Http\Request;
 // use Illuminate\Validation\ValidationException;
 
+/**
+ * Documentacion http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx
+*/
 trait ApiFarmaconsulting {
 
     /**
@@ -31,7 +34,7 @@ trait ApiFarmaconsulting {
      *
      * @return  response
      */
-    public function catalogoLogin ($user, $pass, $catalogue)
+    public function catalogoLogin ($user, $pass, $catalogue = NULL)
     {
         $curl = curl_init();
 
@@ -68,7 +71,8 @@ trait ApiFarmaconsulting {
     }
 
     /**
-     * Actualizar los datos del usuario
+     * Igualmente devuelve Codigo, Error y Msg.  Error=0 (Codigo=0) indican que se ha actualizado con éxito.
+     * Codigo <0> indica que ha habido error.  Msg da el mensaje de error.
      *
      * @param   \App\Models\User  $user
      *
@@ -148,6 +152,85 @@ trait ApiFarmaconsulting {
         return (array)$parser->DatosUsuarioResponse->DatosUsuarioResult;
     }
 
+    /**
+     * Lanza el envío de un email al cliente con una nueva contraseña.
+     * Usuario es el email. Devuelve igual que DatosUsuarioUpdate.
+     *
+     * @param   string  $email
+     * @return  response
+     */
+    protected function EnvioNuevaClave ($email) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
+        // SSL important
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            "Accept: text/xml",
+            "Cache-Control: no-cache",
+            "Pragma: no-cache",
+            'Content-Type: text/xml; charset=utf-8',
+            'Authorization: Basic YXAxXzI6RmN0QWNicDEyMw=='
+        ));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, `
+            <Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <Body>
+                    <EnvioNuevaClave xmlns="http://tempuri.org/">
+                        <Usuario>`.$email.`</Usuario>
+                    </EnvioNuevaClave>
+                </Body>
+            </Envelope>
+        `);
+
+        $output = curl_exec($ch);
+
+        curl_close($ch);
+
+        $parser = $this->transformXml($output);
+
+        return (array)$parser->DatosUsuarioResponse->DatosUsuarioResult;
+    }
+
+    /**
+     * Actualizar la Clave del usuario.
+     *
+     * @param   string  $email
+     * @param   string  $password
+     * @return  response
+     */
+    protected function ClaveUpdate ($email, $password) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
+        // SSL important
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            "Accept: text/xml",
+            "Cache-Control: no-cache",
+            "Pragma: no-cache",
+            'Content-Type: text/xml; charset=utf-8',
+            'Authorization: Basic YXAxXzI6RmN0QWNicDEyMw=='
+        ));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, `
+            <Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <Body>
+                    <ClaveUpdate xmlns="http://tempuri.org/">
+                        <Usuario>`.$email.`</Usuario>
+                        <Passw>`.$password.`</Passw>
+                    </ClaveUpdate>
+                </Body>
+            </Envelope>
+        `);
+
+        $output = curl_exec($ch);
+
+        curl_close($ch);
+
+        $parser = $this->transformXml($output);
+
+        return (array)$parser->DatosUsuarioResponse->DatosUsuarioResult;
+    }
+    
     protected function transformXml ($xml) {
         // converting
         $response1 = str_replace("<soap:Body>","",$xml);

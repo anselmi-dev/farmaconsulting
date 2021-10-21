@@ -56,7 +56,7 @@ class AuthXmlController extends Controller
     {
         $xml = $this->catalogoLogin($request->email, md5($request->password), $request->catalogue);
 
-        if ($xml['Error'] == -1) {
+        if ($xml['Error'] == -1 || $xml['Error'] == -10) {
             return \Redirect::back()->withInput($request->all())->withErrors([$xml['Msg']]);
         }
 
@@ -64,10 +64,10 @@ class AuthXmlController extends Controller
 
         \Auth::login($user);
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('after_login', 'Te damos la bienvenida');
     }
 
-    protected function createOrUpdate ($email, $password, $catalogue)
+    protected function createOrUpdate ($email, $password, $catalogue = NULL)
     {
         $datosUsuario = $this->datosUsuario($email);
 
@@ -83,7 +83,7 @@ class AuthXmlController extends Controller
             'fcia_name'         =>  isset($datosUsuario['Fcia_Name']) ? $datosUsuario['Fcia_Name'] : NULL,
             'fc_provincias'     =>  $datosUsuario['FC_Provincias'],
             'fc_facturacion'    =>  $datosUsuario['FC_Facturacion'],
-            'catalogue'         =>  $catalogue
+            'catalogue'         =>  $datosUsuario['Catalogo']
         ];
 
         if ($user = User::findEmail($email)->first()) {

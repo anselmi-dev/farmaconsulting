@@ -16,11 +16,18 @@ main {
 .wrapper--larger {
     max-width: calc(330px + 32px);
 }
+.wrapper--landings {
+    @apply w-full mx-auto px-4;
+    max-width: 400px;
+}
 .line-row {
     @apply flex items-center;
 }
 .line-row-center {
     @apply flex items-center justify-center;
+}
+.line-row-between-center {
+    @apply flex items-center justify-between w-full;
 }
 .line-row-between {
     @apply flex justify-between w-full;
@@ -123,7 +130,7 @@ select:active {
 }
 .url-content {
     @apply w-full z-0;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 169px);
     @screen lg {
         height: calc(100vh - 160px);
     }

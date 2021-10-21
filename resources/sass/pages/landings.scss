@@ -1,0 +1,71 @@
+// import necessary sass files
+@import "../mixins/animations.scss";
+
+// landings styling
+.landings__footer {
+    @apply mb-10;
+}
+.landings-hero {
+    @apply relative w-full mb-24;
+    height: 70vh;
+}
+.landings-hero__background {
+    @apply h-full w-full;
+
+    img {
+        @include img-cover;
+    }
+
+    &::after {
+        @include img-gradient-layer;
+        @apply z-10 absolute inset-0;
+        content: '';
+        opacity: 0.35;
+    }
+}
+.landings-hero__logo {
+    @include center-horizontal;
+    @apply z-10;
+    bottom: -54px;
+
+    img {
+        height: 87px;
+        width: 87px;
+    }
+}
+.chrome-img {
+    @apply h-14 w-14 max-w-none;
+}
+.landings__full-width {
+    @apply px-4 py-3 w-full;
+    background: $color-gray-nav-bg;
+}
+.google-play-img {
+    @apply w-auto max-w-none;
+    height: 34px;
+}
+.landings-option__container {
+    @apply flex items-start;
+}
+.landings-option-number__item {
+    @extend .typography--h1;
+    @extend .typography--dark-green;
+    line-height: 0px;
+}
+.landings-option-number__txt {
+    @apply ml-3;
+    transform: translateX(110%);
+    transition: $trans-all-5;
+}
+.landings-option-number__txt--active {
+    @apply transform translate-x-0;
+    transition: $trans-all-5;
+}
+.landings-option__img {
+    @apply opacity-0;
+    transition: $trans-all-9;
+}
+.landings-option__img--active {
+    @apply opacity-100;
+    transition: $trans-all-9;
+}

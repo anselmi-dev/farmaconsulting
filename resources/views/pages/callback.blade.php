@@ -1,5 +1,15 @@
 @extends('layouts.app')
 
+@section('breadcrumbs')
+    <a href="{{ route('contact') }}" class="text-primary">Contacto</a>/<span>Nosostros te llamamos</span>
+@endsection
+
+@section('nav-icon')
+    <a href="{{ route('contact') }}">
+        @includeIf('layouts.icons.back')
+    </a>
+@endsection
+
 @section('content')
     <div class="main__container">
         <div class="wrapper--larger">
@@ -32,25 +42,28 @@
     </div>
     <div class="wrapper">
         <div class="margin-bottom--4xlarge">
-            <form method="POST" action="{{ route('contact-general') }}" id="form-general" class="line-col-center callback-form">
+            <form method="POST" action="{{ route('contact-general') }}" name="form-general" class="line-col-center callback-form">
                 @csrf
                 {{-- Name --}}
-                <div class="margin-bottom--2xsmall w-full">
+                <div class="margin-bottom--2xsmall w-full form-group">
                     <label class="typography--small" for="name">Nombre</label>
                     <input class="mt-1 field--active" type="text" name="name" placeholder="Nombre auto completado" value="{{ auth()->user()->name }}" readonly>
+                    <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
                 {{-- lastname --}}
-                <div class="margin-bottom--2xsmall w-full">
+                <div class="margin-bottom--2xsmall w-full form-group">
                     <label class="typography--small" for="lastname">Apellido</label>
                     <input class="mt-1 field--active" type="text" name="lastname" placeholder="Apellidos auto completados" value="{{ auth()->user()->lastname }}" readonly>
+                    <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
                 {{-- Phone --}}
-                <div class="margin-bottom--2xsmall w-full">
+                <div class="margin-bottom--2xsmall w-full form-group">
                     <label class="typography--small" for="phone">Teléfono móvil</label>
                     <input class="mt-1 field--active" type="number" name="phone" value="{{ auth()->user()->phone }}" readonly>
+                    <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
                 {{-- Franja horaria --}}
-                <div class="margin-bottom--2xsmall w-full">
+                <div class="margin-bottom--2xsmall w-full form-group">
                     <div class="margin-bottom--4xsmall">
                         <p class="typography--small">Franja horaria</p>
                     </div>
@@ -78,10 +91,7 @@
                             <p class="typography--small">Selecciona la franja horaria que te interese</p>
                         </div>
                         @php
-                            $timezones = [
-                                0 => '09:00 - 13:00',
-                                1 => '15:00 - 18:00',
-                            ];
+                            $timezones = [0 => '09:00 - 13:00', 1 => '15:00 - 18:00'];
                         @endphp
                         <ul>
                             @foreach ($timezones as $key => $timezone)
@@ -90,7 +100,7 @@
                                         <span class="uppercase">{{ $timezone }}</span>
                                         <input
                                             type="checkbox"
-                                            name="timezone[]"
+                                            name="timezone"
                                             id="timezone_{{ $key }}"
                                             value="{{ $key }}"
                                             class="custom-select__option-input">
@@ -109,19 +119,21 @@
                             @endforeach
                         </ul>
                     </div>
+                    <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
                 {{-- Message --}}
-                <div class="margin-bottom--medium w-full">
+                <div class="margin-bottom--medium w-full form-group">
                     <label for="message" class="typography--small">
                         {{ __('Tu consulta') }}
                     </label>
                     <textarea class="mt-1" name="message" cols="30" rows="8" placeholder="Cómo podemos ayudarte..."></textarea>
+                    <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
                 {{-- Terms --}}
-                <div class="margin-bottom--medium w-full">
+                <div class="margin-bottom--medium w-full form-group">
                     <div class="line-row">
-                        <label for="save-data" class="custom-checkbox__container">
-                            <input type="checkbox" name="save-data">
+                        <label for="terms" class="custom-checkbox__container">
+                            <input type="checkbox" name="terms" value="true">
                             <span class="custom-checkbox__item"></span>
                             <span class="custom-checkbox__check">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25"
@@ -139,6 +151,7 @@
                                     class="typography--links">Política de Privacidad</a></span>
                         </label>
                     </div>
+                    <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
                 <div class="message-form" id="from-general__status"></div>
                 <div class="w-full">
@@ -153,57 +166,52 @@
 
 @push('scripts')
     <script>
-        window.addEventListener("DOMContentLoaded", function () {
-            // get the form elements defined in your form HTML above
-
-            var form = document.getElementById("form-general");
-            // var button = document.getElementById("my-form-button");
-            var status = document.getElementById("from-general__status");
-
-            // Success and Error functions for after the form is submitted
-            function success(response, responseType) {
-                form.reset();
-                form.classList.remove('loading');
-                status.classList.add("success");
-                status.innerHTML = "Mensaje enviado";
-            }
-
-            function error() {
-                form.classList.remove('loading');
-                status.classList.add("error");
-                status.innerHTML = "¡Ups! Ocurrió un problema";
-            }
-
-            // handle the form submission event
-            form.addEventListener("submit", function (ev) {
-                ev.preventDefault();
-                status.innerHTML = "";
-                try {
-                    status.classList.remove("error");
-                    status.classList.remove("success");
-                } catch (error) {}
-                var data = new FormData(form);
-                form.classList.add('loading');
-                ajax(form.method, form.action, data, success, error);
-            });
-        });
-
-        // helper function for sending an AJAX request
-        function ajax(method, url, data, success, error) {
-            var xhr = new XMLHttpRequest();
-            xhr.open(method, url);
-            xhr.setRequestHeader("Accept", "application/json");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState !== XMLHttpRequest.DONE)
-                    return;
-                if (xhr.status === 200) {
-                    success(xhr.response, xhr.responseText);
-                } else {
-                    error(xhr.status, xhr.response, xhr.responseType);
+        (function() {
+            const constraints = {
+                message: {
+                    presence: {
+                        message: '^Campo obligatorio',
+                    },
+                    length: {
+                        minimum: 3
+                    }
+                },
+                timezone: {
+                    presence: {
+                        message: '^Campo obligatorio',
+                    }
+                },
+                terms: {
+                    presence: {
+                        message: '^Campo obligatorio',
+                    },
+                },
+                name: {
+                    presence: {
+                        message: '^Campo obligatorio',
+                    },
+                },
+                lastname: {
+                    presence: {
+                        message: '^Campo obligatorio',
+                    },
                 }
             };
-            xhr.send(data);
-        }
+            const form = document.querySelector('form[name="form-general"]');
 
+            form.addEventListener("submit", function(ev) {
+                ev.preventDefault();
+                handleFormSubmit(form, ajaxForm, constraints);
+            });
+
+            // Hook up the inputs to validate on the fly
+            var inputs = form.querySelectorAll('input, textarea, select');
+            for (var i = 0; i < inputs.length; ++i) {
+                inputs.item(i).addEventListener("change", function(ev) {
+                    var errors = validate(form, constraints) || {};
+                    showErrorsForInput(this, errors[this.name])
+                });
+            }
+        })();
     </script>
 @endpush

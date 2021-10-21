@@ -12,6 +12,7 @@
             <button @click="isShowing = false" class="absolute top-0 bottom-0 my-auto right-2">X</button>
         </div>
     @endif
+
     <div
         style="background-image: url({{ asset('images/backgrounds/intro-slider-1.jpg') }})"
         class="min-h-screen bg-green-400 flex justify-center items-center relative overflow-hidden bg-cover bg-center">
@@ -47,6 +48,7 @@
                                 </span>
                             @enderror
                         </div>
+                        {{--
                         <div class="margin-bottom--xsmall w-full">
                             <label class="typography--small typography--white" for="catalog">Código de catálogo</label>
                             <input class="mt-2" type="text" name="catalogue" value="{{ old('catalogue') }}" placeholder="{{ __('Código catálogo') }}">
@@ -56,6 +58,7 @@
                                 </span>
                             @enderror
                         </div>
+                        --}}
                         <div class="margin-bottom--3xlarge w-full">
                             <div class="line-row">
                                 <label for="save-data" class="custom-checkbox__container">
