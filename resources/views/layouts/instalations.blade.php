@@ -40,6 +40,21 @@
             </div>
         </div>
     </div>
+    <footer class="landings__footer">
+        <div class="line-col">
+            <div class="margin-bottom--xlarge">
+            <p class="typography--medium text-center">Farmaconsulting App Versión 0.1</p>
+            <p class="typography--medium text-center">
+                <a href="{{ route('terms') }}" target="_blank" class="typography--links">Terminos</a>
+                y 
+                <a href="{{ route('conditions') }}" target="_blank" class="typography--links">Condiciones</a>
+            </p>
+            </div>
+            <div class="margin-bottom--xlarge">
+            <img src="{{ asset('/images/logos/logo-secondary-gray.png') }}" alt="Secondary Farmaconsultimg gray logo" class="mx-auto">
+            </div>
+        </div>
+    </footer>
     <!-- Scripts -->
     <script>
         window.animationFunction = function (classBase, classeActive) {

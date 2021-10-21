@@ -33,7 +33,8 @@ class AppController extends Controller
      */
     public function terms ()
     {
-        return view('pages.terms');
+        return \Redirect::to('https://www.farmaconsulting.es/terminos-uso/');
+        // return view('pages.terms');
     }
 
     /**
@@ -73,7 +74,8 @@ class AppController extends Controller
      */
     public function conditions ()
     {
-        return view('pages.conditions');
+        return \Redirect::to('https://www.farmaconsulting.es/politica-privacidad/');
+        // return view('pages.conditions');
     }
 
     /**
