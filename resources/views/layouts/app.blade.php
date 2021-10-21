@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}?v=223" rel="stylesheet">
     <link href="{{ asset('plugins/notifications.css') }}" rel="stylesheet">
 
     <!-- Alpine Plugins -->
