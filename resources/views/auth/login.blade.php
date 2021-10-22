@@ -36,7 +36,7 @@
                         @csrf
                         <div class="margin-bottom--xsmall w-full">
                             <label class="typography--small typography--white" for="user">Usuario</label>
-                            <input value="ismael@martinezgomez.es" class="mt-2" type="email" required name="email" value="{{ old('email') }}" placeholder="{{ __('Correo electrónico') }}">
+                            <input class="mt-2" type="email" required name="email" value="{{ old('email') }}" placeholder="{{ __('Correo electrónico') }}">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -45,7 +45,7 @@
                         </div>
                         <div class="margin-bottom--xsmall w-full">
                             <label class="typography--small typography--white" for="password">Contraseña</label>
-                            <input value="ABC113355" class="mt-2" type="password" required name="password" value="{{ old('password') }}" placeholder="{{ __('Contraseña') }}">
+                            <input class="mt-2" type="password" required name="password" value="{{ old('password') }}" placeholder="{{ __('Contraseña') }}">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
