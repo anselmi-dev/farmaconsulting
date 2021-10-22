@@ -13,8 +13,10 @@
 
 @section('content')
 <div class="px-6 py-6">
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, officiis atque accusantium, fugit obcaecati iure eos ab quas eum, accusamus porro cupiditate iusto. Vero cum sed id corporis necessitatibus voluptatem.
-    </p>
+    <div class="w-full lg:w-1/2 mx-auto">
+        <h1 class="text-4xl font-blod text-center">
+            ESTO ES UNA LANDING DE PRUEBA
+        </h1>
+    </div>
 </div>
 @endsection

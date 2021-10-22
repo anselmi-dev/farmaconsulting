@@ -28,11 +28,15 @@
                     </p>
                 </div>
                 <div class="margin-bottom--4xlarge">
-                    <form method="POST" action="{{ route('login.xml') }}" class="line-col-center register-form">
+                    @php
+                        $rollback = request('rollback');
+                        $rollback = $rollback ? '?rollback='.$rollback : NULL;
+                    @endphp
+                    <form method="POST" action="{{ route('login.xml') }}{{ $rollback }}" class="line-col-center register-form">
                         @csrf
                         <div class="margin-bottom--xsmall w-full">
                             <label class="typography--small typography--white" for="user">Usuario</label>
-                            <input class="mt-2" type="email" required name="email" value="{{ old('email') }}" placeholder="{{ __('Correo electrónico') }}">
+                            <input value="ismael@martinezgomez.es" class="mt-2" type="email" required name="email" value="{{ old('email') }}" placeholder="{{ __('Correo electrónico') }}">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -41,7 +45,7 @@
                         </div>
                         <div class="margin-bottom--xsmall w-full">
                             <label class="typography--small typography--white" for="password">Contraseña</label>
-                            <input class="mt-2" type="password" required name="password" value="{{ old('password') }}" placeholder="{{ __('Contraseña') }}">
+                            <input value="ABC113355" class="mt-2" type="password" required name="password" value="{{ old('password') }}" placeholder="{{ __('Contraseña') }}">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

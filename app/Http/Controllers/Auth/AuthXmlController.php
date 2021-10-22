@@ -64,6 +64,10 @@ class AuthXmlController extends Controller
 
         \Auth::login($user);
 
+        if ($rollback = $request->input('rollback')) {
+            return \Redirect::to($rollback)->with('after_login', 'Te damos la bienvenida');
+        }
+
         return redirect()->route('home')->with('after_login', 'Te damos la bienvenida');
     }
 

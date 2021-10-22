@@ -58,7 +58,7 @@
         let scanning = false;
         _qrcode.callback = res => {
             if (res) {
-                // window.location = res;
+                window.location = res;
                 document.getElementById('container-iframe').querySelector('iframe').src = res;
                 toggleDivQr();
                 scanning = false;
