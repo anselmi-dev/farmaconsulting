@@ -230,6 +230,42 @@ trait ApiFarmaconsulting {
 
         return (array)$parser->DatosUsuarioResponse->DatosUsuarioResult;
     }
+
+    /**
+     * Registro de los accesos de cliente con código QR
+     *
+     * @param   string  $email
+     * @param   string  $event
+     * @param   string  $code
+     * @return  response
+     */
+    protected function RegistraEvento ($email, $code, $event = null) {
+        $event = $event ?? 'Acceso QR';
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
+        // SSL important
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            "Accept: text/xml",
+            "Cache-Control: no-cache",
+            "Pragma: no-cache",
+            'Content-Type: text/xml; charset=utf-8',
+            'Authorization: Basic YXAxXzI6RmN0QWNicDEyMw=='
+        ));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Body><RegistraEvento xmlns="http://tempuri.org/"><Usuario>`.$email.`</Usuario><Evento>`.$event.`</Evento><Dato>`.$code.`</Dato></RegistraEvento></Body></Envelope>');
+
+        $output = curl_exec($ch);
+        
+        curl_close($ch);
+        
+        $parser = $this->transformXml($output);
+
+        return (array)$parser->RegistraEventoResponse->RegistraEventoResult;
+    } 
+
     
     protected function transformXml ($xml) {
         // converting

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Traits\ApiFarmaconsulting;
 
 class AppController extends Controller
 {
+    use ApiFarmaconsulting;
+
     /**
      * Create a new controller instance.
      *
@@ -98,9 +101,27 @@ class AppController extends Controller
         return view('pages.news');
     }
 
+    /**
+     * Registrar el evento del QR antes de ir a la landing
+     *
+     * @param string $landing
+     * @return Redirect
+     */
+    public function landingEvent ($landing)
+    {
+        $response = $this->RegistraEvento(\Auth::user()->email, $landing);
+
+        return redirect()->route('landing', ['landing' => $landing]);
+    }
+
+    /**
+     * Show landing QR
+     *
+     * @param string $landing
+     * @return view
+     */
     public function landing ($landing)
     {
-
         try {
             return view('pages.landings.'.$landing);
         } catch (\Throwable $th) {

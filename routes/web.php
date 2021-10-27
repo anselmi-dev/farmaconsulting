@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/farmaconsulting', [App\Http\Controllers\AppController::class, 'farmaconsulting'])->name('farmaconsulting');
 
     Route::get('/code/{landing}', [App\Http\Controllers\AppController::class, 'landing'])->name('landing');
+    Route::get('/code/{landing}/event', [App\Http\Controllers\AppController::class, 'landingEvent'])->name('landing.event');
 
     // subpages of contact
     Route::view('/cuentanos-tu-consulta', 'pages.mail')->name('contact.mail');
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/update/account', [App\Http\Controllers\Api\MyAccountController::class, 'updateAccount'])->name('update-account');
     Route::post('/update/preferences', [App\Http\Controllers\Api\MyAccountController::class, 'updatePreferences'])->name('update-preferences');
     Route::post('/update/password', [App\Http\Controllers\Api\MyAccountController::class, 'updateClave'])->name('update-password');
+    Route::post('/register/event', [App\Http\Controllers\Api\QrController::class, 'register'])->name('register-event');
     // Route::post('/update/password', [App\Http\Controllers\Api\ContactController::class, 'getNewPassword'])->name('update-password');
 
     Route::post('/contact/consultation', [App\Http\Controllers\Api\ContactController::class, 'consultation'])->name('contact-consultation');
