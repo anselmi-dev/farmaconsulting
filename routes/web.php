@@ -50,5 +50,7 @@ Route::middleware('auth')->group(function () {
 });
 
 /* landing pages routes*/
-Route::view('instalacion-chrome', 'pages.landings.landingChrome')->name('landingChrome');
-Route::view('instalacion-safari', 'pages.landings.landingSafari')->name('landingSafari');
+Route::middleware('landing.install')->group(function () {
+    Route::view('instalacion-chrome', 'pages.landings.instalacion-chrome')->name('landingChrome');
+    Route::view('instalacion-safari', 'pages.landings.instalacion-safari')->name('landingSafari');
+});
