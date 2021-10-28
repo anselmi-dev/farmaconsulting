@@ -80,7 +80,7 @@
             <label for="email">{{ __('Email') }}</label>
             <div class="line-row-between">
                 <div class="options__input-container">
-                    <input data-rule="required|email" class="options__input" type="text" value="{{ auth()->user()->email }}" name="email"
+                    <input data-rule="required|email" disabled class="options__input" type="text" value="{{ auth()->user()->email }}" name="email"
                         placeholder="{{ __('nombre@email.com') }}">
                     <button class="options__close-btn" type="button">
                         <svg class="icon-xsmall mx-auto"

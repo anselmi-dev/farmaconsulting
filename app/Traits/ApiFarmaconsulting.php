@@ -114,8 +114,6 @@ trait ApiFarmaconsulting {
 
         curl_close($curl);
 
-        logger($output);
-
         $parser = $this->transformXml($output);
 
         return (array)$parser->DatosUsuarioUpdateResponse->DatosUsuarioUpdateResult;
@@ -129,23 +127,23 @@ trait ApiFarmaconsulting {
      * @return  response
      */
     public function datosUsuario ($user) {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
         // SSL important
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
             "Accept: text/xml",
             "Cache-Control: no-cache",
             "Pragma: no-cache",
             'Content-Type: text/xml; charset=utf-8',
             'Authorization: Basic YXAxXzI6RmN0QWNicDEyMw=='
         ));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Body><DatosUsuario xmlns="http://tempuri.org/"><Usuario>'.$user.'</Usuario></DatosUsuario></Body></Envelope>');
+        curl_setopt($curl, CURLOPT_POSTFIELDS, '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Body><DatosUsuario xmlns="http://tempuri.org/"><Usuario>'.$user.'</Usuario></DatosUsuario></Body></Envelope>');
 
-        $output = curl_exec($ch);
+        $output = curl_exec($curl);
 
-        curl_close($ch);
+        curl_close($curl);
 
         $parser = $this->transformXml($output);
 
@@ -160,19 +158,19 @@ trait ApiFarmaconsulting {
      * @return  response
      */
     protected function EnvioNuevaClave ($email) {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
         // SSL important
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
             "Accept: text/xml",
             "Cache-Control: no-cache",
             "Pragma: no-cache",
             'Content-Type: text/xml; charset=utf-8',
             'Authorization: Basic YXAxXzI6RmN0QWNicDEyMw=='
         ));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, `
+        curl_setopt($curl, CURLOPT_POSTFIELDS, `
             <Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <Body>
                     <EnvioNuevaClave xmlns="http://tempuri.org/">
@@ -182,9 +180,9 @@ trait ApiFarmaconsulting {
             </Envelope>
         `);
 
-        $output = curl_exec($ch);
+        $output = curl_exec($curl);
 
-        curl_close($ch);
+        curl_close($curl);
 
         $parser = $this->transformXml($output);
 
@@ -196,39 +194,36 @@ trait ApiFarmaconsulting {
      *
      * @param   string  $email
      * @param   string  $password
+     * 
+     * @method  POST
      * @return  response
      */
     protected function ClaveUpdate ($email, $password) {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
+        
+        $curl = curl_init();
+        
+        $fileds = '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Body><ClaveUpdate xmlns="http://tempuri.org/"><Usuario>'.$email.'</Usuario><Passw>'.md5($password).'</Passw></ClaveUpdate></Body></Envelope>';
+
+        curl_setopt($curl, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
         // SSL important
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
             "Accept: text/xml",
             "Cache-Control: no-cache",
             "Pragma: no-cache",
             'Content-Type: text/xml; charset=utf-8',
             'Authorization: Basic YXAxXzI6RmN0QWNicDEyMw=='
         ));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, `
-            <Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <Body>
-                    <ClaveUpdate xmlns="http://tempuri.org/">
-                        <Usuario>`.$email.`</Usuario>
-                        <Passw>`.$password.`</Passw>
-                    </ClaveUpdate>
-                </Body>
-            </Envelope>
-        `);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $fileds);
+  
+        $output = curl_exec($curl);
 
-        $output = curl_exec($ch);
-
-        curl_close($ch);
+        curl_close($curl);
 
         $parser = $this->transformXml($output);
 
-        return (array)$parser->DatosUsuarioResponse->DatosUsuarioResult;
+        return (array)$parser->ClaveUpdaClaveUpdateResponse->ClaveUpdateResult;
     }
 
     /**
@@ -237,29 +232,30 @@ trait ApiFarmaconsulting {
      * @param   string  $email
      * @param   string  $event
      * @param   string  $code
+     * @method  POST
      * @return  response
      */
     protected function RegistraEvento ($email, $code, $event = null) {
         $event = $event ?? 'Acceso QR';
 
-        $ch = curl_init();
+        $curl = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
+        curl_setopt($curl, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
         // SSL important
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
             "Accept: text/xml",
             "Cache-Control: no-cache",
             "Pragma: no-cache",
             'Content-Type: text/xml; charset=utf-8',
             'Authorization: Basic YXAxXzI6RmN0QWNicDEyMw=='
         ));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Body><RegistraEvento xmlns="http://tempuri.org/"><Usuario>`.$email.`</Usuario><Evento>`.$event.`</Evento><Dato>`.$code.`</Dato></RegistraEvento></Body></Envelope>');
+        curl_setopt($curl, CURLOPT_POSTFIELDS, '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Body><RegistraEvento xmlns="http://tempuri.org/"><Usuario>`.$email.`</Usuario><Evento>`.$event.`</Evento><Dato>`.$code.`</Dato></RegistraEvento></Body></Envelope>');
 
-        $output = curl_exec($ch);
+        $output = curl_exec($curl);
         
-        curl_close($ch);
+        curl_close($curl);
         
         $parser = $this->transformXml($output);
 

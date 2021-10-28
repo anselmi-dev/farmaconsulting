@@ -88,6 +88,10 @@ class MyAccountController extends Controller
             return response()->json(['error' => true, 'message' => 'La contraseña nueva no coincide.'], 500);
         }
 
+        if (!\Hash::check($request->actual_password, auth()->user()->password)) {
+            return response()->json(['error' => true, 'message' => 'La contraseña actual es incorrecta.'], 500);
+        }
+
         $response = $this->ClaveUpdate(auth()->user()->email, $request->new_password);
 
         $response['msg'] = isset($response['msg']) ? $response['msg'] : 'Contraseña actualizada';
@@ -98,6 +102,10 @@ class MyAccountController extends Controller
 
             return back()->withInput()->withErrors(['error' => 'Ocurrió un error inesperado']);
         }
+
+        auth()->user()->password = \Hash::make($request->actual_password);
+        
+        auth()->user()->save();
 
         // if($request->ajax())
             return response()->json(['success' => true, 'message' => $response['msg']]);
