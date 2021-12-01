@@ -108,8 +108,9 @@ class AuthXmlController extends Controller
 
     public function resetPasswordPost (ResetPasswordRequest $request) 
     {
-        $response = $this->EnvioNuevaClave($request->email);
+        // $this->ClaveUpdate($request->email, 'ABC113355');
 
+        $response = $this->EnvioNuevaClave($request->email);
         if ($response['Codigo'] != 0)
             return back()->withInput()->withErrors(['error' => $response['Msg']]);
 
