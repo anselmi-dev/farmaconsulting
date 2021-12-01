@@ -53,7 +53,7 @@
                             @enderror
                         </div>
                         <div class="margin-bottom--2xlarge">
-                            <a href="#" class="typography--links">Recuperar contraseña</a>
+                            <a href="{{ route('reset-password.index') }}" class="typography--links">Recuperar contraseña</a>
                         </div>
                         {{--
                         <div class="margin-bottom--xsmall w-full">

@@ -34,9 +34,12 @@
 <body class="{{ Route::currentRouteName() }}">
 
     <div>
-        @guest
-            @includeIf('layouts.parts.intro')
-        @endguest
+        
+        @section('intro')
+            @guest
+                @includeIf('layouts.parts.intro')
+            @endguest
+        @show
 
         @if (\Session::has('after_login'))
             @includeIf('layouts.parts.after_login')

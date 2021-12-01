@@ -18,8 +18,8 @@ Auth::routes();
 
 Route::post('/login', [App\Http\Controllers\Auth\AuthXmlController::class, 'authXml'])->name('login.xml');
 Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout']);
-Route::get('/login/recuperar', [App\Http\Controllers\Auth\AuthXmlController::class, 'recoverPassword'])->name('recover-password.index');
-Route::post('/login/recuperar', [App\Http\Controllers\Auth\AuthXmlController::class, 'recoverPasswordPost'])->name('recover-password.post');
+Route::get('/login/recuperar', [App\Http\Controllers\Auth\AuthXmlController::class, 'resetPassword'])->name('reset-password.index');
+Route::post('/login/recuperar', [App\Http\Controllers\Auth\AuthXmlController::class, 'resetPasswordPost'])->name('reset-password.post');
 
 Route::middleware('auth')->group(function () {
     Route::view('/', 'pages.home')->name('home');

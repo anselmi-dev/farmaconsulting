@@ -170,15 +170,7 @@ trait ApiFarmaconsulting {
             'Content-Type: text/xml; charset=utf-8',
             'Authorization: Basic YXAxXzI6RmN0QWNicDEyMw=='
         ));
-        curl_setopt($curl, CURLOPT_POSTFIELDS, `
-            <Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <Body>
-                    <EnvioNuevaClave xmlns="http://tempuri.org/">
-                        <Usuario>`.$email.`</Usuario>
-                    </EnvioNuevaClave>
-                </Body>
-            </Envelope>
-        `);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Body><EnvioNuevaClave xmlns="http://tempuri.org/"><Usuario>'.$email.'</Usuario></EnvioNuevaClave></Body></Envelope>');
 
         $output = curl_exec($curl);
 
@@ -186,7 +178,7 @@ trait ApiFarmaconsulting {
 
         $parser = $this->transformXml($output);
 
-        return (array)$parser->DatosUsuarioResponse->DatosUsuarioResult;
+        return (array)$parser->EnvioNuevaClaveResponse->EnvioNuevaClaveResult;
     }
 
     /**
