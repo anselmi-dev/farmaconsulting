@@ -120,7 +120,7 @@
                                         </p>
                                         <div class="">
                                             <a href="tel:+34902115765">
-                                                <span class="typography--green font-bold">902 115 765</span>
+                                                <span class="typography--green font-bold">900 115 765</span>
                                             </a>
                                         </div>
                                     </div>
@@ -178,7 +178,7 @@
                                         </p>
                                         <div class="">
                                             <a href="tel:+34902115765">
-                                                <span class="typography--green font-bold">902 115 765</span>
+                                                <span class="typography--green font-bold">900 115 765</span>
                                             </a>
                                         </div>
                                     </div>
@@ -235,7 +235,7 @@
                                         </p>
                                         <div class="">
                                             <a href="tel:+34902115765">
-                                                <span class="typography--green font-bold">902 115 765</span>
+                                                <span class="typography--green font-bold">900 115 765</span>
                                             </a>
                                         </div>
                                     </div>
@@ -293,7 +293,7 @@
                                         </p>
                                         <div class="">
                                             <a href="tel:+34902115765">
-                                                <span class="typography--green font-bold">902 115 765</span>
+                                                <span class="typography--green font-bold">900 115 765</span>
                                             </a>
                                         </div>
                                     </div>
@@ -350,7 +350,7 @@
                                         </p>
                                         <div class="">
                                             <a href="tel:+34902115765">
-                                                <span class="typography--green font-bold">902 115 765</span>
+                                                <span class="typography--green font-bold">900 115 765</span>
                                             </a>
                                         </div>
                                     </div>

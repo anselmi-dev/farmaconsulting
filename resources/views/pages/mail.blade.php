@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('breadcrumbs')
-    <a href="{{ route('contact') }}" class="text-primary">Contacto</a>/<span>Cuentanos tu consulta</span>
+    <a href="{{ route('contact') }}" class="text-primary">Contacto</a>/<span>Cuéntanos tu consulta</span>
 @endsection
 
 @section('nav-icon')

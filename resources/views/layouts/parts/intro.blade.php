@@ -2,7 +2,7 @@
     <button type="button"
         class="absolute top-5 right-5 uppercase bg-transparent text-white font-2xl z-40 leading-none"
         onclick="document.getElementById('swiper-home').style.display = 'none';">
-        Cerrar
+        {{ __('Acceder') }}
     </button>
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">

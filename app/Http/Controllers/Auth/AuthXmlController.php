@@ -99,4 +99,15 @@ class AuthXmlController extends Controller
 
         return User::create($data);
     }
+
+    public function recoverPassword (Request $request) 
+    {
+        return view('auth.passwords.email');
+    }
+
+    public function recoverPasswordPost (Request $request) 
+    {
+
+        // return redirect()->route('login')->with('after_login', 'Te damos la bienvenida');
+    }
 }

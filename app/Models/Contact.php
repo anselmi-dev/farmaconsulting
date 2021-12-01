@@ -37,7 +37,7 @@ class Contact extends Model
     public function getLabelTimezoneAttribute ()
     {
         try {
-            $timezones = [0 => '09:00 - 13:00', 1 => '15:00 - 18:00'];
+            $timezones = [0 => '08:30 - 11:00', 1 => '11:00 - 14:00', 2 => '16:00 - 19:00'];
             return $timezones[$this->timezone];
         } catch (\Throwable $th) {
             return $this->timezone;

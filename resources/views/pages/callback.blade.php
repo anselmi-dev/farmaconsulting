@@ -37,7 +37,9 @@
                     <h2 class="typography--green">¿Quieres que te llamemos nosotros?</h2>
                 </div>
                 <div class="">
-            <p>Nos pondremos en contacto contigo lo antes posible para ofrecerte las mejores ofertas en compra y venta de farmacias en España.</p>
+                    <p>Nos pondremos en contacto contigo lo antes posible para asesorarte acerca de la compra o venta de farmacias en España o de cualquier tema relacionado con la gestión patrimonial de tu farmacia.</p>
+                </div>
+            </div>
         </div>
     </div>
     <div class="wrapper">
@@ -91,7 +93,7 @@
                             <p class="typography--small">Selecciona la franja horaria que te interese</p>
                         </div>
                         @php
-                            $timezones = [0 => '09:00 - 13:00', 1 => '15:00 - 18:00'];
+                            $timezones = [0 => '08:30 - 11:00', 1 => '11:00 - 14:00', 2 => '16:00 - 19:00'];
                         @endphp
                         <ul>
                             @foreach ($timezones as $key => $timezone)

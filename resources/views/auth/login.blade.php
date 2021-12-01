@@ -24,7 +24,7 @@
                 </div>
                 <div class="margin-bottom--4xlarge px-4">
                     <p class="typography--regular typography--white text-center">
-                        Para acceder a nuestros contenidos personalizados para ti tienes que rellenar estos campos. El código de catálogo lo puedes encontrar en la página 3 del catálogo que acabas de recibir.
+                        Para acceder a nuestros contenidos personalizados para ti tienes que rellenar estos campos. El código del libro lo puedes encontrar en la página 3 del libro que acabas de recibir.
                     </p>
                 </div>
                 <div class="margin-bottom--4xlarge">
@@ -52,10 +52,13 @@
                                 </span>
                             @enderror
                         </div>
+                        <div class="margin-bottom--2xlarge">
+                            <a href="#" class="typography--links">Recuperar contraseña</a>
+                        </div>
                         {{--
                         <div class="margin-bottom--xsmall w-full">
-                            <label class="typography--small typography--white" for="catalog">Código de catálogo</label>
-                            <input class="mt-2" type="text" name="catalogue" value="{{ old('catalogue') }}" placeholder="{{ __('Código catálogo') }}">
+                            <label class="typography--small typography--white" for="catalog">Código de libro</label>
+                            <input class="mt-2" type="text" name="catalogue" value="{{ old('catalogue') }}" placeholder="{{ __('Código libro') }}">
                             @error('cataloge')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -73,15 +76,15 @@
                                             <path d="M248.916,250.037l3.419-3.945L246.5,240.5" transform="translate(251.448 -245.085) rotate(90)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                                           </svg>
                                     </span>
-                                    <span class="typography--small typography--white">Guardar datos para futuros inicios de sesión</span>
+                                    <span class="typography--white">Guardar datos para futuros inicios de sesión</span>
                                 </label>
                             </div>
                         </div>
                         <div class="margin-bottom--large">
                             <div class="line-col-center">
                                 <div class="margin-bottom--small text-center">
-                                    <span class="typography--small typography--white">Registrándote en esta app aceptas nuestros</span><br />
-                                    <a href="https://www.farmaconsulting.es/politica-privacidad/" target="_blank" class="typography--small typography--links">Términos y Condiciones</a>
+                                    <span class="typography--white">Registrándote en esta app aceptas nuestros</span><br />
+                                    <a href="https://www.farmaconsulting.es/politica-privacidad/" target="_blank" class="typography--links">Términos y Condiciones</a>
                                 </div>
                                 <div class="line-row">
                                     <label for="terms" class="custom-checkbox__container">
@@ -92,13 +95,10 @@
                                                     <path d="M248.916,250.037l3.419-3.945L246.5,240.5" transform="translate(251.448 -245.085) rotate(90)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                                                 </svg>
                                             </span>
-                                            <span class="typography--small typography--white">he leído y acepto</span>
+                                            <span class="typography--white">he leído y acepto</span>
                                     </label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="margin-bottom--2xlarge">
-                            <a href="#" class="typography--small typography--links">Recuperar contraseña</a>
                         </div>
                         <div class="w-full">
                             <button class="btn--inactive-primary">ENVIAR</button>

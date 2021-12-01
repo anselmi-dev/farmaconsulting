@@ -39,8 +39,8 @@
 }
 .contact-modal__btn {
     @extend .typography--blue;
-    @apply px-10 py-6 mb-2 w-full;
-    font-size: $font-22;
+    @apply p-6 mb-2 w-full;
+    font-size: 21px;
     background: $color-white;
     border-radius: 13px;
     height: 82px;

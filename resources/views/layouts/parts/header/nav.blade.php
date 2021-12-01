@@ -93,12 +93,12 @@
                     <li x-data="{ expanded: false }">
                         <div @click="expanded = ! expanded">
                             @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mi código de
-                            catálogo'), 'icon' => 'layouts.icons.my-catalogue'])
+                            libro'), 'icon' => 'layouts.icons.my-catalogue'])
                         </div>
                         <div class="nav__link-expanded" x-show="expanded" x-collapse>
                             <div class="options__item">
                                 <div class="options__catalog-number">{{ auth()->user()->catalogue }}</div>
-                                <div class="options__catalog-description">Este es el código de tú catálogo</div>
+                                <div class="options__catalog-description">Este es el código de tú libro</div>
                             </div>
                         </div>
                     </li>
