@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\ResetPasswordRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -100,14 +101,19 @@ class AuthXmlController extends Controller
         return User::create($data);
     }
 
-    public function recoverPassword (Request $request) 
+    public function resetPassword (Request $request) 
     {
         return view('auth.passwords.email');
     }
 
-    public function recoverPasswordPost (Request $request) 
+    public function resetPasswordPost (ResetPasswordRequest $request) 
     {
+        // $this->ClaveUpdate($request->email, 'ABC113355');
 
-        // return redirect()->route('login')->with('after_login', 'Te damos la bienvenida');
+        $response = $this->EnvioNuevaClave($request->email);
+        if ($response['Codigo'] != 0)
+            return back()->withInput()->withErrors(['error' => $response['Msg']]);
+
+        return back()->withInput()->with(['success' => $response['Msg']]);
     }
 }
