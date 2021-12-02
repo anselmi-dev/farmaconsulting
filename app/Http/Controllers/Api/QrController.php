@@ -22,8 +22,6 @@ class QrController extends Controller
     {
         $datosUsuario = $this->RegistraEvento(auth()->user(), $request->code);
 
-        dd($datosUsuario);
-
         return response()->json(['success' => true, 'message' => 'Consulta enviada']);
     }
 }
