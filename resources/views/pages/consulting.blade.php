@@ -4,6 +4,6 @@
 
 @section('content')
     <div>
-        <iframe class="url-content" src="https://www.farmaconsulting.es/dudas/preguntas-farmaceuticos/" title="Farmaconsulting"></iframe>
+        <iframe class="url-content" src="https://www.farmaconsulting.es/dudas/preguntas-farmaceuticos/?pwa=true" title="Farmaconsulting"></iframe>
     </div>
 @endsection

@@ -61,7 +61,7 @@
                 let url_event = "{{ route('landing.event', ['landing' => 'XXREPLACEXX']) }}";
                 if (res.includes("http") || res.includes("HTTP") || res.includes("/")) {
                     window.location = res;
-                    document.getElementById('container-iframe').querySelector('iframe').src = res + '?pwa=true';
+                    document.getElementById('container-iframe').querySelector('iframe').src = res;
                     toggleDivQr();
                 } else {
                     window.location = url_event.replace("XXREPLACEXX", res);

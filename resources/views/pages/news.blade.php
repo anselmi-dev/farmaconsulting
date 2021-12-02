@@ -4,6 +4,6 @@
 
 @section('content')
     <div>
-        <iframe class="url-content" src="https://www.farmaconsulting.es/la-farmacia-en-espana/actualidad/" title="Farmaconsulting"></iframe>
+        <iframe class="url-content" src="https://www.farmaconsulting.es/la-farmacia-en-espana/actualidad/?pwa=true" title="Farmaconsulting"></iframe>
     </div>
 @endsection
