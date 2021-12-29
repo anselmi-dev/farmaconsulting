@@ -24,7 +24,7 @@
                 </div>
                 <div class="margin-bottom--4xlarge px-4">
                     <p class="typography--regular typography--white text-center">
-                        Para acceder a nuestros contenidos personalizados para ti tienes que rellenar estos campos. El código del libro lo puedes encontrar en la página 3 del libro que acabas de recibir.
+                        Para acceder a nuestros contenidos personalizados para tí, tienes que iniciar sesión rellenando los campos de usuario y contraseña.
                     </p>
                 </div>
                 <div class="margin-bottom--4xlarge">
@@ -101,7 +101,7 @@
                             </div>
                         </div>
                         <div class="w-full">
-                            <button class="btn--inactive-primary">ENVIAR</button>
+                            <button class="btn--primary">ENVIAR</button>
                         </div>
                     </form>
                 </div>

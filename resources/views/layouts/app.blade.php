@@ -34,7 +34,7 @@
 <body class="{{ Route::currentRouteName() }}">
 
     <div>
-        
+
         @section('intro')
             @guest
                 @includeIf('layouts.parts.intro')
@@ -61,13 +61,13 @@
     <script>
         const myNotification = window.createNotification({
             showDuration: 3500,
-            positionClass: 'nfc-top-right',
+            positionClass: 'nfc-top-left',
             displayCloseButton: true,
         });
 
         const myNotificationError = window.createNotification({
             showDuration: 3500,
-            positionClass: 'nfc-top-right',
+            positionClass: 'nfc-top-left',
             displayCloseButton: true,
             theme: 'error'
         });

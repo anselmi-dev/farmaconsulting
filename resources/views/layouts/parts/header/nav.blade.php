@@ -98,7 +98,7 @@
                         <div class="nav__link-expanded" x-show="expanded" x-collapse>
                             <div class="options__item">
                                 <div class="options__catalog-number">{{ auth()->user()->catalogue }}</div>
-                                <div class="options__catalog-description">Este es el código de tú libro</div>
+                                <div class="options__catalog-description">Éste es el código de tu libro</div>
                             </div>
                         </div>
                     </li>

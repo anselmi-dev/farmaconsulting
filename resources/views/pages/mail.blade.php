@@ -72,6 +72,7 @@
                     </div>
                     {{-- Providencia --}}
                     <div class="margin-bottom--2xsmall w-full form-group">
+                        <label class="typography--small" for="phone">Provincia</label>
                         <div class="custom-select__container">
                             <div class="line-row-between">
                                 <div class="custom-select__subtitle">
@@ -180,7 +181,7 @@
                     {{-- Status --}}
                     <div class="text-center w-full" id="status-consultation"></div>
                     <div class="w-full">
-                        <button class="btn--inactive-primary">ENVIAR</button>
+                        <button class="btn--primary">ENVIAR</button>
                     </div>
                 </form>
             </div>
@@ -230,7 +231,12 @@
                         message: '^Campo obligatorio',
                     },
                     email: true
-                }
+                },
+                // phone: {
+                //     presence: {
+                //         message: '^Campo obligatorio',
+                //     }
+                // }
             };
             const form = document.querySelector('form[name="demo-form-1"]');
 

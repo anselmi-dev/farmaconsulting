@@ -41,7 +41,7 @@
                             @enderror
                         </div>
                         <div class="w-full margin-bottom--2xlarge">
-                            <button class="btn--inactive-primary">RECUPERAR CONTRASEÑA</button>
+                            <button class="btn--primary">RECUPERAR CONTRASEÑA</button>
                         </div>
 
                         <div class="margin-bottom--2xlarge">

@@ -63,7 +63,7 @@
                                         </p>
                                         <div class="">
                                             <a href="tel:+34900565503">
-                                                <span class="typography--green font-bold">900 565 503</span>
+                                                <span class="typography--green font-bold">900 115 765</span>
                                             </a>
                                         </div>
                                     </div>

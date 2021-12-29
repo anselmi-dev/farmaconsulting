@@ -14,7 +14,8 @@
                 <img src="{{ asset('/images/logos/logo-primary-white.png') }}" alt="logo-white" class="mb-5">
                 <div class="text-primary mx-auto text-2xl text-center font-primery px-3">
                     <h2>
-                        Líderes en compra y venta de farmacias en Espanã
+                        Líderes en compra y venta
+                        de farmacias en España
                     </h2>
                 </div>
             </div>
@@ -24,7 +25,8 @@
                 <img src="{{ asset('/images/logos/logo-primary-white.png') }}" alt="logo-white" class="mb-5">
                 <div class="text-primary mx-auto text-2xl text-center font-primery px-3">
                     <h2>
-                        Más de 3.000 transmisiones de Farmacias
+                        Más de 3.000 transmisiones de
+                        Farmacia
                     </h2>
                 </div>
             </div>
@@ -35,6 +37,7 @@
                 <div class="text-primary mx-auto text-2xl text-center font-primery px-3">
                     <h2>
                         30 Años de Experiencia
+                        dando vida a tus proyectos
                     </h2>
                 </div>
             </div>
@@ -44,7 +47,10 @@
                 <img src="{{ asset('/images/logos/logo-primary-white.png') }}" alt="logo-white" class="mb-5">
                 <div class="text-primary mx-auto text-2xl text-center font-primery px-3">
                     <h2>
-                        Te acompañamos durante todo el processo de Compra de tu Farmacia
+                        Te acompañamos de
+                        principio a fin en
+                        el proceso de venta
+                         o compra de tu Farmacia
                     </h2>
                 </div>
             </div>

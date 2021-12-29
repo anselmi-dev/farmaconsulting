@@ -157,7 +157,7 @@
                 </div>
                 <div class="message-form" id="from-general__status"></div>
                 <div class="w-full">
-                    <button class="btn--inactive-primary">
+                    <button class="btn--primary">
                         {{ __('ENVIAR') }}
                     </button>
                 </div>

@@ -75,7 +75,7 @@
                                             </g>
                                         </svg>
                                     </div>
-                                    <p class="contact-option__title">¿Quieres que te llamemos nosotros?</p>
+                                    <p class="contact-option__title">Nosotros te llamamos</p>
                                 </div>
                                 <div class="contact-option__arrow">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14.012" height="8.25" viewBox="0 0 14.012 8.25">

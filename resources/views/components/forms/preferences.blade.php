@@ -183,7 +183,7 @@
                 }
                 form.classList.remove('loading');
                 status.classList.add("success");
-                status.innerHTML = "Contraseña actualizada";
+                status.innerHTML = "Preferencias actualizadas";
             }
 
             function error() {
