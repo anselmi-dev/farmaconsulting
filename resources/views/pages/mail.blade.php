@@ -198,7 +198,8 @@
                         message: '^Campo obligatorio',
                     },
                     length: {
-                        minimum: 3
+                        minimum: 3,
+                        message: 'El mensaje es demasiado corto (mínimo 3 caracteres)'
                     }
                 },
                 terms: {
