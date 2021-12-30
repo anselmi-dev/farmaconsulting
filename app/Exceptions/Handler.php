@@ -40,8 +40,4 @@ class Handler extends ExceptionHandler
         });
     }
 
-    public function render($request, Throwable $e) {
-        if ($e instanceof ValidationException)
-            return response()->json(['message' => 'Los datos proporcionados son incorrectos', 'errors' => $e->validator->getMessageBag()], 422);
-    }
 }
