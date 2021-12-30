@@ -39,4 +39,19 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    /**
+     * Convert a validation exception into a JSON response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Validation\ValidationException  $exception
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function invalidJson($request, ValidationException $exception)
+    {
+        return response()->json([
+            'message' => __('validation.headermsg'),
+            'errors' => $exception->errors(),
+        ], $exception->status);
+    }
 }
