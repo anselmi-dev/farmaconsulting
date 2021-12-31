@@ -18,7 +18,7 @@
                   </g>
                 </svg>
               </div>
-              <span class="typography--xsmall block text-center w-full text-xs border-t border-gray-100 bg-white">{{ __('Farmaconsulting') }}</span>
+              <span class="typography--xsmall block text-center w-full text-xs border-t--- border-gray-100 bg-white">{{ __('Farmaconsulting') }}</span>
             </a>
         </div>
         <div class="menu__blink {{ request()->routeIs('news*') ? 'active' : 'opacity-50' }}">
@@ -35,7 +35,7 @@
                     </g>
                 </svg>
               </div>
-              <span class="typography--xsmall block text-center w-full text-xs border-t border-gray-100 bg-white">{{__('Noticias')}}</span>
+              <span class="typography--xsmall block text-center w-full text-xs border-t--- border-gray-100 bg-white">{{__('Noticias')}}</span>
             </a>
         </div>
         <div class="menu__blink {{ request()->is('/') ? 'active' : 'opacity-50' }}">
@@ -73,7 +73,7 @@
                     </g>
                 </svg>
               </div>
-              <span class="typography--xsmall block text-center w-full text-xs border-t border-gray-100 bg-white">{{ __('Escaner QR') }}</span>
+              <span class="typography--xsmall block text-center w-full text-xs border-t--- border-gray-100 bg-white">{{ __('Escaner QR') }}</span>
             </a>
         </div>
         <div class="menu__blink {{ request()->routeIs('consulting*') ? 'active' : 'opacity-50' }}">
@@ -91,7 +91,7 @@
                     </g>
                 </svg>
               </div>
-              <span class="typography--xsmall block text-center w-full text-xs border-t border-gray-100 bg-white">{{ __('Farmaconsulting responde') }}</span>
+              <span class="typography--xsmall block text-center w-full text-xs border-t--- border-gray-100 bg-white">{{ __('Farmaconsulting responde') }}</span>
             </a>
         </div>
         <div class="menu__blink {{ request()->routeIs('contact*') ? 'active' : 'opacity-50' }}">
@@ -105,7 +105,7 @@
                     </g>
                 </svg>
               </div>
-              <span class="typography--xsmall block text-center w-full text-xs border-t border-gray-100 bg-white">{{  __('Contacto') }}</span>
+              <span class="typography--xsmall block text-center w-full text-xs border-t--- border-gray-100 bg-white">{{  __('Contacto') }}</span>
             </a>
         </div>
     </div>

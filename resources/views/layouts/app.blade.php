@@ -46,32 +46,25 @@
         @endif
 
         <div>
-            @includeIf('layouts.parts.header.nav')
+            @section('nav')
+                @includeIf('layouts.parts.header.nav')
+            @show
 
             <div class="relative min-h-screen" id="content">
                 @yield('content')
             </div>
 
-            @includeIf('layouts.parts.menu')
+            @auth
+                @includeIf('layouts.parts.menu')
+            @endauth
         </div>
     </div>
 
+    
     <script src="{{ asset(mix('js/app.js')) }}"></script>
-    <script src="{{ asset('plugins/notifications.js') }}"></script>
-    <script>
-        const myNotification = window.createNotification({
-            showDuration: 3500,
-            positionClass: 'nfc-top-left',
-            displayCloseButton: true,
-        });
-
-        const myNotificationError = window.createNotification({
-            showDuration: 3500,
-            positionClass: 'nfc-top-left',
-            displayCloseButton: true,
-            theme: 'error'
-        });
-    </script>
+    
+    @includeIf('layouts.parts.notifications')
+    
     <script>
         const slider = document.querySelectorAll('[toggle-slider]');
         for (let index = 0; index < slider.length; index++) {
@@ -81,7 +74,6 @@
             });
         }
     </script>
-
     <script>
         function handleFormSubmit(form, callback, constraints) {
             var errors = validate(form, constraints);
@@ -166,20 +158,15 @@
                 if (xhr.status === 200) {
                     form.reset();
                     form.classList.remove('loading');
-                    myNotification({
-                        message: xhr.response.message ?? "Mensaje enviado"
-                    });
+                    showNotification(xhr.response.message ?? "Mensaje enviado");
                 } else {
                     form.classList.remove('loading');
-                    myNotificationError({
-                        message: xhr.response.message ?? "Ocurrió un error"
-                    });
+                    showNotification(xhr.response.message ?? "Ocurrió un error", 'error');
                 }
             };
             xhr.send(data);
         }
     </script>
-
     <!-- Scripts -->
     @stack('scripts')
 </body>

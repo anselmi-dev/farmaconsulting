@@ -19,7 +19,8 @@ input {
     height: 55px;
 
     &::placeholder {
-        color: $color-gray;
+        color: $color-gray-light !important;
+        font-weight: 100;
     }
     &:active,
     &:focus {
@@ -30,7 +31,8 @@ textarea {
     resize: none;
 
     &::placeholder {
-        color: $color-gray;
+        color: $color-gray-light !important;
+        font-weight: 100;
     }
     &:active,
     &:focus {

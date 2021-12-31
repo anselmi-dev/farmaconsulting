@@ -36,8 +36,8 @@ class AppController extends Controller
      */
     public function terms ()
     {
-        return \Redirect::to('https://www.farmaconsulting.es/terminos-uso/');
-        // return view('pages.terms');
+        return view('pages.terms');
+        // return \Redirect::to('https://www.farmaconsulting.es/terminos-uso/');
     }
 
     /**

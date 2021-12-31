@@ -24,116 +24,117 @@
                 </p>
             </div>
         </div>
-        <button class="nav__profile" toggle-slider="slider-nav">
-            <svg class="nav__profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 64">
-                <g transform="translate(-0.14 0.407)">
-                    <path d="M27.644,0A27.644,27.644,0,1,1,0,27.644,27.644,27.644,0,0,1,27.644,0Z"
-                        transform="translate(3.785 3.949)" fill="#a2bd30" stroke="#a2bd30" stroke-linecap="round"
-                        stroke-width="2"></path>
-                    <path
-                        d="M32.98,18.7a7.232,7.232,0,0,1-7.9,6.9A7.408,7.408,0,0,1,18.5,18.344V16.289a7.408,7.408,0,0,1,6.582-7.262,7.234,7.234,0,0,1,7.9,6.9Z"
-                        transform="translate(5.688 2.847)" fill="none" stroke="#fff" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2"></path>
-                    <path data-name="Path 2564" d="M48.973,42.072a20.407,20.407,0,0,0-40.269.02"
-                        transform="translate(2.589 7.909)" fill="none" stroke="#fff" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2.273"></path>
-                    <rect data-name="Rectangle 264" width="63" height="64" transform="translate(0.14 -0.407)" fill="none">
-                    </rect>
-                </g>
-            </svg>
-        </button>
+        @auth
+            <button class="nav__profile" toggle-slider="slider-nav">
+                <svg class="nav__profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63 64">
+                    <g transform="translate(-0.14 0.407)">
+                        <path d="M27.644,0A27.644,27.644,0,1,1,0,27.644,27.644,27.644,0,0,1,27.644,0Z"
+                            transform="translate(3.785 3.949)" fill="#a2bd30" stroke="#a2bd30" stroke-linecap="round"
+                            stroke-width="2"></path>
+                        <path
+                            d="M32.98,18.7a7.232,7.232,0,0,1-7.9,6.9A7.408,7.408,0,0,1,18.5,18.344V16.289a7.408,7.408,0,0,1,6.582-7.262,7.234,7.234,0,0,1,7.9,6.9Z"
+                            transform="translate(5.688 2.847)" fill="none" stroke="#fff" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"></path>
+                        <path data-name="Path 2564" d="M48.973,42.072a20.407,20.407,0,0,0-40.269.02"
+                            transform="translate(2.589 7.909)" fill="none" stroke="#fff" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2.273"></path>
+                        <rect data-name="Rectangle 264" width="63" height="64" transform="translate(0.14 -0.407)" fill="none">
+                        </rect>
+                    </g>
+                </svg>
+            </button>
+        @endauth
     </nav>
 
-    <div class="slider" id="slider-nav">
-        <div class="slider__content">
-            <div>
-                <div class="pointer">
-                    <button toggle-slider="slider-nav">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25.414" height="20.828" viewBox="0 0 25.414 20.828">
-                            <g transform="translate(1.414 1.414)">
-                                <g transform="translate(-240.5 -387.5)" style="isolation: isolate">
-                                    <g>
-                                        <line x1="9" y1="9" transform="translate(240.5 396.5)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
-                                        <line x1="9" y2="9" transform="translate(240.5 387.5)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
+    @auth
+        <div class="slider" id="slider-nav">
+            <div class="slider__content">
+                <div>
+                    <div class="pointer">
+                        <button toggle-slider="slider-nav">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25.414" height="20.828" viewBox="0 0 25.414 20.828">
+                                <g transform="translate(1.414 1.414)">
+                                    <g transform="translate(-240.5 -387.5)" style="isolation: isolate">
+                                        <g>
+                                            <line x1="9" y1="9" transform="translate(240.5 396.5)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
+                                            <line x1="9" y2="9" transform="translate(240.5 387.5)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
+                                        </g>
+                                        <line x1="23" transform="translate(240.5 396.5)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
                                     </g>
-                                    <line x1="23" transform="translate(240.5 396.5)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
                                 </g>
-                            </g>
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="modal__header">
-                    @includeIf('layouts.parts.header._my-profile')
-                </div>
-
-                <ul>
-                    <li x-data="{ expanded: false }">
-                        <div @click="expanded = ! expanded">
-                            @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mis datos'), 'icon'
-                            => 'layouts.icons.my-account'])
-                        </div>
-                        <div class="nav__link-expanded" x-show="expanded" x-collapse>
-                            <div class="p-4">
-                                @includeIf('components.forms.my-account')
-                            </div>
-                        </div>
-                    </li>
-                    <li x-data="{ expanded: false }">
-                        <div @click="expanded = ! expanded">
-                            @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mi contraseña'),
-                            'icon' => 'layouts.icons.password'])
-                        </div>
-                        <div class="nav__link-expanded" x-show="expanded" x-collapse>
-                            <div class="p-4">
-                                @includeIf('components.forms.password')
-                            </div>
-                        </div>
-                    </li>
-                    <li x-data="{ expanded: false }">
-                        <div @click="expanded = ! expanded">
-                            @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mi código de
-                            libro'), 'icon' => 'layouts.icons.my-catalogue'])
-                        </div>
-                        <div class="nav__link-expanded" x-show="expanded" x-collapse>
-                            <div class="options__item">
-                                <div class="options__catalog-number">{{ auth()->user()->catalogue }}</div>
-                                <div class="options__catalog-description">Éste es el código de tu libro</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li x-data="{ expanded: false }">
-                        <div @click="expanded = ! expanded">
-                            @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mis preferencias de
-                            compra'), 'icon' => 'layouts.icons.my-preferences'])
-                        </div>
-                        <div class="nav__link-expanded" x-show="expanded" x-collapse>
-                            <div class="p-4">
-                                @includeIf('components.forms.preferences')
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-
-                <div class="text-center mt-10 pb-10">
-                    <div class="margin-bottom--xlarge">
-                        <p class="typography--small">Farmaconsulting App Versión 0.1</p>
-                        <p class="class typography--small">
-                            <a href="{{ route('terms') }}" target="_blank"
-                                class="typography--links">{{ __('Terminos') }}</a>
-                            y
-                            <a href="{{ route('conditions') }}" target="_blank"
-                                class="typography--links">{{ __('Condificones') }}</a>
-                        </p>
+                            </svg>
+                        </button>
                     </div>
-                    <div class="margin-bottom--xlarge">
-                        <img src="{{ asset('images/logos/logo-secondary-gray.png') }}"
-                            alt="Secondary Farmaconsultimg gray logo" class="mx-auto">
+
+                    <div class="modal__header">
+                        @includeIf('layouts.parts.header._my-profile')
+                    </div>
+
+                    <ul  x-data="{ expanded: '' }">
+                        <li>
+                            <div @click="expanded = 'my-account'">
+                                @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mis datos'), 'icon'
+                                => 'layouts.icons.my-account'])
+                            </div>
+                            <div class="nav__link-expanded" x-show="expanded == 'my-account'" x-collapse>
+                                <div class="p-4">
+                                    @includeIf('components.forms.my-account')
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div @click="expanded = 'password'">
+                                @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mi contraseña'),
+                                'icon' => 'layouts.icons.password'])
+                            </div>
+                            <div class="nav__link-expanded" x-show="expanded == 'password'" x-collapse>
+                                <div class="p-4">
+                                    @includeIf('components.forms.password')
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div @click="expanded = 'my-catalogue'">
+                                @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mi código de
+                                libro'), 'icon' => 'layouts.icons.my-catalogue'])
+                            </div>
+                            <div class="nav__link-expanded" x-show="expanded == 'my-catalogue'" x-collapse>
+                                <div class="options__item">
+                                    <div class="options__catalog-number">{{ auth()->user()->catalogue }}</div>
+                                    <div class="options__catalog-description">Éste es el código de tu libro</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div @click="expanded = 'my-preferences'">
+                                @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mis preferencias de
+                                compra'), 'icon' => 'layouts.icons.my-preferences'])
+                            </div>
+                            <div class="nav__link-expanded" x-show="expanded == 'my-preferences'" x-collapse>
+                                <div class="p-4">
+                                    @includeIf('components.forms.preferences')
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="text-center mt-10 pb-10">
+                        <div class="margin-bottom--xlarge">
+                            <p class="typography--small">Farmaconsulting App Versión 0.1</p>
+                            <p class="class typography--small">
+                                <a href="{{ route('terms') }}" class="typography--links">{{ __('Términos de uso') }}</a> y 
+                                <a href="{{ route('politica-privacidad') }}" class="typography--links">{{ __('Política de Privacidad') }}</a>
+                            </p>
+                        </div>
+                        <div class="margin-bottom--xlarge">
+                            <img src="{{ asset('images/logos/logo-secondary-gray.png') }}"
+                                alt="Secondary Farmaconsultimg gray logo" class="mx-auto">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endauth
 </div>
 @push('scripts')
 
