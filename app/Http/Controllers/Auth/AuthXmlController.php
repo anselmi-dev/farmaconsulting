@@ -101,12 +101,12 @@ class AuthXmlController extends Controller
         return User::create($data);
     }
 
-    public function resetPassword (Request $request) 
+    public function resetPassword (Request $request)
     {
         return view('auth.passwords.email');
     }
 
-    public function resetPasswordPost (ResetPasswordRequest $request) 
+    public function resetPasswordPost (ResetPasswordRequest $request)
     {
         // $this->ClaveUpdate($request->email, 'ABC113355');
         // $this->ClaveUpdate('ismael@martinezgomez.es', 'ABC113355');
@@ -115,6 +115,6 @@ class AuthXmlController extends Controller
         if ($response['Codigo'] != 0)
             return back()->withInput()->withErrors(['error' => $response['Msg']]);
 
-        return back()->withInput()->with(['success' => $response['Msg']]);
+        return redirect()->route('login')->withInput()->with(['success' => $response['Msg']]);
     }
 }
