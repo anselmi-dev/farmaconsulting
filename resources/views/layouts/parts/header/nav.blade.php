@@ -135,3 +135,12 @@
         </div>
     </div>
 </div>
+@push('scripts')
+
+<script>
+    function prueba(el) {
+        console.log(el.parent);
+    }
+</script>
+
+@endpush

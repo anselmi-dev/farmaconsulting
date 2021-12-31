@@ -76,16 +76,16 @@
                                             <path d="M248.916,250.037l3.419-3.945L246.5,240.5" transform="translate(251.448 -245.085) rotate(90)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                                           </svg>
                                     </span>
-                                    <span class="typography--white">Guardar datos para futuros inicios de sesión</span>
+                                    <span class="typography--white">Recordar los datos en este dispositivo</span>
                                 </label>
                             </div>
                         </div>
                         <div class="margin-bottom--large">
                             <div class="line-col-center">
-                                <div class="margin-bottom--small text-center">
+                                {{-- <div class="margin-bottom--small text-center">
                                     <span class="typography--white">Registrándote en esta app aceptas nuestros</span><br />
                                     <a href="https://www.farmaconsulting.es/politica-privacidad/" target="_blank" class="typography--links">Términos y Condiciones</a>
-                                </div>
+                                </div> --}}
                                 <div class="line-row">
                                     <label for="terms" class="custom-checkbox__container">
                                         <input type="checkbox" name="terms" required {{ old('terms') ? 'checked' : NULL }}>
@@ -95,8 +95,9 @@
                                                     <path d="M248.916,250.037l3.419-3.945L246.5,240.5" transform="translate(251.448 -245.085) rotate(90)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                                                 </svg>
                                             </span>
-                                            <span class="typography--white">he leído y acepto</span>
+                                            <span class="typography--white">He leído y acepto</span>&nbsp;
                                     </label>
+                                    <a href="https://www.farmaconsulting.es/politica-privacidad/" target="_blank" class="typography--links">Términos y Condiciones</a>
                                 </div>
                             </div>
                         </div>

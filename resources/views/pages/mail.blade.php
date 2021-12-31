@@ -46,14 +46,14 @@
                     <div class="margin-bottom--2xsmall w-full form-group">
                         <label class="typography--small" for="name">Nombre</label>
                         <input class="mt-1" type="text" name="name"
-                            value="{{ auth()->user()->name }}" placeholder="Nombre auto completado" readonly>
+                            value="{{ auth()->user()->name }}" placeholder="Nombre auto completado">
                         <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
                     {{-- Lastaname --}}
                     <div class="margin-bottom--2xsmall w-full form-group">
                         <label class="typography--small" for="lastname">Apellidos</label>
                         <input class="mt-1" type="text" name="lastname"
-                            value="{{ auth()->user()->lastname }}" placeholder="Apellidos auto completados" readonly>
+                            value="{{ auth()->user()->lastname }}" placeholder="Apellidos auto completados">
                         <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
                     {{-- Email --}}
@@ -67,7 +67,7 @@
                     <div class="margin-bottom--2xsmall w-full form-group">
                         <label class="typography--small" for="phone">Teléfono móvil</label>
                         <input data-rule="required" class="mt-1" type="number" name="phone"
-                            value="{{ auth()->user()->phone }}" placeholder="Móvil auto completado" readonly>
+                            value="{{ auth()->user()->phone }}" placeholder="Móvil auto completado">
                         <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
                     {{-- Providencia --}}

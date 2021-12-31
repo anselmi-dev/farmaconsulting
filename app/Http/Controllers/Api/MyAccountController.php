@@ -42,25 +42,37 @@ class MyAccountController extends Controller
     {
         $fc_provincias = NULL;
 
-        foreach ($request->fc_provincias as $province) {
-            if (is_null($fc_provincias))
-                $fc_provincias = '-' . $province . '-';
-            else
-                $fc_provincias = $fc_provincias . $province . '-';
+        if(!empty($request->fc_provincias)) {
+            foreach ($request->fc_provincias as $province) {
+                if (is_null($fc_provincias))
+                    $fc_provincias = '-' . $province . '-';
+                else
+                    $fc_provincias = $fc_provincias . $province . '-';
+            }
         }
 
         $fc_facturacion = NULL;
 
-        foreach ($request->fc_facturacion as $facturacion) {
-            if (is_null($fc_facturacion))
-                $fc_facturacion = '-' . $facturacion . '-';
-            else
-                $fc_facturacion = $fc_facturacion . $facturacion . '-';
+        if (!empty($request->fc_facturacion)) {
+            foreach ($request->fc_facturacion as $facturacion) {
+                if (is_null($fc_facturacion))
+                    $fc_facturacion = '-' . $facturacion . '-';
+                else
+                    $fc_facturacion = $fc_facturacion . $facturacion . '-';
+            }
+        }
+
+        $inversor = null;
+
+        if(empty($request->fc_facturacion) && empty($request->fc_provincias)) {
+            $inversor = 0;
+        } else {
+            $inversor = 1;
         }
 
         $user = auth()->user();
 
-        $user->inversor = $request->inversor;
+        $user->inversor = $inversor;
 
         $user->fc_facturacion = $fc_facturacion;
 
@@ -104,7 +116,7 @@ class MyAccountController extends Controller
         }
 
         auth()->user()->password = \Hash::make($request->actual_password);
-        
+
         auth()->user()->save();
 
         // if($request->ajax())
