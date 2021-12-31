@@ -21,11 +21,13 @@ Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logou
 Route::get('/login/recuperar', [App\Http\Controllers\Auth\AuthXmlController::class, 'resetPassword'])->name('reset-password.index');
 Route::post('/login/recuperar', [App\Http\Controllers\Auth\AuthXmlController::class, 'resetPasswordPost'])->name('reset-password.post');
 
+Route::view('/terminos-y-condificones', 'pages.terms')->name('terms');
+
 Route::middleware('auth')->group(function () {
     Route::view('/', 'pages.home')->name('home');
-
+    
+    // Route::get('/terms', [App\Http\Controllers\AppController::class, 'terms'])->name('terms');
     Route::get('/conditions', [App\Http\Controllers\AppController::class, 'conditions'])->name('conditions');
-    Route::get('/terms', [App\Http\Controllers\AppController::class, 'terms'])->name('terms');
     Route::get('/noticias', [App\Http\Controllers\AppController::class, 'news'])->name('news');
     Route::get('/faqs', [App\Http\Controllers\AppController::class, 'faqs'])->name('faqs');
     Route::get('/contacto', [App\Http\Controllers\AppController::class, 'contact'])->name('contact');

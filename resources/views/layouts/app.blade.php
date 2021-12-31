@@ -46,13 +46,17 @@
         @endif
 
         <div>
-            @includeIf('layouts.parts.header.nav')
+            @section('nav')
+                @includeIf('layouts.parts.header.nav')
+            @show
 
             <div class="relative min-h-screen" id="content">
                 @yield('content')
             </div>
 
-            @includeIf('layouts.parts.menu')
+            @auth
+                @includeIf('layouts.parts.menu')
+            @endauth
         </div>
     </div>
 
@@ -81,7 +85,6 @@
             });
         }
     </script>
-
     <script>
         function handleFormSubmit(form, callback, constraints) {
             var errors = validate(form, constraints);

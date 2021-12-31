@@ -86,9 +86,9 @@
                                     <span class="typography--white">Registrándote en esta app aceptas nuestros</span><br />
                                     <a href="https://www.farmaconsulting.es/politica-privacidad/" target="_blank" class="typography--links">Términos y Condiciones</a>
                                 </div> --}}
-                                <div class="line-row">
+                                <div class="line-row flex-wrap">
                                     <label for="terms" class="custom-checkbox__container">
-                                        <input type="checkbox" name="terms" required {{ old('terms') ? 'checked' : NULL }}>
+                                        <input type="checkbox" name="terms" class="mb-0" required {{ old('terms') ? 'checked' : NULL }}>
                                             <span class="custom-checkbox__item"></span>
                                             <span class="custom-checkbox__check">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25" viewBox="0 0 12.362 8.25">
@@ -97,7 +97,7 @@
                                             </span>
                                             <span class="typography--white">He leído y acepto</span>&nbsp;
                                     </label>
-                                    <a href="https://www.farmaconsulting.es/politica-privacidad/" target="_blank" class="typography--links">Términos y Condiciones</a>
+                                    <a href="{{ route('terms') }}" class="typography--links">Términos y Condiciones</a>
                                 </div>
                             </div>
                         </div>
