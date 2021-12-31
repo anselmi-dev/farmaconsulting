@@ -96,7 +96,7 @@
                                             </a>
                                         </div>
                                         <div class="">
-                                            <a href="{{ route('contact.mail') }}">
+                                            <a href="{{ route('contact.appointment', ['oficina' => 'VITORIA']) }}">
                                                 <span class="typography--green font-bold">Pide tu cita ahora</span>
                                             </a>
                                         </div>
@@ -153,7 +153,7 @@
                                             </a>
                                         </div>
                                         <div class="">
-                                            <a href="{{ route('contact.mail') }}">
+                                            <a href="{{ route('contact.appointment', ['oficina' => 'BARCELONA']) }}">
                                                 <span class="typography--green font-bold">Pide tu cita ahora</span>
                                             </a>
                                         </div>
@@ -211,7 +211,7 @@
                                             </a>
                                         </div>
                                         <div class="">
-                                            <a href="{{ route('contact.mail') }}">
+                                            <a href="{{ route('contact.appointment', ['oficina' => 'VALENCIA']) }}">
                                                 <span class="typography--green font-bold">Pide tu cita ahora</span>
                                             </a>
                                         </div>
@@ -268,7 +268,7 @@
                                             </a>
                                         </div>
                                         <div class="">
-                                            <a href="{{ route('contact.mail') }}">
+                                            <a href="{{ route('contact.appointment', ['oficina' => 'MADRID']) }}">
                                                 <span class="typography--green font-bold">Pide tu cita ahora</span>
                                             </a>
                                         </div>
@@ -326,7 +326,7 @@
                                             </a>
                                         </div>
                                         <div class="">
-                                            <a href="{{ route('contact.mail') }}">
+                                            <a href="{{ route('contact.appointment', ['oficina' => 'CORUÑA']) }}">
                                                 <span class="typography--green font-bold">Pide tu cita ahora</span>
                                             </a>
                                         </div>
@@ -383,7 +383,7 @@
                                             </a>
                                         </div>
                                         <div class="">
-                                            <a href="{{ route('contact.mail') }}">
+                                            <a href="{{ route('contact.appointment', ['oficina' => 'ZARAGOZA']) }}">
                                                 <span class="typography--green font-bold">Pide tu cita ahora</span>
                                             </a>
                                         </div>

@@ -34,7 +34,7 @@
             </div>
             <div class="text-center">
                 <div class="margin-bottom--xlarge">
-                    <h2 class="typography--green">¿Quieres que te llamemos nosotros?</h2>
+                    <h2 class="typography--green">Concertar reunión en oficinas de {{ $oficina }}</h2>
                 </div>
                 <div class="">
                     <p>Nos pondremos en contacto contigo lo antes posible para asesorarte acerca de la compra o venta de farmacias en España o de cualquier tema relacionado con la gestión patrimonial de tu farmacia.</p>
@@ -44,8 +44,11 @@
     </div>
     <div class="wrapper">
         <div class="margin-bottom--4xlarge">
-            <form method="POST" action="{{ route('contact-general') }}" name="form-general" class="line-col-center callback-form">
+            <form method="POST" action="{{ route('contact-appointment') }}" name="form-appointment" class="line-col-center callback-form">
                 @csrf
+                {{-- Office --}}
+                <input type="hidden" name="office" value="{{ $oficina }}">
+                <input type="hidden" name="email" value="{{ auth()->user()->email }}">
                 {{-- Name --}}
                 <div class="margin-bottom--2xsmall w-full form-group">
                     <label class="typography--small" for="name">Nombre</label>
@@ -62,6 +65,13 @@
                 <div class="margin-bottom--2xsmall w-full form-group">
                     <label class="typography--small" for="phone">Teléfono móvil</label>
                     <input class="mt-1 field--active" type="number" name="phone" value="{{ auth()->user()->phone }}" readonly>
+                    <p class="typography--small form-group-messages text-red-600 pl-5"></p>
+                </div>
+
+                {{-- Appointment Date --}}
+                <div class="margin-bottom--2xsmall w-full form-group">
+                    <label class="typography--small" for="appointment_date">Fecha de la cita</label>
+                    <input class="mt-1 field--active" type="date" name="appointment_date" value="">
                     <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
                 {{-- Franja horaria --}}
@@ -126,7 +136,7 @@
                 {{-- Message --}}
                 <div class="margin-bottom--medium w-full form-group">
                     <label for="message" class="typography--small">
-                        {{ __('Tu consulta') }}
+                        {{ __('Información adicional') }}
                     </label>
                     <textarea class="mt-1" name="message" cols="30" rows="8" placeholder="Cómo podemos ayudarte..."></textarea>
                     <p class="typography--small form-group-messages text-red-600 pl-5"></p>
@@ -198,9 +208,14 @@
                     presence: {
                         message: '^Campo obligatorio',
                     },
+                },
+                appointment_date: {
+                    presence: {
+                        message: '^Campo obligatorio',
+                    },
                 }
             };
-            const form = document.querySelector('form[name="form-general"]');
+            const form = document.querySelector('form[name="form-appointment"]');
 
             form.addEventListener("submit", function(ev) {
                 ev.preventDefault();

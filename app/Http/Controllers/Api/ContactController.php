@@ -72,4 +72,32 @@ class ContactController extends Controller
 
         return response()->json(['success' => true, 'message' => 'Consulta enviada']);
     }
+
+    public function appointment_create(Request $request, $oficina) {
+        return view('pages.appointment', compact('oficina'));
+    }
+
+    public function appointment(Request $request) {
+        $request->validate([
+            'name'        => 'required|min:2',
+            'lastname'    => 'required|min:2',
+            'phone'       => 'required',
+            'message'     => 'required',
+            'timezone'    => 'required',
+            'appointment_date' => 'required',
+            'office' => 'required'
+        ]);
+
+        try {
+            $contact = Contact::create($request->all());
+            $contact->type = 3;
+            $contact->save();
+        } catch (\Throwable $th) {
+            logger('Error al registrar una consulta. MODEL:CONTACT');
+        }
+
+        Mail::to('carlosanselmi2@gmail.com')->send(new ConsultationMail($contact));
+
+        return response()->json(['success' => true, 'message' => 'Cita concertada']);
+    }
 }
