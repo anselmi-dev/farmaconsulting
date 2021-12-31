@@ -72,11 +72,11 @@
                     </div>
                     {{-- Providencia --}}
                     <div class="margin-bottom--2xsmall w-full form-group">
-                        <label class="typography--small" for="phone">Provincia</label>
+                        <label class="typography--small" for="province">Provincia</label>
                         <div class="custom-select__container">
                             <div class="line-row-between">
                                 <div class="custom-select__subtitle">
-                                    <p class="typography--dark-green">
+                                    <p class="typography--dark-green" id="province_label">
                                         {{ __('Provincia') }}
                                     </p>
                                 </div>
@@ -105,7 +105,7 @@
                                                 {{ $province->name }}
                                             </span>
                                             <input type="radio" name="province" id="province_{{ $province->id }}"
-                                                value="{{ $province->id }}" class="custom-select__option-input">
+                                                value="{{ $province->id }}" class="custom-select__option-input" onclick="changeLabel({{ json_encode($province->name) }}, true)">
                                             <span class="custom-select__option-check">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25"
                                                     viewBox="0 0 12.362 8.25">
@@ -170,7 +170,7 @@
                                     </svg>
                                 </span>
                                 <span class="typography--small">He leído y acepto los
-                                    <a href="{{ route('terms') }}" class="typography--links">Términos de uso</a> y 
+                                    <a href="{{ route('terms') }}" class="typography--links">Términos de uso</a> y
                                     <a href="{{ route('politica-privacidad') }}" class="typography--links">Política de Privacidad</a>
                                 </span>
                             </label>
@@ -254,5 +254,10 @@
                 });
             }
         })();
+
+        function changeLabel(nombre) {
+            var label = nombre.toUpperCase();
+            document.getElementById('province_label').innerHTML = label;
+        }
     </script>
 @endpush
