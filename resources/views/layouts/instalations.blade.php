@@ -40,21 +40,22 @@
             </div>
         </div>
     </div>
+
     <footer class="landings__footer">
         <div class="line-col">
             <div class="margin-bottom--xlarge">
-            <p class="typography--medium text-center">Farmaconsulting App Versión 0.1</p>
-            <p class="typography--medium text-center">
-                <a href="{{ route('terms') }}" target="_blank" class="typography--links">Terminos</a>
-                y 
-                <a href="{{ route('conditions') }}" target="_blank" class="typography--links">Condiciones</a>
-            </p>
+                <p class="typography--medium text-center">Farmaconsulting App Versión 0.1</p>
+                <p class="typography--medium text-center">
+                    <a href="{{ route('terms') }}" class="typography--links">Términos de uso</a> y 
+                    <a href="{{ route('politica-privacidad') }}" class="typography--links">Política de Privacidad</a>
+                </p>
             </div>
             <div class="margin-bottom--xlarge">
-            <img src="{{ asset('/images/logos/logo-secondary-gray.png') }}" alt="Secondary Farmaconsultimg gray logo" class="mx-auto">
+                <img src="{{ asset('/images/logos/logo-secondary-gray.png') }}" alt="Secondary Farmaconsultimg gray logo" class="mx-auto">
             </div>
         </div>
     </footer>
+
     <!-- Scripts -->
     <script>
         window.animationFunction = function (classBase, classeActive) {
@@ -72,7 +73,7 @@
         animationFunction('.landings-option-number__txt', 'landings-option-number__txt--active');
         animationFunction('.landings-option__img', 'landings-option__img--active');
     </script>
+
     @stack('scripts')
-    
 </body>
 </html>

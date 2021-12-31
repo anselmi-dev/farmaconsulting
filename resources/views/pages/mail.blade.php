@@ -169,11 +169,10 @@
                                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                     </svg>
                                 </span>
-                                <span class="typography--small">He leído y acepto los <a
-                                        href="https://www.farmaconsulting.es/terminos-uso/" target="_blank"
-                                        class="typography--links">Términos de uso</a> y <a
-                                        href="https://www.farmaconsulting.es/politica-privacidad/" target="_blank"
-                                        class="typography--links">Política de Privacidad</a></span>
+                                <span class="typography--small">He leído y acepto los
+                                    <a href="{{ route('terms') }}" class="typography--links">Términos de uso</a> y 
+                                    <a href="{{ route('politica-privacidad') }}" class="typography--links">Política de Privacidad</a>
+                                </span>
                             </label>
                         </div>
                         <p class="typography--small form-group-messages text-red-600 pl-5"></p>

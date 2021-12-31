@@ -22,6 +22,7 @@ Route::get('/login/recuperar', [App\Http\Controllers\Auth\AuthXmlController::cla
 Route::post('/login/recuperar', [App\Http\Controllers\Auth\AuthXmlController::class, 'resetPasswordPost'])->name('reset-password.post');
 
 Route::view('/terminos-y-condificones', 'pages.terms')->name('terms');
+Route::view('/politica-privacidad', 'pages.politica-privacidad')->name('politica-privacidad');
 
 Route::middleware('auth')->group(function () {
     Route::view('/', 'pages.home')->name('home');

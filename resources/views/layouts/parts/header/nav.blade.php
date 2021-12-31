@@ -122,11 +122,8 @@
                         <div class="margin-bottom--xlarge">
                             <p class="typography--small">Farmaconsulting App Versión 0.1</p>
                             <p class="class typography--small">
-                                <a href="{{ route('terms') }}" target="_blank"
-                                    class="typography--links">{{ __('Terminos') }}</a>
-                                y
-                                <a href="{{ route('conditions') }}" target="_blank"
-                                    class="typography--links">{{ __('Condificones') }}</a>
+                                <a href="{{ route('terms') }}" class="typography--links">{{ __('Términos de uso') }}</a> y 
+                                <a href="{{ route('politica-privacidad') }}" class="typography--links">{{ __('Política de Privacidad') }}</a>
                             </p>
                         </div>
                         <div class="margin-bottom--xlarge">
