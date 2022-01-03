@@ -87,7 +87,7 @@
                                     <a href="https://www.farmaconsulting.es/politica-privacidad/" target="_blank" class="typography--links">Términos y Condiciones</a>
                                 </div> --}}
                                 <div class="line-row flex-wrap">
-                                    <label for="terms" class="custom-checkbox__container">
+                                    <label for="terms" class="custom-checkbox__container mb-0">
                                         <input type="checkbox" name="terms" class="mb-0" required {{ old('terms') ? 'checked' : NULL }}>
                                             <span class="custom-checkbox__item"></span>
                                             <span class="custom-checkbox__check">
