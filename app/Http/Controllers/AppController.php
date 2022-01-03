@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Traits\ApiFarmaconsulting;
+use Illuminate\Support\Facades\Mail;
 
 class AppController extends Controller
 {
@@ -99,6 +100,32 @@ class AppController extends Controller
     public function news ()
     {
         return view('pages.news');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function valoracion ()
+    {
+        return view('pages.valoracion-y-sugerencias');
+    }
+
+    public function valoracionPost (Request $request)
+    {
+        $user = \Auth::user();
+        
+        $opinion = \App\Models\Opinion::create([
+            'name' => $user->name,
+            'email' => $user->email,
+            'option' => $request->option,
+            'message' => $request->message,
+        ]);
+
+        Mail::to('carlosanselmi2@gmail.com')->send(new \App\Mail\VarolacionMail($opinion));
+
+        return response()->json(['success' => true, 'message' => 'Gracias por tu opinión']);
     }
 
     /**

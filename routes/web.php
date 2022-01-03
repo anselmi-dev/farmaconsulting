@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/contacto', [App\Http\Controllers\AppController::class, 'contact'])->name('contact');
     Route::get('/farmaconsulting-responde', [App\Http\Controllers\AppController::class, 'consulting'])->name('consulting');
     Route::get('/farmaconsulting', [App\Http\Controllers\AppController::class, 'farmaconsulting'])->name('farmaconsulting');
+    Route::get('/valoracion-y-sugerencias', [App\Http\Controllers\AppController::class, 'valoracion'])->name('valoracion');
+    Route::post('/valoracion-y-sugerencias', [App\Http\Controllers\AppController::class, 'valoracionPost'])->name('valoracion.post');
 
     Route::get('/code/{landing}', [App\Http\Controllers\AppController::class, 'landing'])->name('landing');
     Route::get('/code/{landing}/event', [App\Http\Controllers\AppController::class, 'landingEvent'])->name('landing.event');
