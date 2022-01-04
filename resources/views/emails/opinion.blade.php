@@ -1,20 +1,18 @@
 @component('mail::message')
 # Opinión desde Farmaconsulting
 
-Nombre: <b>{{ $opinion->name }}</b> <br>
-Email: <b>{{ $opinion->email }}</b> <br>
+@if ($opinion->option == 1)
+## <b>{{ $opinion->name }} ({{ $opinion->email }}) </b> {{ __('Le gusta la página') }}
+@elseif ($opinion->option == 2)
+## <b>{{ $opinion->name }} ({{ $opinion->email }}) </b> {!! 'No le gusta la página' !!}
+@elseif ($opinion->option == 3)
+## <b>{{ $opinion->name }} ({{ $opinion->email }}) </b> {!! 'Dió una opinión:' !!}  
+@endif
 
-@switch($opinion->option)
-    @case(1)
-        <b>Le gusta la página</b>
-        @break
-    @case(2)
-        <b>No le gusta la página</b>
-        @break
-    @default
-        {!! 'Dió una opinión:' !!}
-        {!! $opinion->message !!}
-@endswitch
+## {!! $opinion->message !!}
+
+<br>
+<br>
 
 {{ config('app.name') }}
 @endcomponent

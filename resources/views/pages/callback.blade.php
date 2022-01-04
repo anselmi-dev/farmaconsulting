@@ -61,7 +61,7 @@
                 {{-- Phone --}}
                 <div class="margin-bottom--2xsmall w-full form-group">
                     <label class="typography--small" for="phone">Teléfono móvil</label>
-                    <input class="mt-1 field--active" type="number" name="phone" value="{{ auth()->user()->phone }}" readonly>
+                    <input class="mt-1 field--active" type="text" name="phone" value="{{ auth()->user()->phone }}" readonly>
                     <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
                 {{-- Franja horaria --}}
@@ -72,54 +72,61 @@
                     <div class="custom-select__selected">
                         <span class="typography--green">09:00 - 13:00</span>
                     </div>
-                    <div class="custom-select__container">
-                        <div class="line-row-between">
-                            <div class="custom-select__subtitle">
-                                <p class="typography--dark-green">Preferencia de franja horaria</p>
-                            </div>
-                            <div class="custom-select__arrow">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14.012" height="8.25"
-                                    viewBox="0 0 14.012 8.25">
-                                    <path d="M246.5,251.685l5.836-5.592L246.5,240.5"
-                                        transform="translate(253.099 -245.085) rotate(90)" fill="none"
-                                        stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" />
-                                </svg>
+                    <div class="container-event-custom-select">
+                        <div class="custom-select__container">
+                            <div class="line-row-between gap-2">
+                                <div class="custom-select__subtitle truncate">
+                                    <p class="typography--dark-green" id="timezone_label" default="{{ __('Preferencia de franja horaria') }}">
+                                        Preferencia de franja horaria
+                                    </p>
+                                </div>
+                                <div class="custom-select__arrow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14.012" height="8.25"
+                                        viewBox="0 0 14.012 8.25">
+                                        <path d="M246.5,251.685l5.836-5.592L246.5,240.5"
+                                            transform="translate(253.099 -245.085) rotate(90)" fill="none"
+                                            stroke="#e8e8e8" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" />
+                                    </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="custom-select__options-container">
-                        <div class="custom-select__options-subtitle">
-                            <p class="typography--small">Selecciona la franja horaria que te interese</p>
+                        <div class="custom-select__options-container">
+                            <div class="custom-select__options-subtitle">
+                                <p class="typography--small">
+                                    {{ __('Selecciona la franja horaria que te interese') }}
+                                </p>
+                            </div>
+                            @php
+                                $timezones = [0 => '08:30 - 11:00', 1 => '11:00 - 14:00', 2 => '14:00 - 16:00', 3 => '16:00 - 19:00'];
+                            @endphp
+                            <ul>
+                                @foreach ($timezones as $key => $timezone)
+                                    <li>
+                                        <label for="timezone_{{ $key }}" class="custom-select__option">
+                                            <span class="uppercase">{{ $timezone }}</span>
+                                            <input
+                                                type="radio"
+                                                name="timezone"
+                                                id="timezone_{{ $key }}"
+                                                label="{{ $timezone }}"
+                                                value="{{ $key }}"
+                                                class="custom-select__option-input">
+                                            <span class="custom-select__option-check">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.362"
+                                                height="8.25" viewBox="0 0 12.362 8.25">
+                                                    <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
+                                                    transform="translate(251.448 -245.085) rotate(90)"
+                                                        fill="none" stroke="#a2bd30"
+                                                        stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"></path>
+                                                </svg>
+                                            </span>
+                                        </label>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
-                        @php
-                            $timezones = [0 => '08:30 - 11:00', 1 => '11:00 - 14:00', 2 => '14:00 - 16:00', 3 => '16:00 - 19:00'];
-                        @endphp
-                        <ul>
-                            @foreach ($timezones as $key => $timezone)
-                                <li>
-                                    <label for="timezone_{{ $key }}" class="custom-select__option">
-                                        <span class="uppercase">{{ $timezone }}</span>
-                                        <input
-                                            type="checkbox"
-                                            name="timezone"
-                                            id="timezone_{{ $key }}"
-                                            value="{{ $key }}"
-                                            class="custom-select__option-input">
-                                        <span class="custom-select__option-check">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="12.362"
-                                            height="8.25" viewBox="0 0 12.362 8.25">
-                                                <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
-                                                transform="translate(251.448 -245.085) rotate(90)"
-                                                    fill="none" stroke="#a2bd30"
-                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                    stroke-width="2"></path>
-                                            </svg>
-                                        </span>
-                                    </label>
-                                </li>
-                            @endforeach
-                        </ul>
                     </div>
                     <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
@@ -215,5 +222,7 @@
                 });
             }
         })();
+        
+        selectorChangeLabel ('timezone_label', 'timezone');
     </script>
 @endpush

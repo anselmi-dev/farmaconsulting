@@ -29,8 +29,8 @@
             </div>
             <div>
                 <div class="custom-select__container">
-                    <div class="line-row-between">
-                        <div class="custom-select__subtitle">
+                    <div class="line-row-between gap-2">
+                        <div class="custom-select__subtitle truncate">
                             <p class="typography--dark-green">
                                 {{ __('Preferencia de provincias') }}
                             </p>
@@ -46,9 +46,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="custom-select__options-container">
+                <div class="custom-select__options-container pt-0">
                     <div class="custom-select__options-subtitle">
-                        <p class="typography--small">
+                        <p class="typography--small" id="fc_provincias" default="{{ __('Selecciona las provincias que te interesen') }}">
                             {{ __('Selecciona las provincias que te interesen') }}
                         </p>
                     </div>
@@ -67,6 +67,7 @@
                                         name="fc_provincias[]"
                                         id="fc_provincias_{{ $province->id }}"
                                         value="{{ $province->id }}"
+                                        label="{{ $province->name }}"
                                         {{ in_array($province->id, $old_provincias) ? 'checked' : NULL }}
                                         class="custom-select__option-input">
                                     <span class="custom-select__option-check">
@@ -88,10 +89,12 @@
         </div>
         <div class="options__item">
             <div class="margin-bottom--2xsmall">
-                <p class="typography--small">Preferencia de facturación</p>
+                <p class="typography--small">
+                    {{ __('Preferencia de facturación') }}
+                </p>
             </div>
             <div class="custom-select__selected">
-                <span class="typography--green">Uno, Dos</span>
+                <span class="typography--green"></span>
             </div>
             <div>
                 <div class="custom-select__container">
@@ -111,6 +114,11 @@
                     </div>
                 </div>
                 <div class="custom-select__options-container">
+                    <div class="custom-select__options-subtitle">
+                        <p class="typography--small" id="fc_facturacion" default="{{ __('Selecciona los tramos') }}">
+                            {{ __('Selecciona los tramos') }}
+                        </p>
+                    </div>
                     @php
                         $facturacions = [
                             'A' => 'hasta 150.00 €',
@@ -134,6 +142,7 @@
                                         name="fc_facturacion[]"
                                         id="fc_facturacion_{{ $key }}"
                                         value="{{ $key }}"
+                                        label="{{ $factura }}"
                                         {{ strpos($old_facturacions, $key) ? 'checked' : NULL }}
                                         class="custom-select__option-input">
                                     <span class="custom-select__option-check">
@@ -166,7 +175,6 @@
             // get the form elements defined in your form HTML above
 
             var form = document.getElementById("form-preferences");
-            var status = document.getElementById("status-preferences");
 
             // Success and Error functions for after the form is submitted
             function success(response, responseType) {
@@ -176,24 +184,17 @@
                     console.error(error);
                 }
                 form.classList.remove('loading');
-                status.classList.add("success");
-                status.innerHTML = "Preferencias actualizadas";
+                showNotification("Preferencias actualizadas");
             }
 
             function error() {
-                form.classList.remove('loading');
-                status.classList.add("error");
-                status.innerHTML = "¡UPS! Hay un problema.";
+                form.classList.remove('loading')
+                showNotification("¡UPS! Hay un problema.", 'error');
             }
 
             // handle the form submission event
             form.addEventListener("submit", function (ev) {
                 ev.preventDefault();
-                status.innerHTML = "";
-                try {
-                    status.classList.remove("error");
-                    status.classList.remove("success");
-                } catch (error) {}
                 var data = new FormData(form);
                 form.classList.add('loading');
                 ajax(form.method, form.action, data, success, error);
@@ -217,5 +218,7 @@
             xhr.send(data);
         }
 
+        selectorChangeLabel ('fc_facturacion', 'fc_facturacion[]');
+        selectorChangeLabel ('fc_provincias', 'fc_provincias[]');
     </script>
 @endpush

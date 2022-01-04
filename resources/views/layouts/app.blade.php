@@ -185,38 +185,54 @@
             xhr.send(data);
         }
     </script>
+
+    <script>
+        function selectorChangeLabel (id_label, name_input) {
+            let inputs = document.querySelectorAll('input[name="'+name_input+'"]');
+            inputs.forEach(element => {
+                element.addEventListener('change', function () {
+                    let checkeds = document.querySelectorAll('input[name="'+name_input+'"]:checked');
+                    let element_label = document.getElementById(id_label);
+                    let label_default = null;
+                    if (checkeds.length > 0) {
+                        for (let index = 0; index < checkeds.length; index++) {
+                            const checked = checkeds[index];
+                            label_default = label_default ? label_default + ', ' + checked.getAttribute('label') : checked.getAttribute('label');
+                        }
+                    }
+                    if (label_default) {
+                        element_label.innerHTML = label_default;
+                    } else {
+                        element_label.innerHTML = element_label.getAttribute('default');
+                    }
+
+                    console.log('checkeds_count')
+                    let checkeds_count = document.getElementById(id_label + '_count')
+                    if (checkeds_count) {
+                        checkeds_count.innerHTML = checkeds.length > 0 ? "("+checkeds.length+")" : null;
+                    }
+                });
+            });
+            
+            let checkeds = document.querySelectorAll('input[name="'+name_input+'"]:checked');
+            let element_label = document.getElementById(id_label);
+            let label_default = null;
+            if (checkeds.length > 0) {
+                for (let index = 0; index < checkeds.length; index++) {
+                    const checked = checkeds[index];
+                    label_default = label_default ? label_default + ', ' + checked.getAttribute('label') : checked.getAttribute('label');
+                }
+            }
+            console.log('checkeds_count')
+            let checkeds_count = document.getElementById(id_label + '_count')
+            if (checkeds_count) {
+                checkeds_count.innerHTML = checkeds.length > 0 ? "("+checkeds.length+")" : null;
+            }
+            element_label.innerHTML = label_default ? label_default : element_label.getAttribute('default');
+        }
+    </script>
     <!-- Scripts -->
     @stack('scripts')
-    <script>
-    let deferredPrompt;
-
-    window.addEventListener('beforeinstallprompt', function(event) {
-      // Prevent Chrome 67 and earlier from automatically showing the prompt
-      e.preventDefault();
-      // Stash the event so it can be triggered later.
-      deferredPrompt = e;
-    });
-
-    // Installation must be done by a user gesture! Here, the button click
-    let btnAdd = document.getElementById('btnAdd');
-    btnAdd.addEventListener('click', (e) => {
-      // hide our user interface that shows our A2HS button
-      btnAdd.style.display = 'none';
-      // Show the prompt
-      deferredPrompt.prompt();
-      // Wait for the user to respond to the prompt
-      deferredPrompt.userChoice
-        .then((choiceResult) => {
-          if (choiceResult.outcome === 'accepted') {
-            console.log('User accepted the A2HS prompt');
-          } else {
-            console.log('User dismissed the A2HS prompt');
-          }
-          deferredPrompt = null;
-        });
-    });
-
-    </script>
 </body>
 
 </html>

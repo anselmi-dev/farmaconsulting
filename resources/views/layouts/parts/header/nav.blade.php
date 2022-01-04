@@ -49,7 +49,7 @@
     @auth
         <div class="slider" id="slider-nav">
             <div class="slider__content">
-                <div>
+                <div class="w-full">
                     <div class="pointer">
                         <button toggle-slider="slider-nav">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25.414" height="20.828" viewBox="0 0 25.414 20.828">
@@ -72,7 +72,7 @@
 
                     <ul  x-data="{ expanded: '' }">
                         <li>
-                            <div @click="expanded = 'my-account'">
+                            <div @click="if(expanded == 'my-account') expanded = ''; else expanded = 'my-account' ">
                                 @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mis datos'), 'icon'
                                 => 'layouts.icons.my-account'])
                             </div>
@@ -83,7 +83,7 @@
                             </div>
                         </li>
                         <li>
-                            <div @click="expanded = 'password'">
+                            <div @click="if(expanded == 'password') expanded = ''; else expanded = 'password'">
                                 @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mi contraseña'),
                                 'icon' => 'layouts.icons.password'])
                             </div>
@@ -94,7 +94,7 @@
                             </div>
                         </li>
                         <li>
-                            <div @click="expanded = 'my-catalogue'">
+                            <div @click="if(expanded == 'my-catalogue') expanded = ''; else expanded = 'my-catalogue'">
                                 @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mi código de
                                 libro'), 'icon' => 'layouts.icons.my-catalogue'])
                             </div>
@@ -106,7 +106,7 @@
                             </div>
                         </li>
                         <li>
-                            <div @click="expanded = 'my-preferences'">
+                            <div @click="if(expanded == 'my-preferences') expanded = ''; else expanded = 'my-preferences'">
                                 @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mis preferencias de
                                 compra'), 'icon' => 'layouts.icons.my-preferences'])
                             </div>

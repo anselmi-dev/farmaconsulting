@@ -120,7 +120,7 @@ class AppController extends Controller
             'name' => $user->name,
             'email' => $user->email,
             'option' => $request->option,
-            'message' => $request->message,
+            'message' => $request['message_'.$request->option],
         ]);
 
         Mail::to('carlosanselmi2@gmail.com')->send(new \App\Mail\VarolacionMail($opinion));

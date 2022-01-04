@@ -49,6 +49,7 @@
                             value="{{ auth()->user()->name }}" placeholder="Nombre auto completado">
                         <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
+
                     {{-- Lastaname --}}
                     <div class="margin-bottom--2xsmall w-full form-group">
                         <label class="typography--small" for="lastname">Apellidos</label>
@@ -56,6 +57,7 @@
                             value="{{ auth()->user()->lastname }}" placeholder="Apellidos auto completados">
                         <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
+
                     {{-- Email --}}
                     <div class="margin-bottom--2xsmall w-full form-group">
                         <label class="typography--small" for="email">Email</label>
@@ -63,62 +65,66 @@
                             value="{{ auth()->user()->email }}" placeholder="nombre@email.com" readonly>
                         <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
+
                     {{-- Phone --}}
                     <div class="margin-bottom--2xsmall w-full form-group">
                         <label class="typography--small" for="phone">Teléfono móvil</label>
-                        <input data-rule="required" class="mt-1" type="number" name="phone"
+                        <input data-rule="required" class="mt-1" type="text" name="phone"
                             value="{{ auth()->user()->phone }}" placeholder="Móvil auto completado">
                         <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
+
                     {{-- Providencia --}}
                     <div class="margin-bottom--2xsmall w-full form-group">
                         <label class="typography--small" for="province">Provincia</label>
-                        <div class="custom-select__container">
-                            <div class="line-row-between">
-                                <div class="custom-select__subtitle">
-                                    <p class="typography--dark-green" id="province_label">
-                                        {{ __('Provincia') }}
+                        <div class="container-event-custom-select">
+                            <div class="custom-select__container">
+                                <div class="line-row-between gap-2">
+                                    <div class="custom-select__subtitle truncate">
+                                        <p class="typography--dark-green" id="province_label" default="{{ __('Provincia') }}">
+                                            {{ __('Provincia') }}
+                                        </p>
+                                    </div>
+                                    <div class="custom-select__arrow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14.012" height="8.25"
+                                            viewBox="0 0 14.012 8.25">
+                                            <path d="M246.5,251.685l5.836-5.592L246.5,240.5"
+                                                transform="translate(253.099 -245.085) rotate(90)" fill="none" stroke="#e8e8e8"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- Province --}}
+                            <div class="custom-select__options-container">
+                                <div class="custom-select__options-subtitle">
+                                    <p class="typography--small">
+                                        {{ __('Selecciona las provincias que te interesen') }}
                                     </p>
-                                </div>
-                                <div class="custom-select__arrow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14.012" height="8.25"
-                                        viewBox="0 0 14.012 8.25">
-                                        <path d="M246.5,251.685l5.836-5.592L246.5,240.5"
-                                            transform="translate(253.099 -245.085) rotate(90)" fill="none" stroke="#e8e8e8"
-                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                                    </svg>
-                                </div>
+                                </div> 
+                                <ul>
+                                    @foreach (\App\Models\Province::all() as $province)
+                                        <li>
+                                            <label class="custom-select__option" for="province_{{ $province->id }}">
+                                                <span class="uppercase">
+                                                    {{ $province->name }}
+                                                </span>
+                                                <input type="radio" name="province" label="{{ $province->name }}" id="province_{{ $province->id }}"
+                                                    value="{{ $province->id }}" class="custom-select__option-input">
+                                                <span class="custom-select__option-check">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25"
+                                                        viewBox="0 0 12.362 8.25">
+                                                        <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
+                                                            transform="translate(251.448 -245.085) rotate(90)" fill="none"
+                                                            stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"></path>
+                                                    </svg>
+                                                </span>
+                                            </label>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </div>
-                        </div>
-                        {{-- Province --}}
-                        <div class="custom-select__options-container">
-                            <div class="custom-select__options-subtitle">
-                                <p class="typography--small">
-                                    {{ __('Selecciona las provincias que te interesen') }}
-                                </p>
-                            </div>
-                            <ul>
-                                @foreach (\App\Models\Province::all() as $province)
-                                    <li>
-                                        <label class="custom-select__option" for="province_{{ $province->id }}">
-                                            <span class="uppercase">
-                                                {{ $province->name }}
-                                            </span>
-                                            <input type="radio" name="province" id="province_{{ $province->id }}"
-                                                value="{{ $province->id }}" class="custom-select__option-input" onclick="changeLabel({{ json_encode($province->name) }}, true)">
-                                            <span class="custom-select__option-check">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25"
-                                                    viewBox="0 0 12.362 8.25">
-                                                    <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
-                                                        transform="translate(251.448 -245.085) rotate(90)" fill="none"
-                                                        stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"></path>
-                                                </svg>
-                                            </span>
-                                        </label>
-                                    </li>
-                                @endforeach
-                            </ul>
                         </div>
                         <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
@@ -155,6 +161,7 @@
                         <textarea class="mt-1" name="message" cols="30" rows="8" placeholder="Cómo podemos ayudarte..."></textarea>
                         <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
+
                     {{-- Terms --}}
                     <div class="margin-bottom--medium w-full form-group">
                         <div class="line-row">
@@ -177,6 +184,7 @@
                         </div>
                         <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>
+
                     {{-- Status --}}
                     <div class="text-center w-full" id="status-consultation"></div>
                     <div class="w-full">
@@ -255,9 +263,6 @@
             }
         })();
 
-        function changeLabel(nombre) {
-            var label = nombre.toUpperCase();
-            document.getElementById('province_label').innerHTML = label;
-        }
+        selectorChangeLabel ('province_label', 'province');
     </script>
 @endpush

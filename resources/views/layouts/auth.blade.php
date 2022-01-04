@@ -19,25 +19,35 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <!-- Alpine Plugins -->
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Alpine Core -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     @laravelPWA
 
 </head>
 <body>
     @if(Session::has('success'))
-        <div x-data="{ isShowing: true }" class="fixed top-0 left-0 z-20 text-white w-full text-center bg-gray-600 uppercase p-2 opacity-80">
-            <div x-show="isShowing" class="px-5">
-                {{ Session::get('success') }}
+        <div x-data="{isShowing: true }" >
+            <div x-show="isShowing" class="fixed top-0 left-0 z-20 text-white w-full text-center bg-gray-600 uppercase p-2 opacity-80">
+                <div class="px-5">
+                    {{ Session::get('success') }}
+                </div>
+                <button @click="isShowing = false" class="absolute top-0 bottom-0 my-auto right-2">X</button>
             </div>
-            <button @click="isShowing = false" class="absolute top-0 bottom-0 my-auto right-2">X</button>
         </div>
     @endif
 
     @if(Session::has('errors'))
-        <div x-data="{ isShowing: true }" class="fixed top-0 left-0 z-20 text-white w-full text-center bg-red-600 uppercase p-2 opacity-80">
-            <div x-show="isShowing" class="px-5">
-                {{ Session::get('errors')->first() }}
+        <div x-data="{ isShowing: true }" >
+            <div x-show="isShowing" class="fixed top-0 left-0 z-20 text-white w-full text-center bg-red-600 uppercase p-2 opacity-80">
+                <div class="px-5">
+                    {{ Session::get('errors')->first() }}
+                </div>
+                <button @click="isShowing = false" class="absolute top-0 bottom-0 my-auto right-2">X</button>
             </div>
-            <button @click="isShowing = false" class="absolute top-0 bottom-0 my-auto right-2">X</button>
         </div>
     @endif
     

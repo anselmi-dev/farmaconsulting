@@ -129,7 +129,6 @@
         </div>
         {{-- GUARDAR CAMBIOS --}}
         <div class="margin-bottom--medium">
-            <div id="status" class="message-form"></div>
             <button class="options__save-btn">
                 {{ __('GUARDAR CAMBIOS') }}
             </button>
@@ -143,7 +142,6 @@
             // get the form elements defined in your form HTML above
             var form = document.getElementById("form-my-account");
             // var button = document.getElementById("my-form-button");
-            var status = document.getElementById("status");
 
             // Success and Error functions for after the form is submitted
             function success(response, responseType) {
@@ -154,24 +152,17 @@
                     console.error(error);
                 }
                 form.classList.remove('loading');
-                status.classList.add("success");
-                status.innerHTML = "Datos actualizados";
+                showNotification("Datos actualizados");
             }
 
             function error() {
                 form.classList.remove('loading');
-                status.classList.add("error");
-                status.innerHTML = "¡UPS! Hay un problema.";
+                showNotification("¡UPS! Hay un problema.", 'error');
             }
 
             // handle the form submission event
             form.addEventListener("submit", function (ev) {
                 ev.preventDefault();
-                status.innerHTML = "";
-                try {
-                    status.classList.remove("error");
-                    status.classList.remove("success");
-                } catch (error) {}
                 var data = new FormData(form);
                 form.classList.add('loading');
                 ajax(form.method, form.action, data, success, error);

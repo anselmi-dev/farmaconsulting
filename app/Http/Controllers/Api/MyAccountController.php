@@ -120,7 +120,7 @@ class MyAccountController extends Controller
             return back()->withInput()->withErrors(['error' => 'Ocurrió un error inesperado']);
         }
 
-        auth()->user()->password = \Hash::make($request->actual_password);
+        auth()->user()->password = \Hash::make($request->new_password);
 
         auth()->user()->save();
 

@@ -29,16 +29,27 @@ if (document.getElementById('swiper-home')) {
 }
 
 import MicroModal from 'micromodal';  // es6 module
+import { defaultsDeep } from 'lodash';
 MicroModal.init();
 
 // to toggle select like options && arrow
 document.querySelectorAll('.custom-select__container').forEach((item, index) => {
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
         document.querySelectorAll('.custom-select__arrow')[index].classList.toggle('custom-select__arrow--active');
         document.querySelectorAll('.custom-select__container')[index].classList.toggle('custom-select__container--active');
         document.querySelectorAll('.custom-select__options-container')[index].classList.toggle('custom-select__options-container--active');
     })
 })
+
+document.querySelectorAll('.container-event-custom-select').forEach((item, index) => {
+    item.querySelectorAll('input').forEach((element, index) => {
+        element.addEventListener('click', function () {
+            item.querySelector('.custom-select__container').classList.remove('custom-select__container--active')
+            item.querySelector('.custom-select__options-container').classList.remove('custom-select__options-container--active');
+        });
+    });
+})
+
 
 document.querySelectorAll('.custom-select__option').forEach((item, index) => {
     item.addEventListener('click', () => {
@@ -47,3 +58,4 @@ document.querySelectorAll('.custom-select__option').forEach((item, index) => {
         // document.querySelectorAll('.custom-select__selected')[index].classList.toggle('custom-select__selected--active');
     })
 })
+

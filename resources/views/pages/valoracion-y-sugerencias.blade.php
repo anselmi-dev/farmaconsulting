@@ -48,6 +48,9 @@
                             <div class="mt-2">
                                 Nos gusta oir lo que estamos haciendo bien.
                             </div>
+                            <div :class="{ 'h-0' : toggle != 1}" class="overflow-hidden">
+                                <textarea class="mt-2 p-3 rounded-lg bg-white z-11 relative" name="message_1" cols="30" rows="4" placeholder="Escribe algo..."></textarea>
+                            </div>
                         </div>
                     </label>
                 </div>
@@ -67,6 +70,9 @@
                             </div>
                             <div class="mt-2">
                                 Si algo no está bien, queremos saberlo.
+                            </div>
+                            <div :class="{ 'h-0' : toggle != 2}" class="overflow-hidden">
+                                <textarea class="mt-2 p-3 rounded-lg bg-white z-11 relative" name="message_2" cols="30" rows="4" placeholder="Escribe algo..."></textarea>
                             </div>
                         </div>
                     </label>
@@ -90,7 +96,7 @@
                             </div>
                         </div>
                         <div :class="{ 'h-0' : toggle != 3}" class="overflow-hidden">
-                            <textarea class="mt-2 p-3 rounded-lg bg-white z-11 relative" name="message" cols="30" rows="4" placeholder="Escribe algo..."></textarea>
+                            <textarea class="mt-2 p-3 rounded-lg bg-white z-11 relative" name="message_3" cols="30" rows="4" placeholder="Escribe algo..."></textarea>
                         </div>
                     </label>
                 </div>
@@ -127,7 +133,31 @@
 
         (function() {
             const constraints = {
-                message: {
+                message_1: {
+                    presence: function(value, attribute, validatorOptions, attributes, globalOptions) {
+                        if (attribute['option'] == '1' && attribute['message'] == null) {
+                            return '^Campo obligatorio';
+                        }
+                        return false;
+                    },
+                    length: {
+                        minimum: 3,
+                        message: 'El mensaje es demasiado corto (mínimo 3 caracteres)'
+                    }
+                },
+                message_2: {
+                    presence: function(value, attribute, validatorOptions, attributes, globalOptions) {
+                        if (attribute['option'] == '2' && attribute['message'] == null) {
+                            return '^Campo obligatorio';
+                        }
+                        return false;
+                    },
+                    length: {
+                        minimum: 3,
+                        message: 'El mensaje es demasiado corto (mínimo 3 caracteres)'
+                    }
+                },
+                message_3: {
                     presence: function(value, attribute, validatorOptions, attributes, globalOptions) {
                         if (attribute['option'] == '3' && attribute['message'] == null) {
                             return '^Campo obligatorio';
