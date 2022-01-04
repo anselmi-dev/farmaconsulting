@@ -1,24 +1,6 @@
 @extends('layouts.auth')
 
 @section('content')
-    @if(Session::has('success'))
-        <div x-data="{ isShowing: true }" class="fixed top-0 left-0 z-20 text-white w-full text-center bg-gray-600 uppercase p-2 opacity-80">
-            <div x-show="isShowing" class="px-5">
-                {{ Session::get('success') }}
-            </div>
-            <button @click="isShowing = false" class="absolute top-0 bottom-0 my-auto right-2">X</button>
-        </div>
-    @endif
-
-    @if(Session::has('errors'))
-        <div x-data="{ isShowing: true }" class="fixed top-0 left-0 z-20 text-white w-full text-center bg-red-600 uppercase p-2 opacity-80">
-            <div x-show="isShowing" class="px-5">
-                {{ Session::get('errors')->first() }}
-            </div>
-            <button @click="isShowing = false" class="absolute top-0 bottom-0 my-auto right-2">X</button>
-        </div>
-    @endif
-
     <div
         style="background-image: url({{ asset('images/backgrounds/intro-slider-1.jpg') }})"
         class="min-h-screen bg-green-400 flex justify-center items-center relative overflow-hidden bg-cover bg-center">

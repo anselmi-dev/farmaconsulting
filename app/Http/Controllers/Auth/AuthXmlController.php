@@ -114,7 +114,7 @@ class AuthXmlController extends Controller
         $response = $this->EnvioNuevaClave($request->email);
         if ($response['Codigo'] != 0)
             return back()->withInput()->withErrors(['error' => $response['Msg']]);
-
-        return redirect()->route('login')->withInput()->with(['success' => $response['Msg']]);
+        
+        return redirect()->route('login')->with(['success' => $response['Msg']]);
     }
 }

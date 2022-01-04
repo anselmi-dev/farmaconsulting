@@ -26,7 +26,6 @@ class AccountRequest extends FormRequest
     {
         return [
             'phone'       =>    'required|min:2',
-            'email'       =>    'required|min:2',
             'name'        =>    'required|min:2',
             'lastname'    =>    'required|min:2',
             'lastname2'   =>    'required|min:2'

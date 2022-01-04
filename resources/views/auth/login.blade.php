@@ -1,16 +1,8 @@
 @extends('layouts.auth')
 
 @section('content')
-    @if (!$errors->any())
+    @if (!$errors->any() && !Session::has('success'))
         @includeIf('layouts.parts.intro')
-    @endif
-    @if(Session::has('errors'))
-        <div x-data="{ isShowing: true }" class="fixed top-0 left-0 z-20 text-white w-full text-center bg-red-600 uppercase p-2 opacity-80">
-            <div x-show="isShowing" class="px-5">
-                {{ Session::get('errors')->first() }}
-            </div>
-            <button @click="isShowing = false" class="absolute top-0 bottom-0 my-auto right-2">X</button>
-        </div>
     @endif
 
     <div

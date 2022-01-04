@@ -14,9 +14,14 @@ class MyAccountController extends Controller
 
     public function updateAccount (AccountRequest $request)
     {
-        auth()->user()->update($request->all());
+        $user = auth()->user();
+        $user->name = $request->name;
+        $user->lastname = $request->lastname;
+        $user->lastname2 = $request->lastname2;
+        $user->phone = $request->phone;
+        $user->save();
 
-        $datosUsuario = $this->DatosUsuarioUpdate(auth()->user());
+        $datosUsuario = $this->DatosUsuarioUpdate($user);
 
         if ($datosUsuario['Error']) {
             if($request->ajax())
