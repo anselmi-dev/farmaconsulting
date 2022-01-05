@@ -209,7 +209,7 @@
                     console.log('checkeds_count')
                     let checkeds_count = document.getElementById(id_label + '_count')
                     if (checkeds_count) {
-                        checkeds_count.innerHTML = checkeds.length > 0 ? "("+checkeds.length+")" : null;
+                        checkeds_count.innerHTML = checkeds.length > 0 ? "("+checkeds.length+") seleccionados" : null;
                     }
                 });
             });
@@ -223,10 +223,9 @@
                     label_default = label_default ? label_default + ', ' + checked.getAttribute('label') : checked.getAttribute('label');
                 }
             }
-            console.log('checkeds_count')
             let checkeds_count = document.getElementById(id_label + '_count')
             if (checkeds_count) {
-                checkeds_count.innerHTML = checkeds.length > 0 ? "("+checkeds.length+")" : null;
+                checkeds_count.innerHTML = checkeds.length > 0 ? "("+checkeds.length+") seleccionados" : null;
             }
             element_label.innerHTML = label_default ? label_default : element_label.getAttribute('default');
         }

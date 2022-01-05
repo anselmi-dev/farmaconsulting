@@ -30,9 +30,10 @@
             <div>
                 <div class="custom-select__container">
                     <div class="line-row-between gap-2">
-                        <div class="custom-select__subtitle truncate">
-                            <p class="typography--dark-green">
+                        <div class="custom-select__subtitle">
+                            <p class="typography--dark-green leading-none">
                                 {{ __('Preferencia de provincias') }}
+                                <span id="fc_provincias_count" class="text-xs text-gray-400 inline-block"></span>
                             </p>
                         </div>
                         <div class="custom-select__arrow">
@@ -100,7 +101,10 @@
                 <div class="custom-select__container">
                     <div class="line-row-between">
                         <div class="custom-select__subtitle">
-                            <p class="typography--dark-green">Tramos de facturación</p>
+                            <p class="typography--dark-green leading-none">
+                                Tramos de facturación
+                                <span id="fc_facturacion_count" class="text-xs text-gray-400 inline-block"></span>
+                            </p>
                         </div>
                         <div class="custom-select__arrow">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14.012"
