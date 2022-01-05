@@ -29,6 +29,25 @@
 
 </head>
 <body>
+    <div>
+        @yield('content')
+    </div>
+
+    @includeIf('layouts.parts.notifications')
+
+    @if(Session::has('success'))
+        <script>
+            showNotification("{{ Session::get('success') }}")
+        </script>
+    @endif
+
+    @if(Session::has('errors'))
+        <script>
+            showNotification("{{ Session::get('errors')->first() }}", "error")
+        </script>
+    @endif
+    
+    {{--
     @if(Session::has('success'))
         <div x-data="{isShowing: true }" >
             <div x-show="isShowing" class="fixed top-0 left-0 z-20 text-white w-full text-center bg-gray-600 uppercase p-2 opacity-80">
@@ -50,9 +69,7 @@
             </div>
         </div>
     @endif
+    --}}
     
-    <div>
-        @yield('content')
-    </div>
 </body>
 </html>
