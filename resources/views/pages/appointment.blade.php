@@ -64,7 +64,7 @@
                 {{-- Phone --}}
                 <div class="margin-bottom--2xsmall w-full form-group">
                     <label class="typography--small" for="phone">Teléfono móvil</label>
-                    <input class="mt-1 field--active" type="text" name="phone" value="{{ auth()->user()->phone }}" readonly>
+                    <input class="mt-1 field--active" type="text" name="phone" value="{{ auth()->user()->phone }}">
                     <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
 

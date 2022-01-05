@@ -106,8 +106,7 @@
             <label for="phone">{{ __('Teléfono móvil') }}</label>
             <div class="line-row-between">
                 <div class="options__input-container">
-                    <input data-rule="required" class="options__input" type="number" value="{{ auth()->user()->phone }}" name="phone"
-                        placeholder="666 666 666">
+                    <input data-rule="required" class="options__input" type="number" value="{{ auth()->user()->phone }}" name="phone" placeholder="666 666 666">
                     <button class="options__close-btn" type="button">
                         <svg class="icon-xsmall mx-auto"
                             xmlns="http://www.w3.org/2000/svg" width="19.092"

@@ -49,19 +49,19 @@
                 {{-- Name --}}
                 <div class="margin-bottom--2xsmall w-full form-group">
                     <label class="typography--small" for="name">Nombre</label>
-                    <input class="mt-1 field--active" type="text" name="name" placeholder="Nombre auto completado" value="{{ auth()->user()->name }}" readonly>
+                    <input class="mt-1 field--active" type="text" name="name" placeholder="Nombre auto completado" value="{{ auth()->user()->name }}">
                     <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
                 {{-- lastname --}}
                 <div class="margin-bottom--2xsmall w-full form-group">
                     <label class="typography--small" for="lastname">Apellido</label>
-                    <input class="mt-1 field--active" type="text" name="lastname" placeholder="Apellidos auto completados" value="{{ auth()->user()->lastname }}" readonly>
+                    <input class="mt-1 field--active" type="text" name="lastname" placeholder="Apellidos auto completados" value="{{ auth()->user()->lastname }}">
                     <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
                 {{-- Phone --}}
                 <div class="margin-bottom--2xsmall w-full form-group">
                     <label class="typography--small" for="phone">Teléfono móvil</label>
-                    <input class="mt-1 field--active" type="text" name="phone" value="{{ auth()->user()->phone }}" readonly>
+                    <input class="mt-1 field--active" type="text" name="phone" value="{{ auth()->user()->phone }}">
                     <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
                 {{-- Franja horaria --}}
