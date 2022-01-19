@@ -101,7 +101,7 @@
                             <div class="nav__link-expanded" x-show="expanded == 'my-catalogue'" x-collapse>
                                 <div class="options__item">
                                     <div class="options__catalog-number">{{ auth()->user()->catalogue }}</div>
-                                    <div class="options__catalog-description">Éste es el código de tu libro</div>
+                                    <div class="options__catalog-description">Este es el código de tu libro</div>
                                 </div>
                             </div>
                         </li>
@@ -123,7 +123,7 @@
                             <p class="typography--small">Farmaconsulting App Versión 0.1</p>
                             <p class="class typography--small">
                                 <a href="{{ route('terms') }}" class="typography--links">{{ __('Términos de uso') }}</a> y
-                                <a href="{{ route('politica-privacidad') }}" class="typography--links">{{ __('Política de Privacidad') }}</a>
+                                <a href="https://www.farmaconsulting.es/politica-privacidad/" class="typography--links">{{ __('Política de Privacidad') }}</a>
                             </p>
                         </div>
                         <div class="margin-bottom--xlarge">

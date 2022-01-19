@@ -16,7 +16,7 @@ class ProvincesSeeder extends Seeder
     {
         Province::create(['code' => 1,  'name' => 'Álava/Araba']);
         Province::create(['code' => 2,	'name' => 'Albacete']);
-        Province::create(['code' => 3,	'name' => 'Alicante']);
+        Province::create(['code' => 3,	'name' => 'Alicante/Alacant']);
         Province::create(['code' => 4,	'name' => 'Almería']);
         Province::create(['code' => 5,  'name' => 'Ávila']);
         Province::create(['code' => 6,  'name' => 'Badajoz']);
@@ -25,7 +25,7 @@ class ProvincesSeeder extends Seeder
         Province::create(['code' => 9,  'name' => 'Burgos']);
         Province::create(['code' => 10,	'name' => 'Cáceres']);
         Province::create(['code' => 11, 'name' => 'Cádiz']);
-        Province::create(['code' => 12,	'name' => 'Castellón']);
+        Province::create(['code' => 12,	'name' => 'Castellón/Castelló']);
         Province::create(['code' => 13,	'name' => 'Ciudad Real']);
         Province::create(['code' => 14,	'name' => 'Córdoba']);
         Province::create(['code' => 15,	'name' => 'La Coruña/a Coruña']);
@@ -59,7 +59,7 @@ class ProvincesSeeder extends Seeder
         Province::create(['code' => 43,	'name' => 'Tarragona']);
         Province::create(['code' => 44,	'name' => 'Teruel']);
         Province::create(['code' => 45,	'name' => 'Toledo']);
-        Province::create(['code' => 46,	'name' => 'Valencia']);
+        Province::create(['code' => 46,	'name' => 'Valencia/València']);
         Province::create(['code' => 47,	'name' => 'Valladolid']);
         Province::create(['code' => 48,	'name' => 'Vizcaya/Bizkaia']);
         Province::create(['code' => 49,	'name' => 'Zamora']);

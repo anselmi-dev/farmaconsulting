@@ -32,8 +32,7 @@
                     <h2 class="typography--green">¿Quieres comprar una farmacia? ¿Quieres vender una farmacia?</h2>
                 </div>
                 <div class="">
-                    <p>Nos pondremos en contacto contigo lo antes posible para ofrecerte las mejores ofertas en compra y
-                        venta de farmacias en España.</p>
+                    <p>Nos pondremos en contacto contigo lo antes posible para asesorarte acerca de la compra o venta de farmacias en España o de cualquier tema relacionado con la gestión patrimonial de tu farmacia.</p>
                 </div>
             </div>
         </div>
@@ -101,7 +100,7 @@
                                     <p class="typography--small">
                                         {{ __('Selecciona las provincias que te interesen') }}
                                     </p>
-                                </div> 
+                                </div>
                                 <ul>
                                     @foreach (\App\Models\Province::all() as $province)
                                         <li>
@@ -176,11 +175,11 @@
                                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                     </svg>
                                 </span>
-                                <span class="typography--small">He leído y acepto los
-                                    <a href="{{ route('terms') }}" class="typography--links">Términos de uso</a> y
-                                    <a href="{{ route('politica-privacidad') }}" class="typography--links">Política de Privacidad</a>
-                                </span>
                             </label>
+                            <span class="typography--small">He leído y acepto los
+                                    <a href="{{ route('terms') }}" class="typography--links">Términos de uso</a> y
+                                    <a href="https://www.farmaconsulting.es/politica-privacidad/" class="typography--links">Política de Privacidad</a>
+                                </span>
                         </div>
                         <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>

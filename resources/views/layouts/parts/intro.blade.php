@@ -36,7 +36,7 @@
                 <img src="{{ asset('/images/logos/logo-primary-white.png') }}" alt="logo-white" class="mb-5">
                 <div class="text-primary mx-auto text-2xl text-center font-primery px-3">
                     <h2>
-                        <p>Más de 3.000 transmisiones de</p>
+                        <p>Más de 3.300 transmisiones de</p>
                         <p>Farmacia</p>
                     </h2>
                 </div>
