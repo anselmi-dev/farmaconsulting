@@ -59,7 +59,7 @@
                                         </p>
                                         <p class="margin-bottom--2xlarge">
                                             <span class="typography--small">Avda. Gasteiz 61, 1º Izda.
-                                                <br />C.P. 01008</span>
+                                                <br>C.P. 01008</span>
                                         </p>
                                         <div class="">
                                             <a href="tel:+34900565503">
@@ -71,7 +71,7 @@
                                 <div class="margin-bottom--4xsmall">
                                     <div class="contact-option__shops">
                                         <div class="margin-bottom--2xlarge">
-                                            <a href="#">
+                                            <a href="https://goo.gl/maps/Ms5Y6gN3wSqc7AG66" target="_blank">
                                                 <div class="line-row">
                                                     <div class="mr-2.5">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="21.104"
@@ -115,8 +115,8 @@
                                         </p>
                                         <p class="margin-bottom--2xlarge">
                                             <span class="typography--small">Rambla Catalunya
-                                                <br />91-93. 5º 3ª
-                                                <br />C.P: 08008</span>
+                                                <br>91-93. 5º 3ª
+                                                <br >C.P: 08008</span>
                                         </p>
                                         <div class="">
                                             <a href="tel:+34902115765">
@@ -128,7 +128,7 @@
                                 <div class="margin-bottom--4small">
                                     <div class="contact-option__shops">
                                         <div class="margin-bottom--2xlarge">
-                                            <a href="#">
+                                            <a href="https://goo.gl/maps/PRyvvj6zCUswNvEHA" target="_blank">
                                                 <div class="line-row">
                                                     <div class="mr-2.5">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="21.104"
@@ -172,9 +172,10 @@
                                         </p>
                                         <p class="margin-bottom--2xlarge">
                                             <span class="typography--small">Edif. Sorolla Center.,
-                                                <br />Avda. de las Corts
-                                                <br />Valencianes, 58 of. 1106,
-                                                <br />C.P: 46015</span>
+                                                <br>Avda. de las Corts
+                                                <br>Valencianes, 58 of. 1106,
+                                                <br>C.P: 46015
+                                            </span>
                                         </p>
                                         <div class="">
                                             <a href="tel:+34902115765">
@@ -186,7 +187,7 @@
                                 <div class="margin-bottom--4small">
                                     <div class="contact-option__shops">
                                         <div class="margin-bottom--2xlarge">
-                                            <a href="#">
+                                            <a href="https://goo.gl/maps/UdBxSjTLRQYjywj9A" target="_blank">
                                                 <div class="line-row">
                                                     <div class="mr-2.5">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="21.104"
@@ -230,8 +231,8 @@
                                         </p>
                                         <p class="margin-bottom--2xlarge">
                                             <span class="typography--small">Plaza de la Lealtad 3,
-                                                <br />Entreplanta Izqda.
-                                                <br />C.P. 28014</span>
+                                                <br>Entreplanta Izqda.
+                                                <br>C.P. 28014</span>
                                         </p>
                                         <div class="">
                                             <a href="tel:+34902115765">
@@ -243,7 +244,7 @@
                                 <div class="margin-bottom--4small">
                                     <div class="contact-option__shops">
                                         <div class="margin-bottom--2xlarge">
-                                            <a href="#">
+                                            <a href="https://goo.gl/maps/vd2m5eHaRBseVgdV9" target="_blank">
                                                 <div class="line-row">
                                                     <div class="mr-2.5">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="21.104"
@@ -287,9 +288,9 @@
                                         </p>
                                         <p class="margin-bottom--2xlarge">
                                             <span class="typography--small">C/Enrique Mariñas, 34,
-                                                <br />Hotel Attica 21
-                                                <br />Sala Cyber3,
-                                                <br />C.P. 15009</span>
+                                                <br>Hotel Attica 21
+                                                <br>Sala Cyber3,
+                                                <br>C.P. 15009</span>
                                         </p>
                                         <div class="">
                                             <a href="tel:+34902115765">
@@ -301,7 +302,7 @@
                                 <div class="margin-bottom--4small">
                                     <div class="contact-option__shops">
                                         <div class="margin-bottom--2xlarge">
-                                            <a href="#">
+                                            <a href="https://goo.gl/maps/tXdfpP6fANt1MTtn8" target="_blank">
                                                 <div class="line-row">
                                                     <div class="mr-2.5">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="21.104"
@@ -345,8 +346,8 @@
                                         </p>
                                         <p class="margin-bottom--2xlarge">
                                             <span class="typography--small">P.º de la Independencia, 8 Duplicado
-                                                <br />2ª planta
-                                                <br />C.P. 50004</span>
+                                                <br>2ª planta
+                                                <br>C.P. 50004</span>
                                         </p>
                                         <div class="">
                                             <a href="tel:+34902115765">
@@ -358,7 +359,7 @@
                                 <div class="margin-bottom--4small">
                                     <div class="contact-option__shops">
                                         <div class="margin-bottom--2xlarge">
-                                            <a href="#">
+                                            <a href="https://goo.gl/maps/ERqdpuWt35hAbDUy8" target="_blank">
                                                 <div class="line-row">
                                                     <div class="mr-2.5">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="21.104"
