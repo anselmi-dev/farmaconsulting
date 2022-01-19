@@ -43,8 +43,7 @@
                             <h2 class="typography--green">¿Concertamos una reunión en nuestras oficinas?</h2>
                         </div>
                         <div class="">
-                            <p>Nos pondremos en contacto contigo lo antes posible para ofrecerte las mejores ofertas en
-                                compra y venta de farmacias en España.</p>
+                            <p>Pide una cita y te asesoraremos acerca de la compra o venta de farmacias en España o de cualquier tema relacionado con la gestión patrimonial de tu farmacia.</p>
                         </div>
                     </div>
                 </div>
@@ -119,7 +118,7 @@
                                                 <br >C.P: 08008</span>
                                         </p>
                                         <div class="">
-                                            <a href="tel:+34902115765">
+                                            <a href="tel:+34900115765">
                                                 <span class="typography--green font-bold">900 115 765</span>
                                             </a>
                                         </div>
@@ -178,7 +177,7 @@
                                             </span>
                                         </p>
                                         <div class="">
-                                            <a href="tel:+34902115765">
+                                            <a href="tel:+34900115765">
                                                 <span class="typography--green font-bold">900 115 765</span>
                                             </a>
                                         </div>
@@ -235,7 +234,7 @@
                                                 <br>C.P. 28014</span>
                                         </p>
                                         <div class="">
-                                            <a href="tel:+34902115765">
+                                            <a href="tel:+34900115765">
                                                 <span class="typography--green font-bold">900 115 765</span>
                                             </a>
                                         </div>
@@ -284,7 +283,7 @@
                                 <div class="margin-bottom--4xsmall">
                                     <div class="contact-option__shops">
                                         <p class="margin-bottom--4xsmall">
-                                            <span class="typography--dark-green uppercase font-bold">CORUÑA</span>
+                                            <span class="typography--dark-green uppercase font-bold">A CORUÑA</span>
                                         </p>
                                         <p class="margin-bottom--2xlarge">
                                             <span class="typography--small">C/Enrique Mariñas, 34,
@@ -293,7 +292,7 @@
                                                 <br>C.P. 15009</span>
                                         </p>
                                         <div class="">
-                                            <a href="tel:+34902115765">
+                                            <a href="tel:+34900115765">
                                                 <span class="typography--green font-bold">900 115 765</span>
                                             </a>
                                         </div>
@@ -327,7 +326,7 @@
                                             </a>
                                         </div>
                                         <div class="">
-                                            <a href="{{ route('contact.appointment', ['oficina' => 'CORUÑA']) }}">
+                                            <a href="{{ route('contact.appointment', ['oficina' => 'A CORUÑA']) }}">
                                                 <span class="typography--green font-bold">Pide tu cita ahora</span>
                                             </a>
                                         </div>
@@ -350,7 +349,7 @@
                                                 <br>C.P. 50004</span>
                                         </p>
                                         <div class="">
-                                            <a href="tel:+34902115765">
+                                            <a href="tel:+34900115765">
                                                 <span class="typography--green font-bold">900 115 765</span>
                                             </a>
                                         </div>

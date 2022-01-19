@@ -46,8 +46,8 @@
             <div class="margin-bottom--xlarge">
                 <p class="typography--medium text-center">Farmaconsulting App Versión 0.1</p>
                 <p class="typography--medium text-center">
-                    <a href="{{ route('terms') }}" class="typography--links">Términos de uso</a> y 
-                    <a href="{{ route('politica-privacidad') }}" class="typography--links">Política de Privacidad</a>
+                    <a href="{{ route('terms') }}" class="typography--links">Términos de uso</a> y
+                    <a href="https://www.farmaconsulting.es/politica-privacidad/" class="typography--links">Política de Privacidad</a>
                 </p>
             </div>
             <div class="margin-bottom--xlarge">

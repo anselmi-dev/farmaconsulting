@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('breadcrumbs')
-    <a href="{{ route('contact') }}" class="text-primary">Contacto</a>/<span>Nosostros te llamamos</span>
+    <a href="{{ route('contact') }}" class="text-primary">Contacto</a>/<span>Nosotros te llamamos</span>
 @endsection
 
 @section('nav-icon')
@@ -153,11 +153,11 @@
                                         stroke-width="2" />
                                 </svg>
                             </span>
-                            <span class="typography--small">He leído y acepto los 
-                                <a href="{{ route('terms') }}" class="typography--links">Términos de uso</a> y
-                                <a href="{{ route('politica-privacidad') }}" class="typography--links">Política de Privacidad</a>
-                            </span>
                         </label>
+                        <span class="typography--small">He leído y acepto los
+                                <a href="{{ route('terms') }}" class="typography--links">Términos de uso</a> y
+                                <a href="https://www.farmaconsulting.es/politica-privacidad/" class="typography--links">Política de Privacidad</a>
+                            </span>
                     </div>
                     <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                 </div>
@@ -222,7 +222,7 @@
                 });
             }
         })();
-        
+
         selectorChangeLabel ('timezone_label', 'timezone');
     </script>
 @endpush
