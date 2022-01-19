@@ -38,7 +38,7 @@ class ContactController extends Controller
             logger('Error al registrar una consulta. MODEL:CONTACT');
         }
 
-        Mail::to('carlosanselmi2@gmail.com')->send(new WeCallYouMail($contact));
+        Mail::to('info@farmaconsulting.es')->send(new WeCallYouMail($contact));
 
         return response()->json(['success' => true, 'message' => 'Consulta enviada']);
     }
@@ -68,7 +68,7 @@ class ContactController extends Controller
             logger('Error al registrar una consulta. MODEL:CONTACT');
         }
 
-        Mail::to('carlosanselmi2@gmail.com')->send(new ConsultationMail($contact));
+        Mail::to('info@farmaconsulting.es')->send(new ConsultationMail($contact));
 
         return response()->json(['success' => true, 'message' => 'Consulta enviada']);
     }
@@ -96,7 +96,7 @@ class ContactController extends Controller
             logger('Error al registrar una consulta. MODEL:CONTACT');
         }
 
-        Mail::to('carlosanselmi2@gmail.com')->send(new ConsultationMail($contact));
+        Mail::to('info@farmaconsulting.es')->send(new ConsultationMail($contact));
 
         return response()->json(['success' => true, 'message' => 'Cita concertada']);
     }

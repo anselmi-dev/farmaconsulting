@@ -123,7 +123,7 @@ class AppController extends Controller
             'message' => $request['message_'.$request->option],
         ]);
 
-        Mail::to('carlosanselmi2@gmail.com')->send(new \App\Mail\VarolacionMail($opinion));
+        Mail::to('info@farmaconsulting.es')->send(new \App\Mail\VarolacionMail($opinion));
 
         return response()->json(['success' => true, 'message' => 'Gracias por tu opinión']);
     }
