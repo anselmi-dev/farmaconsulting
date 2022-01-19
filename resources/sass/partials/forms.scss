@@ -79,6 +79,22 @@ textarea {
         background: $color-primary;
     }
 }
+.custom-checkbox__item {
+    @apply absolute left-0;
+    background-color: $color-white;
+    border: 1px solid $color-gray-other;
+    height: 19px;
+    width: 19px;
+    transition: $trans-all-3;
+    margin-top: 1px;
+}
+.custom-checkbox__check {
+    @include center-vertical;
+    @apply opacity-0 left-1;
+    transition: $trans-all-3;
+    margin-top: 1px;
+    top: 10px;
+}
 .custom-checkbox {
     @apply mx-auto;
 }
@@ -98,22 +114,6 @@ textarea {
         }
     }
 
-}
-.custom-checkbox__item {
-    @apply absolute left-0;
-    background-color: $color-white;
-    border: 1px solid $color-gray-other;
-    height: 19px;
-    width: 19px;
-    transition: $trans-all-3;
-    margin-top: 1px;
-}
-.custom-checkbox__check {
-    @include center-vertical;
-    @apply opacity-0 left-1;
-    transition: $trans-all-3;
-    margin-top: 1px;
-    top: 10px;
 }
 // to style select like list
 .custom-select__container {

@@ -163,23 +163,23 @@
 
                     {{-- Terms --}}
                     <div class="margin-bottom--medium w-full form-group">
-                        <div class="line-row">
-                            <label for="terms" class="custom-checkbox__container">
-                                <input type="checkbox" name="terms" value="true">
-                                <span class="custom-checkbox__item"></span>
-                                <span class="custom-checkbox__check">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25"
-                                        viewBox="0 0 12.362 8.25">
-                                        <path d="M248.916,250.037l3.419-3.945L246.5,240.5"
-                                            transform="translate(251.448 -245.085) rotate(90)" fill="none" stroke="#a2bd30"
-                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                    </svg>
-                                </span>
-                            </label>
-                            <span class="typography--small">He leído y acepto los
-                                    <a href="{{ route('terms') }}" class="typography--links">Términos de uso</a> y
-                                    <a href="https://www.farmaconsulting.es/politica-privacidad/" class="typography--links">Política de Privacidad</a>
-                                </span>
+                        <div class="">
+                            <div class="inline-block">
+                                <label for="terms" class="custom-checkbox__container mb-0">
+                                    <span class="custom-checkbox__item"></span>
+                                    <input type="checkbox" name="terms" value="true">
+                                    <span class="custom-checkbox__check">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25" viewBox="0 0 12.362 8.25">
+                                            <path d="M248.916,250.037l3.419-3.945L246.5,240.5" transform="translate(251.448 -245.085) rotate(90)" fill="none" stroke="#a2bd30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="typography--small">He leído y acepto los</span>
+                                </label>
+                            </div>
+                            <span class="typography--small">
+                                <a href="{{ route('terms') }}" class="typography--links">Términos de uso</a> y
+                                <a href="{{ route('politica-privacidad') }}" class="typography--links">Política de Privacidad</a>
+                            </span>
                         </div>
                         <p class="typography--small form-group-messages text-red-600 pl-5"></p>
                     </div>

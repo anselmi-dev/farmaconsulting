@@ -7,7 +7,7 @@
 
 @section('content')
     <div>
-        <iframe class="url-content" src="https://www.farmaconsulting.es/terminos-uso/?pwa=true" title="Farmaconsulting"></iframe>
+        <iframe class="url-content" src="https://www.farmaconsulting.es/politica-privacidad/?pwa=true" title="Farmaconsulting"></iframe>
     </div>
 @endsection
 
