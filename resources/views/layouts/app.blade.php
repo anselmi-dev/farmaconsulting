@@ -49,7 +49,7 @@
 </head>
 
 <body class="{{ Route::currentRouteName() }}">
-    <div>
+    <div >
 
         @section('intro')
             @guest
@@ -60,7 +60,6 @@
         @if (\Session::has('after_login'))
             @includeIf('layouts.parts.after_login')
         @endif
-
         <div>
             @section('nav')
                 @includeIf('layouts.parts.header.nav')

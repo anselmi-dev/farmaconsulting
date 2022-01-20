@@ -50,7 +50,6 @@ document.querySelectorAll('.container-event-custom-select').forEach((item, index
     });
 })
 
-
 document.querySelectorAll('.custom-select__option').forEach((item, index) => {
     item.addEventListener('click', () => {
         document.querySelectorAll('.custom-select__option')[index].classList.toggle('custom-select__option--active');
@@ -59,3 +58,17 @@ document.querySelectorAll('.custom-select__option').forEach((item, index) => {
     })
 })
 
+
+// Require Vue
+window.Vue = require('vue').default;
+import VueQrcodeReader from "vue-qrcode-reader";
+
+Vue.use(VueQrcodeReader);
+
+// Register Vue Components
+Vue.component('qrv', require('./components/qrv.vue').default);
+
+// Initialize Vue
+const app = new Vue({
+    el: '#app',
+});
