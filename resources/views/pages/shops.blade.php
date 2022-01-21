@@ -61,7 +61,7 @@
                                                 <br>C.P. 01008</span>
                                         </p>
                                         <div class="">
-                                            <a href="tel:+34900565503">
+                                            <a href="tel:+34900115765">
                                                 <span class="typography--green font-bold">900 115 765</span>
                                             </a>
                                         </div>
