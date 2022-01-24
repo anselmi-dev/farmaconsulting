@@ -65,7 +65,7 @@ class User extends Authenticatable
 
     public function getFullNameAttribute ()
     {
-        return $this->name .' '. $this->lastaname .' '. $this->lastname2;
+        return $this->name .' '. $this->lastname;
     }
 
     public function getFacturacionsAttribute ()
