@@ -25,8 +25,9 @@ Route::view('/terminos-y-condiciones', 'pages.terms')->name('terms');
 Route::view('/politica-privacidad', 'pages.politica-privacidad')->name('politica-privacidad');
 
 Route::middleware('auth')->group(function () {
-    Route::view('/', 'pages.qr')->name('home');
+    Route::view('/', 'pages.qrv2')->name('home');
     Route::view('/qr', 'pages.qr')->name('qr');
+    Route::view('/qrv2', 'pages.qrv2')->name('qrv2');
 
     // Route::get('/terms', [App\Http\Controllers\AppController::class, 'terms'])->name('terms');
     Route::get('/conditions', [App\Http\Controllers\AppController::class, 'conditions'])->name('conditions');
