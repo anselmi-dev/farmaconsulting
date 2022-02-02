@@ -25,13 +25,13 @@
 
 <script>
     import { RotateSquare3 } from 'vue-loading-spinner'
-    import { StreamBarcodeReader, ImageBarcodeReader } from "vue-barcode-reader";
-
+    import { StreamBarcodeReader } from "vue-barcode-reader";
+        // ImageBarcodeReader
     export default {
         components: {
             RotateSquare3,
             StreamBarcodeReader,
-            ImageBarcodeReader 
+            // ImageBarcodeReader 
         },
         data() {
             return {
@@ -52,45 +52,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-    .button-image-barcode-reader {
-        position: absolute;
-        bottom: 3px;
-        right: 3px;
-        width: 50px;
-        height: 50px;
-    }
-    .button-image-barcode-reader input {
-        width: 0;
-        height: 0;
-        opacity: 0;
-        overflow: hidden;
-        padding: 0;
-    }
-    .button-image-barcode-reader label {
-        display: block;
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        cursor: pointer;
-        background: #ffffff45;
-        border-radius: 3px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.25rem;
-    }
-    .loading-qr {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #414141;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 5;
-    }
-</style>

@@ -15,7 +15,7 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.3.6",
-        "sass": "^1.42.1",
+        "sass": "~1.32.12",
         "sass-loader": "^12.1.0",
         "tailwindcss": "^2.2.7",
         "vue": "^2.6.14",

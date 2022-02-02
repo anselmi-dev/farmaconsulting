@@ -67,7 +67,7 @@ Vue.use(VueQrcodeReader);
 
 // Register Vue Components
 Vue.component('qrv', require('./components/qrv.vue').default);
-Vue.component('qrv2', require('./components/qrv2.vue').default);
+Vue.component('qrv-barcode', require('./components/qrv-barcode.vue').default);
 
 // Initialize Vue
 const app = new Vue({
