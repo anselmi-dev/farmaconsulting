@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}?v=224" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}?v=225" rel="stylesheet">
     <link href="{{ asset('plugins/notifications.css') }}" rel="stylesheet">
 
     <!-- Alpine Plugins -->
@@ -78,7 +78,7 @@
     <button id="btnAdd">btnAdd</button>
 
     
-    <script src="{{ asset(mix('js/app.js')) }}"></script>
+    <script src="{{ asset('js/app.js?v=2') }}"></script>
     
     @includeIf('layouts.parts.notifications')
     
