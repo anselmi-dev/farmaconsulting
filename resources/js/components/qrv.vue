@@ -5,7 +5,7 @@
       ref="wrapper"
       @fullscreenchange="onFullscreenChange"
     >
-      <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
+      <qrcode-stream @decode="onDecode" @init="onInit">
         <div class="text-3xl text-white w-full text-center uppercarse" v-if="loading">
           Cargando...
         </div>
@@ -66,14 +66,17 @@ export default {
   methods: {
     async onInit(promise) {
       this.loading = true;
-      try {
-        await promise;
-      } catch (e) {
-        console.error(e);
-      } finally {
-        this.showScanConfirmation = this.camera === "off";
-        this.loading = false;
-      }
+      // try {
+      //   await promise;
+      // } catch (e) {
+      //   console.error(e);
+      // } finally {
+      //   this.showScanConfirmation = this.camera === "off";
+      //   this.loading = false;
+      // }
+      // this.showScanConfirmation = this.camera === "off";
+      this.loading = false;
+
     },
 
     async onDecode(content) {
@@ -102,7 +105,6 @@ export default {
       // This becomes important when the user doesn't use the button to exit
       // fullscreen but hits ESC on desktop, pushes a physical back button on
       // mobile etc.
-
       this.fullscreen = document.fullscreenElement !== null;
     },
 
@@ -122,7 +124,6 @@ export default {
         elem.msRequestFullscreen();
       }
     },
-
     exitFullscreen() {
       if (document.exitFullscreen) {
         document.exitFullscreen();
