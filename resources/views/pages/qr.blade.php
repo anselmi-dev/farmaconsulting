@@ -6,6 +6,6 @@
 
 @section('content')
     <div id="app" class="url-content flex items-center justify-center bg-base">
-        <qrv></qrv>
+        <qrv-barcode></qrv-barcode>
     </div>
 @endsection
