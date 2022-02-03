@@ -49,7 +49,7 @@
 </head>
 
 <body class="{{ Route::currentRouteName() }}">
-    <div >
+    <div>
 
         @section('intro')
             @guest
@@ -65,8 +65,10 @@
                 @includeIf('layouts.parts.header.nav')
             @show
 
-            <div class="relative min-h-screen" id="content">
-                @yield('content')
+            <div id="app">
+                <div class="relative min-h-screen" id="content">
+                    @yield('content')
+                </div>
             </div>
 
             @auth

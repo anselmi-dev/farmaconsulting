@@ -62,7 +62,11 @@ document.querySelectorAll('.custom-select__option').forEach((item, index) => {
 // Require Vue
 window.Vue = require('vue').default;
 import VueQrcodeReader from "vue-qrcode-reader";
+import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from "vue-qrcode-reader";
 
+Vue.use(QrcodeCapture);
+Vue.use(QrcodeDropZone);
+Vue.use(QrcodeStream);
 Vue.use(VueQrcodeReader);
 
 // Register Vue Components
