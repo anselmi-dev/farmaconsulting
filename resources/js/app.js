@@ -60,7 +60,7 @@ document.querySelectorAll('.custom-select__option').forEach((item, index) => {
 
 
 // Require Vue
-// window.Vue = require('vue').default;
+window.Vue = require('vue').default;
 
 // Register Vue Components
 Vue.component('qrv', require('./components/qrv.vue').default);
