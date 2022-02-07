@@ -65,7 +65,7 @@
                 @includeIf('layouts.parts.header.nav')
             @show
 
-            <div id="app">
+            <div >
                 <div class="relative min-h-screen" id="content">
                     @yield('content')
                 </div>
@@ -77,7 +77,7 @@
         </div>
     </div>
     
-    <script src="{{ asset('js/app.js?v=2') }}"></script>
+    <script src="{{ asset('js/app.js?v=3') }}"></script>
     
     @includeIf('layouts.parts.notifications')
     

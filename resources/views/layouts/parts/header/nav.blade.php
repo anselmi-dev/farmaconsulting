@@ -1,4 +1,4 @@
-<div x-data="{expanded: false}">
+<div>
     <nav class="nav">
         <div class="nav__content">
             <div>
@@ -70,7 +70,7 @@
                         @includeIf('layouts.parts.header._my-profile')
                     </div>
 
-                    <ul  x-data="{ expanded: '' }">
+                    <ul x-data="{ expanded: '' }">
                         <li>
                             <div @click="if(expanded == 'my-account') expanded = ''; else expanded = 'my-account' ">
                                 @includeIf('layouts.parts.header._link', ['href' => '#', 'label' => __('Mis datos'), 'icon'

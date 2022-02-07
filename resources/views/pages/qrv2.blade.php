@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <div class="url-content flex items-center justify-center bg-base">
-        <qrv></qrv>
+    <div id="app">
+        <div class="url-content flex items-center justify-center bg-base">
+            <qrv></qrv>
+        </div>
     </div>
 @endsection

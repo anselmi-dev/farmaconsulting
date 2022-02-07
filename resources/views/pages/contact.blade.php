@@ -201,7 +201,7 @@
             </div>
         </div>
 
-        <div class="slider" :class="{ 'active': expanded }">
+        <div class="slider" :class="{'active': expanded}">
             <div class="slider__content slider__content--call" @click.away="if (expanded == true) console.log(1)">
                 <div class="w-full">
                     <a href="tel:+34900115765">
