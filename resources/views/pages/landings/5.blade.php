@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-<div class="url-content bg-base">
+    <div id="app" class="url-content bg-base">
         <div class="relative overflow-hidden">
             <div class="relative py-10">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6">
@@ -25,12 +25,36 @@
             </div>
 
             <div class="relative w-full mx-auto">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/344270892?h=6116904964&title=0&byline=0&portrait=0&controls=0&portrait=0&sidedock=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-                    {{-- <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/100338229?h=e89f8c62ae&title=0&byline=0&portrait=0&sidedock=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script> --}}
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-10">
+                    <div class="relative" style="padding:56.25% 0 0 0;">
+                        <div id="playbtn" class="absolute flex items-center justify-center w-full h-full cursor-pointer z-10 top-0 left-0 m-auto">
+                            <img src="{{ asset('images/pay.png') }}" class="max-w-full max-h-full w-20">
+                        </div>
+                        <iframe id="video-player" class="top-0 absolute left-0 w-full h-full" src="https://player.vimeo.com/video/344270892?controls=0"
+                            videoframeborder="0" allow="autoplay; fullscreen; picture-in-picture" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 @endsection
+
+@push('scripts')
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+            const playbtn = document.getElementById('playbtn');
+            const player = document.getElementById('video-player');
+            const vimeoPlayer = new Vimeo.Player(player);
+            playbtn.onclick = function() {
+            playbtn.style.display = "none";
+                vimeoPlayer.play();
+            }
+            vimeoPlayer.on('pause', function() {
+                playbtn.style.display = "block";
+            });
+            vimeoPlayer.on('play', function() {
+                playbtn.style.display = "none";
+            });
+    </script>
+@endpush

@@ -3,7 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-        'Playfair': ['Playfair Display', 'sans-serif']
+      'Playfair': ['Playfair Display', 'sans-serif']
     },
     extend: {
         colors: {
