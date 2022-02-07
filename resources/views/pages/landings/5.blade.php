@@ -18,8 +18,7 @@
                 <div class="mx-auto max-w-7xl px-4 sm:px-6">
                     <div class="text-center">
                         <h1 class="text-3xl font-bold text-white">
-                            <span class="block text-4xl">Vídeo Carolina García</span>
-                            <span class="block">Compra de farmacia</span>
+                            <span class="block text-4xl">Escucha los testimonios de clientes que ya han cumplido su sueño</span>
                         </h1>
                     </div>
                 </div>

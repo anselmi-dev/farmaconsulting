@@ -18,8 +18,7 @@
                 <div class="mx-auto max-w-7xl px-4 sm:px-6">
                     <div class="lg:text-center">
                         <h1 class="text-3xl font-bold text-white">
-                            <span class="block text-4xl">Vídeo Nuría Ruiz</span>
-                            <span class="block">Venta jubilación</span>
+                            <span class="block text-4xl">Escucha los testimonios de clientes que ya han cumplido su sueño</span>
                         </h1>
                         {{-- <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"></p> --}}
                     </div>
