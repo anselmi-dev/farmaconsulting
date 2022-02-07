@@ -63,6 +63,7 @@
 }
 .menu {
     @apply fixed w-full bottom-0 bg-white border-t border-gray-200;
+    z-index: 11;
     height: 109px;
     &__content {
         @apply w-full grid grid-cols-5 justify-center gap-4 h-full;
