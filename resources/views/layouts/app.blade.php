@@ -76,9 +76,6 @@
             @endauth
         </div>
     </div>
-
-    <button id="btnAdd">btnAdd</button>
-
     
     <script src="{{ asset('js/app.js?v=2') }}"></script>
     
