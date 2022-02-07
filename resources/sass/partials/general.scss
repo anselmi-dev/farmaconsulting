@@ -130,9 +130,9 @@ select:active {
 }
 .url-content {
     @apply w-full z-0;
-    height: calc(100vh - 169px);
+    min-height: calc(100vh - 169px);
     @screen lg {
-        height: calc(100vh - 160px);
+        min-height: calc(100vh - 160px);
     }
 }
 .scanner {
