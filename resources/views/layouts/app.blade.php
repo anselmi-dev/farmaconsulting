@@ -32,6 +32,8 @@
 
     @laravelPWA
 
+    @stack('scripts-head')
+
     <script type="text/javascript">
         // Initialize the service worker
         if ('serviceWorker' in navigator) {
@@ -78,6 +80,7 @@
     </div>
     
     <script src="{{ asset('js/app.js?v=3') }}"></script>
+    
     
     @includeIf('layouts.parts.notifications')
     

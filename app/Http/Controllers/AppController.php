@@ -150,6 +150,12 @@ class AppController extends Controller
     public function landing ($landing)
     {
         try {
+            $this->RegistraEvento(auth()->user()->email, $landing);
+        } catch (\Throwable $th) {
+            logger('Error RegistraEvento ' . auth()->user()->email);
+        }
+
+        try {
             return view('pages.landings.'.$landing);
         } catch (\Throwable $th) {
             abort(404);

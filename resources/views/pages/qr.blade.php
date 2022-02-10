@@ -9,3 +9,9 @@
         <qrv-barcode></qrv-barcode>
     </div>
 @endsection
+
+@push('scripts-head')
+    <script>
+        let router_register_event = "{{ route('register-event') }}";
+    </script>
+@endpush

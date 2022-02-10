@@ -243,7 +243,7 @@ trait ApiFarmaconsulting {
             'Content-Type: text/xml; charset=utf-8',
             'Authorization: Basic YXAxXzI6RmN0QWNicDEyMw=='
         ));
-        curl_setopt($curl, CURLOPT_POSTFIELDS, '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Body><RegistraEvento xmlns="http://tempuri.org/"><Usuario>`.$email.`</Usuario><Evento>`.$event.`</Evento><Dato>`.$code.`</Dato></RegistraEvento></Body></Envelope>');
+        curl_setopt($curl, CURLOPT_POSTFIELDS, '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Body><RegistraEvento xmlns="http://tempuri.org/"><Usuario>'.$email.'</Usuario><Evento>'.$event.'</Evento><Dato>'.$code.'</Dato></RegistraEvento></Body></Envelope>');
 
         $output = curl_exec($curl);
         
