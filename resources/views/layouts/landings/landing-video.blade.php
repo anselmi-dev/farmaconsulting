@@ -20,69 +20,10 @@
                     </div>
                 </div>
             </div>
-
-            <div class="div-screen w-full mx-auto">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-10">
-                    <div class="relative" style="padding:56.25% 0 0 0;">
-                        <div id="playbtn" class="absolute flex items-center justify-center w-full h-full cursor-pointer top-0 left-0 m-auto" style="z-index: 10">
-                            <img id="playbtn-icon" src="{{ asset('images/pay.png') }}" class="max-w-full max-h-full w-20">
-                        </div>
-                        <div id="fullscreenbtn" class="absolute flex items-center justify-center cursor-pointer bottom-2 left-2 m-auto bg-gray-100 rounded p-1" style="z-index: 11">
-                            <svg class="fullscreenbtn_expand max-w-full max-h-full w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.29,13.29,4,18.59V17a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38,1,1,0,0,0,.54.54A1,1,0,0,0,3,22H7a1,1,0,0,0,0-2H5.41l5.3-5.29a1,1,0,0,0-1.42-1.42ZM5.41,4H7A1,1,0,0,0,7,2H3a1,1,0,0,0-.38.08,1,1,0,0,0-.54.54A1,1,0,0,0,2,3V7A1,1,0,0,0,4,7V5.41l5.29,5.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42ZM21,16a1,1,0,0,0-1,1v1.59l-5.29-5.3a1,1,0,0,0-1.42,1.42L18.59,20H17a1,1,0,0,0,0,2h4a1,1,0,0,0,.38-.08,1,1,0,0,0,.54-.54A1,1,0,0,0,22,21V17A1,1,0,0,0,21,16Zm.92-13.38a1,1,0,0,0-.54-.54A1,1,0,0,0,21,2H17a1,1,0,0,0,0,2h1.59l-5.3,5.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L20,5.41V7a1,1,0,0,0,2,0V3A1,1,0,0,0,21.92,2.62Z"/></svg>
-                            <svg class="fullscreenbtn_compress max-w-full max-h-full w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.38,13.08A1,1,0,0,0,10,13H6a1,1,0,0,0,0,2H7.59l-5.3,5.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L9,16.41V18a1,1,0,0,0,2,0V14a1,1,0,0,0-.08-.38A1,1,0,0,0,10.38,13.08ZM10,5A1,1,0,0,0,9,6V7.59L3.71,2.29A1,1,0,0,0,2.29,3.71L7.59,9H6a1,1,0,0,0,0,2h4a1,1,0,0,0,.38-.08,1,1,0,0,0,.54-.54A1,1,0,0,0,11,10V6A1,1,0,0,0,10,5Zm3.62,5.92A1,1,0,0,0,14,11h4a1,1,0,0,0,0-2H16.41l5.3-5.29a1,1,0,1,0-1.42-1.42L15,7.59V6a1,1,0,0,0-2,0v4a1,1,0,0,0,.08.38A1,1,0,0,0,13.62,10.92ZM16.41,15H18a1,1,0,0,0,0-2H14a1,1,0,0,0-.38.08,1,1,0,0,0-.54.54A1,1,0,0,0,13,14v4a1,1,0,0,0,2,0V16.41l5.29,5.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"/></svg>
-                        </div>
-                        <iframe id="video-player"
-                            class="top-0 absolute left-0 w-full h-full bg-gray-800"
-                            src="@yield('landing-page-src')"
-                            videoframeborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture"
-                            frameborder="0"
-                            webkitallowfullscreen
-                            mozallowfullscreen
-                            allowfullscreen 
-                            allow="autoplay">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
+            
+            @component('components.vimeo', ['src' => View::getSection('landing-page-src'), 'key' => 12])
+            @endcomponent
         </div>
     </div>
 
 @endsection
-
-@push('scripts')
-    <script src="https://player.vimeo.com/api/player.js"></script>
-    <script>
-        const playbtnIcon = document.getElementById('playbtn-icon');
-        const playbtn = document.getElementById('playbtn');
-        const player = document.getElementById('video-player');
-        const bottonScreen = document.getElementById('fullscreenbtn');
-        const vimeoPlayer = new Vimeo.Player(player);
-        playbtn.onclick = function() {
-            if (playbtnIcon.style.display == 'none') {
-                playbtnIcon.style.display = "block";
-                bottonScreen.style.display = "block";
-                vimeoPlayer.pause();
-            }
-            else {
-                playbtnIcon.style.display = "none";
-                vimeoPlayer.play();
-                if (bottonScreen) {
-                    bottonScreen.style.display = "none";
-                }
-            }
-        }
-        vimeoPlayer.on('pause', function() {
-            playbtnIcon.style.display = "block";
-        });
-        vimeoPlayer.on('play', function() {
-            playbtnIcon.style.display = "none";
-        });
-
-        if (bottonScreen) {
-            bottonScreen.addEventListener("click", function () {
-                document.getElementById('app').classList.toggle('fullscreen');
-            })
-        }
-    </script>
-@endpush
