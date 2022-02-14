@@ -7,12 +7,17 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
 use App\Mail\WeCallYouMail;
 use App\Mail\ConsultationMail;
+use App\Mail\InformeIPDMail;
+use App\Mail\AppointmentMail;
 
 use App\Models\Contact;
 
 class ContactController extends Controller
 {
 
+    // protected $to_email = 'info@farmaconsulting.es';
+    protected $to_email = 'fct@farmaconsulting.es';
+    
     /**
      * Consulta general
      *
@@ -38,7 +43,7 @@ class ContactController extends Controller
             logger('Error al registrar una consulta. MODEL:CONTACT');
         }
 
-        Mail::to('info@farmaconsulting.es')->send(new WeCallYouMail($contact));
+        Mail::to($this->to_email)->send(new WeCallYouMail($contact));
 
         return response()->json(['success' => true, 'message' => 'Consulta enviada']);
     }
@@ -68,7 +73,7 @@ class ContactController extends Controller
             logger('Error al registrar una consulta. MODEL:CONTACT');
         }
 
-        Mail::to('info@farmaconsulting.es')->send(new ConsultationMail($contact));
+        Mail::to($this->to_email)->send(new ConsultationMail($contact));
 
         return response()->json(['success' => true, 'message' => 'Consulta enviada']);
     }
@@ -96,8 +101,15 @@ class ContactController extends Controller
             logger('Error al registrar una consulta. MODEL:CONTACT');
         }
 
-        Mail::to('info@farmaconsulting.es')->send(new ConsultationMail($contact));
+        Mail::to($this->to_email)->send(new AppointmentMail($contact));
 
         return response()->json(['success' => true, 'message' => 'Cita concertada']);
+    }
+
+    public function IPD (Request $request) {
+
+        Mail::to($this->to_email)->send(new InformeIPDMail(auth()->user()));
+
+        return response()->json(['success' => true, 'message' => 'Informe personalizado IPDª solicitado']);
     }
 }

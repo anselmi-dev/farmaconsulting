@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Contact;
 
-class ConsultationMail extends Mailable
+class AppointmentMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -35,8 +35,8 @@ class ConsultationMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('LIBRO DANDO VIDA | Cuéntanos tu consulta')
-                    ->markdown('emails.consultation')
+        return $this->subject('LIBRO DANDO VIDA | Reunión en oficinas')
+                    ->markdown('emails.appointment')
                     ->with('contact', $this->contact);
     }
 }

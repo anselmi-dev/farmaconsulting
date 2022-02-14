@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Traits\ApiFarmaconsulting;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class AppController extends Controller
 {
@@ -123,7 +124,7 @@ class AppController extends Controller
             'message' => $request['message_'.$request->option],
         ]);
 
-        Mail::to('info@farmaconsulting.es')->send(new \App\Mail\VarolacionMail($opinion));
+        Mail::to('fct@farmaconsulting.es')->send(new \App\Mail\VarolacionMail($opinion));
 
         return response()->json(['success' => true, 'message' => 'Gracias por tu opinión']);
     }
@@ -170,4 +171,15 @@ class AppController extends Controller
         abort(404);
     }
 
+    /**
+     * Muestra todas las landings creada en el directorio /resources/views/pages/landings
+     *
+     * @return view
+     */
+    public function landings ()
+    {
+        $views = Storage::disk('views')->allFiles('/');
+        
+        return view('pages.landings', compact('views'));
+    }
 }

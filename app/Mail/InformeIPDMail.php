@@ -6,26 +6,22 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Contact;
+use App\Models\Opinion;
 
-class ConsultationMail extends Mailable
+class InformeIPDMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     *
-     * @var Contact
-     */
-    public $contact;
+    public $user;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Contact $contact)
+    public function __construct($user)
     {
-        $this->contact = $contact;
+        $this->user = $user;
     }
 
     /**
@@ -35,8 +31,8 @@ class ConsultationMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('LIBRO DANDO VIDA | Cuéntanos tu consulta')
-                    ->markdown('emails.consultation')
-                    ->with('contact', $this->contact);
+        return $this->subject('LIBRO DANDO VIDA | Solicitud IPD')
+                    ->markdown('emails.informe-ipd')
+                    ->with('user', $this->user);
     }
 }

@@ -35,7 +35,7 @@ class WeCallYouMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Contácto | Farmaconsulting')
+        return $this->subject('LIBRO DANDO VIDA | Nosotros te llamamos')
                     ->markdown('emails.we-call-you')
                     ->with('contact', $this->contact);
     }

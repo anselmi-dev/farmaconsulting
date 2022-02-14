@@ -29,7 +29,7 @@ class VarolacionMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Opinión | Farmaconsulting')
+        return $this->subject('LIBRO DANDO VIDA | Valoración y sugerencia')
                     ->markdown('emails.opinion')
                     ->with('opinion', $this->opinion);
     }

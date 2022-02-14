@@ -37,11 +37,12 @@
                         </div>
                     </div>
                     <div>
-                        <div class="max-w-sm mx-auto">
+                        <form method="POST" action="{{ route('IPD') }}" name="form-IPD" class="line-col-center callback-form">
+                            @csrf
                             <button class="btn--primary px-5">
                                 {{ __('Quiero un informe personalizado IPDª') }}
                             </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -58,3 +59,25 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        (function() {
+            const form = document.querySelector('form[name="form-IPD"]');
+
+            form.addEventListener("submit", function(ev) {
+                ev.preventDefault();
+                handleFormSubmit(form, ajaxForm, {});
+            });
+
+            // Hook up the inputs to validate on the fly
+            var inputs = form.querySelectorAll('input, textarea, select');
+            for (var i = 0; i < inputs.length; ++i) {
+                inputs.item(i).addEventListener("change", function(ev) {
+                    var errors = validate(form, {}) || {};
+                    showErrorsForInput(this, errors[this.name])
+                });
+            }
+        })();
+    </script>
+@endpush
