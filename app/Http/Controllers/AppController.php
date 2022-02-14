@@ -154,7 +154,7 @@ class AppController extends Controller
             return redirect()->route('contact');
         }
         if ($landing == 1) {
-            return redirect()->route('home');
+            return redirect()->route('landingChrome');
         }
 
         try {
