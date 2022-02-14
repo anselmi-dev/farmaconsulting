@@ -52,34 +52,34 @@
 
 @push('scripts')
     <script>
-        const playbtnIcon = document.getElementById('playbtn-icon-{{ $key }}');
-        const playbtn = document.getElementById('playbtn-{{ $key }}');
-        const player = document.getElementById('video-player-{{ $key }}');
-        const bottonScreen = document.getElementById('fullscreenbtn-{{ $key }}');
-        const vimeoPlayer = new Vimeo.Player(player);
-        playbtn.onclick = function() {
+        const playbtnIcon{{ $key }} = document.getElementById('playbtn-icon-{{ $key }}');
+        const playbtn{{ $key }} = document.getElementById('playbtn-{{ $key }}');
+        const player{{ $key }} = document.getElementById('video-player-{{ $key }}');
+        const bottonScreen{{ $key }} = document.getElementById('fullscreenbtn-{{ $key }}');
+        const vimeoPlayer{{ $key }} = new Vimeo.Player(player);
+        playbtn{{ $key }}.onclick = function() {
             if (playbtnIcon.style.display == 'none') {
-                playbtnIcon.style.display = "block";
-                bottonScreen.style.display = "block";
-                vimeoPlayer.pause();
+                playbtnIcon{{ $key }}.style.display = "block";
+                bottonScreen{{ $key }}.style.display = "block";
+                vimeoPlayer{{ $key }}.pause();
             }
             else {
-                playbtnIcon.style.display = "none";
-                vimeoPlayer.play();
+                playbtnIcon{{ $key }}.style.display = "none";
+                vimeoPlayer{{ $key }}.play();
                 if (bottonScreen) {
-                    bottonScreen.style.display = "none";
+                    bottonScreen{{ $key }}.style.display = "none";
                 }
             }
         }
-        vimeoPlayer.on('pause', function() {
-            playbtnIcon.style.display = "block";
+        vimeoPlayer{{ $key }}.on('pause', function() {
+            playbtnIcon{{ $key }}.style.display = "block";
         });
-        vimeoPlayer.on('play', function() {
-            playbtnIcon.style.display = "none";
+        vimeoPlayer{{ $key }}.on('play', function() {
+            playbtnIcon{{ $key }}.style.display = "none";
         });
 
-        if (bottonScreen) {
-            bottonScreen.addEventListener("click", function () {
+        if (bottonScreen{{ $key }}) {
+            bottonScreen{{ $key }}.addEventListener("click", function () {
                 document.getElementById('app').classList.toggle('fullscreen');
             })
         }
