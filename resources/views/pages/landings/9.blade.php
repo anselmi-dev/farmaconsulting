@@ -7,4 +7,4 @@
 
 @section('landing-page-tile', 'Félix Ángel Fernández, te habla de la importancia de la seguridad jurídica.')
 
-@section('landing-page-src', 'https://player.vimeo.com/video/675945989?h=f51dfd889c&controls=0')
+@section('landing-page-src', 'https://player.vimeo.com/video/675945989?h=f51dfd889c&controls=0&controls=0')

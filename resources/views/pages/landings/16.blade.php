@@ -2,7 +2,7 @@
 
 @section('breadcrumbs')
     <a href="{{ route('home') }}" class="text-primary">Escaner</a>/
-    <span class="inline-block">Juan Fernández de Trocóniz</span>
+    <span class="inline-block">¿Quieres vender?</span>
 @endsection
 
 @section('landing-page-tile', 'Juan Fernández de Trocóniz, te explica cómo te acompañamos durante el proceso de venta.')

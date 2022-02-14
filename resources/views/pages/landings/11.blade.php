@@ -7,4 +7,4 @@
 
 @section('landing-page-tile', 'Koldo Gómez, te habla sobre lo esencial de la financiación para comprar una farmacia.')
 
-@section('landing-page-src', 'https://player.vimeo.com/video/675501680?h=81c62f5e0f&title=0&byline=0&portrait=0')
+@section('landing-page-src', 'https://player.vimeo.com/video/675501680?h=81c62f5e0f&title=0&byline=0&portrait=0&controls=0')

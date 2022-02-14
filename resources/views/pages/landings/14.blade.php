@@ -7,4 +7,4 @@
 
 @section('landing-page-tile', 'Mario Librado, te cuenta nuestros rigurosos procesos de control de calidad y de la experiencia del cliente.')
 
-@section('landing-page-src', 'https://player.vimeo.com/video/675799336?h=1ed311186b&title=0&byline=0&portrait=0')
+@section('landing-page-src', 'https://player.vimeo.com/video/675799336?h=1ed311186b&title=0&byline=0&portrait=0&controls=0')

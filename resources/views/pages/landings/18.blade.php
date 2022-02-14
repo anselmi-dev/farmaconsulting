@@ -7,4 +7,4 @@
 
 @section('landing-page-tile', 'Félix Ángel Fernández, te explica la especialización que requiere una transmisión familiar.')
 
-@section('landing-page-src', 'https://player.vimeo.com/video/675551188?h=ce0d226979&title=0&byline=0&portrait=0')
+@section('landing-page-src', 'https://player.vimeo.com/video/675551188?h=ce0d226979&title=0&byline=0&portrait=0&controls=0')
