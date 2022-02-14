@@ -7,4 +7,4 @@
 
 @section('landing-page-tile', 'Javier Perea, te habla sobre los beneficios de contar con un equipo especialista en negociación')
 
-@section('landing-page-src', 'https://player.vimeo.com/video/675419740?h=7ea645afa1&controls=0')
+@section('landing-page-src', 'https://player.vimeo.com/video/675419740?h=7ea645afa1&title=0&byline=0&portrait=0')

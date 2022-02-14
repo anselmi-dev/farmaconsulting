@@ -7,4 +7,4 @@
 
 @section('landing-page-tile', 'Javier Noceda, Asesor Patrimonial, te cuenta cómo es nuestra atención personalizada y especialización.')
 
-@section('landing-page-src', 'https://player.vimeo.com/video/675945989?h=f51dfd889c&controls=0')
+@section('landing-page-src', 'https://player.vimeo.com/video/675945989?h=f51dfd889c&title=0&byline=0&portrait=0')

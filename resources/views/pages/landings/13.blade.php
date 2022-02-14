@@ -7,4 +7,4 @@
 
 @section('landing-page-tile', 'Juan Antonio Adsuar, te cuenta la importancia de diseñar un plan de promoción personalizado.')
 
-@section('landing-page-src', 'https://player.vimeo.com/video/675439516?h=39700edb3c&controls=0')
+@section('landing-page-src', 'https://player.vimeo.com/video/675439516?h=39700edb3c&title=0&byline=0&portrait=0')
