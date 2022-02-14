@@ -58,7 +58,7 @@
         const bottonScreen{{ $key }} = document.getElementById('fullscreenbtn-{{ $key }}');
         const vimeoPlayer{{ $key }} = new Vimeo.Player(player{{ $key }});
         playbtn{{ $key }}.onclick = function() {
-            if (playbtnIcon.style.display == 'none') {
+            if (playbtnIcon{{ $key }}.style.display == 'none') {
                 playbtnIcon{{ $key }}.style.display = "block";
                 bottonScreen{{ $key }}.style.display = "block";
                 vimeoPlayer{{ $key }}.pause();
