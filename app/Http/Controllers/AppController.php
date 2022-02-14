@@ -149,17 +149,25 @@ class AppController extends Controller
      */
     public function landing ($landing)
     {
+        if ($landing == 24) {
+            return redirect()->route('contact');
+        }
+        if ($landing == 1) {
+            return redirect()->route('home');
+        }
+
         try {
             $this->RegistraEvento(auth()->user()->email, $landing);
         } catch (\Throwable $th) {
             logger('Error RegistraEvento ' . auth()->user()->email);
         }
 
-        try {
-            return view('pages.landings.'.$landing);
-        } catch (\Throwable $th) {
-            abort(404);
+        $view = 'pages.landings.'.$landing;
+
+        if (view()->exists($view)) {
+            return view($view);
         }
+        abort(404);
     }
 
 }

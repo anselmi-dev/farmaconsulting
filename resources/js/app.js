@@ -61,8 +61,6 @@ document.querySelectorAll('.custom-select__option').forEach((item, index) => {
 
 // Require Vue
 window.Vue = require('vue').default;
-
-// Register Vue Components
 Vue.component('qrv', require('./components/qrv.vue').default);
 Vue.component('qrv-barcode', require('./components/qrv-barcode.vue').default);
 

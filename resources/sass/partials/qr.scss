@@ -37,3 +37,45 @@
     justify-content: center;
     z-index: 5;
 }
+
+.fullscreen .div-screen iframe {
+    max-height: 100vh;
+    width: 100%;
+}
+.fullscreen .div-screen > div > div {
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+}
+.fullscreen .div-screen > div {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    max-height: 100%;
+    height: 100%;
+}
+.fullscreenbtn_expand {
+    display: block;
+}
+.fullscreenbtn_compress,
+.fullscreen .fullscreenbtn_expand {
+    display: none;
+}
+.fullscreen .fullscreenbtn_compress {
+    display: block;
+}
+.fullscreen .div-screen {
+    max-width: 100%;
+    position: absolute;
+    width: 100%;
+    background: #414141f7;
+    z-index: 111111;
+    display: block;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
