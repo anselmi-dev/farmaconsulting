@@ -1,5 +1,5 @@
 @if (!is_null($src))
-    <div class="div-screen w-full mx-auto">
+    <div id="div-screen-{{ $key }}" class="div-screen w-full mx-auto">
         @if(isset($title) && !is_null($title))
             <div class="text-4xl text-center text-white text-white mt-10 mb-1">
                 {{ $title }}
@@ -32,7 +32,21 @@
 
 @push('styles')
     <style>
-
+        .fullscreen #div-screen-{{ $key }} {
+            max-width: 100%;
+            position: absolute;
+            width: 100%;
+            background: #414141f7;
+            z-index: 111111;
+            display: block;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
     </style>
 @endpush
 

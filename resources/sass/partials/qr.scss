@@ -64,18 +64,3 @@
 .fullscreen .fullscreenbtn_compress {
     display: block;
 }
-.fullscreen .div-screen {
-    max-width: 100%;
-    position: absolute;
-    width: 100%;
-    background: #414141f7;
-    z-index: 111111;
-    display: block;
-    top: 0;
-    bottom: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-}
