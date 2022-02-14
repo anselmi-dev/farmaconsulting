@@ -56,7 +56,7 @@
         const playbtn{{ $key }} = document.getElementById('playbtn-{{ $key }}');
         const player{{ $key }} = document.getElementById('video-player-{{ $key }}');
         const bottonScreen{{ $key }} = document.getElementById('fullscreenbtn-{{ $key }}');
-        const vimeoPlayer{{ $key }} = new Vimeo.Player(player);
+        const vimeoPlayer{{ $key }} = new Vimeo.Player(player{{ $key }});
         playbtn{{ $key }}.onclick = function() {
             if (playbtnIcon.style.display == 'none') {
                 playbtnIcon{{ $key }}.style.display = "block";
