@@ -1,7 +1,7 @@
 @extends('layouts.landings.landing-videos', [
     'videos' => [
         ['vimeo' => 'https://player.vimeo.com/video/675429549?h=f330c4361e'],
-        ['vimeo' => 'https://player.vimeo.com/video/675391816?h=79d27bd5a2&title=0&byline=0&portrait=0']
+        ['vimeo' => 'https://player.vimeo.com/video/675391816?h=79d27bd5a2']
     ]
 ])
 
