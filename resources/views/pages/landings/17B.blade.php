@@ -18,5 +18,3 @@
         ['vimeo' => 'https://player.vimeo.com/video/677138275?title=0&byline=0&portrait=0&controls=1'],
     ]
 ])
-
-https://player.vimeo.com/video/675525143?h=2ff30dd63c&title=0&byline=0&portrait=0&controls=0
