@@ -80,7 +80,7 @@
                             <div class="custom-select__container">
                                 <div class="line-row-between gap-2">
                                     <div class="custom-select__subtitle truncate">
-                                        <p class="typography--dark-green" id="province_label" default="{{ __('Provincia') }}">
+                                        <p class="typography--dark-green custom-select__label" id="province_label" default="{{ __('Provincia') }}">
                                             {{ __('Provincia') }}
                                         </p>
                                     </div>

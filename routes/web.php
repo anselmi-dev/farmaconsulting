@@ -39,24 +39,24 @@ Route::middleware('auth')->group(function () {
     Route::get('/farmaconsulting-responde', [App\Http\Controllers\AppController::class, 'consulting'])->name('consulting');
     Route::get('/farmaconsulting', [App\Http\Controllers\AppController::class, 'farmaconsulting'])->name('farmaconsulting');
     Route::get('/valoracion-y-sugerencias', [App\Http\Controllers\AppController::class, 'valoracion'])->name('valoracion');
-    Route::post('/valoracion-y-sugerencias', [App\Http\Controllers\AppController::class, 'valoracionPost'])->name('valoracion.post');
-
+    
     Route::get('/code/{landing}', [App\Http\Controllers\AppController::class, 'landing'])->name('landing');
     Route::get('/code/{landing}/event', [App\Http\Controllers\AppController::class, 'landingEvent'])->name('landing.event');
-
+    
     // subpages of contact
     Route::view('/cuentanos-tu-consulta', 'pages.mail')->name('contact.mail');
     Route::view('/nosotros-te-llamamos', 'pages.callback')->name('contact.callback');
     Route::view('/concertamos-reunion-en-nuestras-oficinas', 'pages.shops')->name('contact.shops');
-
+    
     Route::get('/cita-en-oficina/{oficina}', [App\Http\Controllers\Api\ContactController::class, 'appointment_create'])->name('contact.appointment');
-
+    
     Route::post('/update/account', [App\Http\Controllers\Api\MyAccountController::class, 'updateAccount'])->name('update-account');
     Route::post('/update/preferences', [App\Http\Controllers\Api\MyAccountController::class, 'updatePreferences'])->name('update-preferences');
     Route::post('/update/password', [App\Http\Controllers\Api\MyAccountController::class, 'updateClave'])->name('update-password');
     Route::post('/register/event', [App\Http\Controllers\Api\QrController::class, 'register'])->name('register-event');
     // Route::post('/update/password', [App\Http\Controllers\Api\ContactController::class, 'getNewPassword'])->name('update-password');
-
+    
+    Route::post('/contact/valoracion-y-sugerencias', [App\Http\Controllers\Api\ContactController::class, 'valoracionPost'])->name('valoracion.post');
     Route::post('/contact/consultation', [App\Http\Controllers\Api\ContactController::class, 'consultation'])->name('contact-consultation');
     Route::post('/contact/general', [App\Http\Controllers\Api\ContactController::class, 'general'])->name('contact-general');
     Route::post('/contact/appointment', [App\Http\Controllers\Api\ContactController::class, 'appointment'])->name('contact-appointment');

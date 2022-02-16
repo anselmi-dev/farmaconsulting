@@ -3,10 +3,8 @@
 
 Nombre: <b>{{ $contact->name }}</b> <br>
 Apellido: <b>{{ $contact->lastname }}</b> <br>
-Email: <b>{{ $contact->email }}</b> <br>
 Teléfono: <b>{{ $contact->phone }}</b> <br>
-Provincia: <b>{{ $contact->label_province }}</b> <br>
-Interesado/a en: <b>{{ $contact->interested }}</b> <br>
+Zona horario: <b>{{ $contact->timezone }}</b> <br>
 
 Consulta:<br>
 <b>

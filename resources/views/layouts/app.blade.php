@@ -178,6 +178,7 @@
                     form.reset();
                     form.classList.remove('loading');
                     showNotification(xhr.response.message ?? "Mensaje enviado");
+                    resetSelectoChangeLabel();
                 } else {
                     form.classList.remove('loading');
                     showNotification(xhr.response.message ?? "Ocurrió un error", 'error');
@@ -229,6 +230,13 @@
                 checkeds_count.innerHTML = checkeds.length > 0 ? "("+checkeds.length+") seleccionados" : null;
             }
             element_label.innerHTML = label_default ? label_default : element_label.getAttribute('default');
+        }
+
+        function resetSelectoChangeLabel () {
+            let inputs = document.querySelectorAll('.custom-select__label');
+            inputs.forEach(element => {
+                element.innerHTML = element.getAttribute('default');
+            });
         }
     </script>
     <!-- Scripts -->

@@ -88,7 +88,7 @@
                         <div class="custom-select__container">
                             <div class="line-row-between gap-2">
                                 <div class="custom-select__subtitle truncate">
-                                    <p class="typography--dark-green" id="timezone_label" default="{{ __('Preferencia de franja horaria') }}">
+                                    <p class="typography--dark-green custom-select__label" id="timezone_label" default="{{ __('Preferencia de franja horaria') }}">
                                         Preferencia de franja horaria
                                     </p>
                                 </div>

@@ -113,22 +113,6 @@ class AppController extends Controller
         return view('pages.valoracion-y-sugerencias');
     }
 
-    public function valoracionPost (Request $request)
-    {
-        $user = \Auth::user();
-        
-        $opinion = \App\Models\Opinion::create([
-            'name' => $user->name,
-            'email' => $user->email,
-            'option' => $request->option,
-            'message' => $request['message_'.$request->option],
-        ]);
-
-        Mail::to('fct@farmaconsulting.es')->send(new \App\Mail\VarolacionMail($opinion));
-
-        return response()->json(['success' => true, 'message' => 'Gracias por tu opinión']);
-    }
-
     /**
      * Registrar el evento del QR antes de ir a la landing
      *

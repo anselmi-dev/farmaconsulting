@@ -36,7 +36,7 @@
                     <label for="option1" class="relative block border border-gray-200 p-3 rounded overflow-hidden">
                         <input class="hidden" x-model="toggle" type="radio" id="option1" name="option" value="1">
                         <div class="absolute top-0 left-0 w-full h-full bg-green-100 pointer-events-none opacity-30 hidden"></div>
-                        <div class="block">
+                        <div class="block cursor-pointer">
                             <div class="flex items-center -mx-2">
                                 <div class="mx-2">
                                     <svg class="h-10" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24"><path d="M14.36,14.23a3.76,3.76,0,0,1-4.72,0,1,1,0,0,0-1.28,1.54,5.68,5.68,0,0,0,7.28,0,1,1,0,1,0-1.28-1.54ZM9,11a1,1,0,1,0-1-1A1,1,0,0,0,9,11Zm6-2a1,1,0,1,0,1,1A1,1,0,0,0,15,9ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/></svg>
@@ -59,7 +59,7 @@
                     <label for="option2" class="relative block border border-gray-200 p-3 rounded overflow-hidden">
                         <input class="hidden" x-model="toggle" type="radio" id="option2" name="option" value="2">
                         <div class="absolute top-0 left-0 w-full h-full bg-green-100 pointer-events-none opacity-30 hidden"></div>
-                        <div class="block">
+                        <div class="block cursor-pointer">
                             <div class="flex items-center -mx-2">
                                 <div class="mx-2">
                                     <svg class="h-10" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24"><path  d="M10,11a1,1,0,0,0,.89-.55,1,1,0,0,0-.44-1.34l-2-1a1,1,0,1,0-.9,1.78l2,1A.93.93,0,0,0,10,11Zm2-9A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM8.36,15.33a1,1,0,0,0-.13,1.4,1,1,0,0,0,1.41.13,3.76,3.76,0,0,1,4.72,0,1,1,0,0,0,.64.23,1,1,0,0,0,.64-1.76A5.81,5.81,0,0,0,8.36,15.33Zm7.19-7.22-2,1a1,1,0,0,0-.44,1.34A1,1,0,0,0,14,11a.93.93,0,0,0,.45-.11l2-1a1,1,0,0,0-.9-1.78Z"/></svg>
@@ -82,7 +82,7 @@
                     <label for="option3" class="relative block border border-gray-200 p-3 rounded overflow-hidden">
                         <input class="hidden" x-model="toggle" type="radio" id="option3" name="option" value="3" >
                         <div class="absolute top-0 left-0 w-full h-full bg-green-100 pointer-events-none opacity-30 hidden"></div>
-                        <div class="block">
+                        <div class="block cursor-pointer">
                             <div class="flex items-center -mx-2">
                                 <div class="mx-2">
                                     <svg class="h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.29,3.71a1,1,0,0,0,1.42,0,1.15,1.15,0,0,0,.21-.33A1,1,0,0,0,21,3a1,1,0,0,0-.29-.71l-.15-.12a.76.76,0,0,0-.18-.09,1,1,0,0,0-1.09.21A1,1,0,0,0,19,3a1,1,0,0,0,.08.38A1.15,1.15,0,0,0,19.29,3.71ZM20,5a1,1,0,0,0-1,1v4a1,1,0,0,0,2,0V6A1,1,0,0,0,20,5Zm.06,8a1,1,0,0,0-1.11.87A7,7,0,0,1,12,20H6.41l.64-.63a1,1,0,0,0,0-1.41A7,7,0,0,1,12,6a6.91,6.91,0,0,1,3.49.94,1,1,0,0,0,1-1.72A8.84,8.84,0,0,0,12,4,9,9,0,0,0,5,18.62L3.29,20.29a1,1,0,0,0-.21,1.09A1,1,0,0,0,4,22h8a9,9,0,0,0,8.93-7.88A1,1,0,0,0,20.06,13Z"/></svg>
@@ -125,9 +125,34 @@
         const items = () => {
             return {
                 toggle: '',
+                init () {
+                    this.$watch('toggle', () => {
+                        console.log(this.toggle);
+                        switch (this.toggle) {
+                            case '1':
+                                document.querySelector('[name="message_2"]').value = null;
+                                document.querySelector('[name="message_3"]').value = null;
+                                break;
+
+                            case '2':
+                                document.querySelector('[name="message_1"]').value = null;
+                                document.querySelector('[name="message_3"]').value = null;
+                                break;
+
+                            case '3':
+                                document.querySelector('[name="message_1"]').value = null;
+                                document.querySelector('[name="message_2"]').value = null;
+                                break;
+                        
+                            default:
+                                console.log('1')
+                                break;
+                        }
+                    })
+                },
                 reset: function () {
                     this.toggle = ''
-                }
+                },
             }
         }
 

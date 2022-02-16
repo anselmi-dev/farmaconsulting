@@ -2,13 +2,17 @@
 # Opinión desde Farmaconsulting
 
 @if ($opinion->option == 1)
-## <b>{{ $opinion->name }} ({{ $opinion->email }}) </b> {{ __('Le gusta la página') }}
+## {{ $opinion->name }} ({{ $opinion->email }})
+{{ __('Le gusta la página') }}
 @elseif ($opinion->option == 2)
-## <b>{{ $opinion->name }} ({{ $opinion->email }}) </b> {!! 'No le gusta la página' !!}
+## {{ $opinion->name }} ({{ $opinion->email }})
+{!! 'No le gusta la página' !!}
 @elseif ($opinion->option == 3)
-## <b>{{ $opinion->name }} ({{ $opinion->email }}) </b> {!! 'Dió una opinión:' !!}  
+## {{ $opinion->name }} ({{ $opinion->email }})
+{!! 'Dió una opinión:' !!}  
 @endif
 
+Opinión: <br>
 ## {!! $opinion->message !!}
 
 <br>

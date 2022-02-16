@@ -49,7 +49,7 @@
                 </div>
                 <div class="custom-select__options-container pt-0">
                     <div class="custom-select__options-subtitle">
-                        <p class="typography--small" id="fc_provincias" default="{{ __('Selecciona las provincias que te interesen') }}">
+                        <p class="typography--small custom-select__label" id="fc_provincias" default="{{ __('Selecciona las provincias que te interesen') }}">
                             {{ __('Selecciona las provincias que te interesen') }}
                         </p>
                     </div>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="custom-select__options-container">
                     <div class="custom-select__options-subtitle">
-                        <p class="typography--small" id="fc_facturacion" default="{{ __('Selecciona los tramos') }}">
+                        <p class="typography--small custom-select__label" id="fc_facturacion" default="{{ __('Selecciona los tramos') }}">
                             {{ __('Selecciona los tramos') }}
                         </p>
                     </div>
