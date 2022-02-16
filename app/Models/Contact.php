@@ -40,7 +40,7 @@ class Contact extends Model
     {
         try {
             $timezones = [0 => '08:30 - 11:00', 1 => '11:00 - 14:00', 2 => '14:00 - 16:00', 3 => '16:00 - 19:00'];
-            return $timezones[$this->timezone];
+            return $timezones[intval($this->timezone)];
         } catch (\Throwable $th) {
             return $this->timezone;
         }

@@ -4,7 +4,7 @@
 Nombre: <b>{{ $contact->name }}</b> <br>
 Apellido: <b>{{ $contact->lastname }}</b> <br>
 Teléfono: <b>{{ $contact->phone }}</b> <br>
-Zona horario: <b>{{ $contact->timezone }}</b> <br>
+Zona horario: <b>{{ $contact->label_timezone }}</b> <br>
 
 Consulta:<br>
 <b>
