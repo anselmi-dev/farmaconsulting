@@ -54,7 +54,11 @@ export default {
     async onDecode(content) {
       this.pause();
       this.result = content;
-      window.location = this.result;
+      if (window.matchMedia('(display-mode: standalone)').matches) {  
+        window.location = '/code/6';
+      } else {
+        window.location = this.result;
+      } 
       // await this.timeout(500)
       // this.unpause()
     },
