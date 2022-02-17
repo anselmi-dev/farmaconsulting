@@ -12,8 +12,8 @@
             <div class="relative py-10">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6">
                     <div class="text-center">
-                        <h1 class="text-3xl font-bold text-white">
-                            <span class="block text-4xl">
+                        <h1 class="text-2xl md:text-4xl font-bold text-white">
+                            <span class="block">
                                 @yield('landing-page-tile')
                             </span>
                         </h1>
@@ -25,5 +25,4 @@
             @endcomponent
         </div>
     </div>
-
 @endsection

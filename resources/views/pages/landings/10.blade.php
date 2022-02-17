@@ -7,4 +7,4 @@
 
 @section('landing-page-tile', 'Gorka Calvete, te habla de los exclusivos análisis que realizamos en cada farmacia.')
 
-@section('landing-page-src', 'https://player.vimeo.com/video/675562521?h=0824201001&controls=0')
+@section('landing-page-src', 'https://player.vimeo.com/video/675562521?h=0824201001&controls=0&title=0&byline=0&portrait=0')

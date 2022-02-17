@@ -7,4 +7,4 @@
 
 @section('landing-page-tile', 'Descubre en este vídeo cómo será este punto de encuentro para la profesión farmacéutica.')
 
-@section('landing-page-src', 'https://player.vimeo.com/video/675391816?controls=0')
+@section('landing-page-src', 'https://player.vimeo.com/video/675391816?controls=0&title=0&byline=0&portrait=0')

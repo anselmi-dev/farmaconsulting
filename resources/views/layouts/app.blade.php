@@ -22,11 +22,13 @@
     <link href="{{ asset('css/app.css') }}?v=227" rel="stylesheet">
     <link href="{{ asset('plugins/notifications.css') }}" rel="stylesheet">
 
-    <!-- Alpine Plugins -->
-    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
 
+    <!-- Alpine Plugins -->
+    {{-- <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script> --}}
     <!-- Alpine Core -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
+    <script src="{{ asset('js/alpine.js') }}"></script>
+    
     <style>
         [x-cloak] { display: none !important; }
     </style>

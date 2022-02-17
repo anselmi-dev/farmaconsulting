@@ -29,7 +29,6 @@ if (document.getElementById('swiper-home')) {
 }
 
 import MicroModal from 'micromodal';  // es6 module
-import { defaultsDeep } from 'lodash';
 MicroModal.init();
 
 // to toggle select like options && arrow
