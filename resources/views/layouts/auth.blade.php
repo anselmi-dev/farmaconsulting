@@ -24,7 +24,9 @@
 
     <!-- Alpine Core -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
     @laravelPWA
 
 </head>
@@ -70,6 +72,5 @@
         </div>
     @endif
     --}}
-    
 </body>
 </html>
