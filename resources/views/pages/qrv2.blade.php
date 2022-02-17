@@ -10,7 +10,7 @@
             x-data="{showNotificationQr: false}"
             x-show="showNotificationQr"
             x-init="setTimeout(() => showNotificationQr = true, 4000)"
-            class="absolute inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start">
+            class="z-10 absolute inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start">
             <div class="w-full flex flex-col items-center space-y-4 sm:items-end">
                 <div class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
                     <div class="p-4">
