@@ -7,6 +7,7 @@
 @section('content')
     <div id="app" class="relative">
         <div aria-live="assertive"
+            x-cloak
             x-data="{showNotificationQr: false}"
             x-show="showNotificationQr"
             x-init="setTimeout(() => showNotificationQr = true, 4000)"
