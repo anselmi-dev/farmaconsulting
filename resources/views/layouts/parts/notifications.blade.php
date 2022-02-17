@@ -22,7 +22,6 @@
     window.addEventListener('click', function(e){   
         document.getElementById('modal-notifications').classList.remove('open', 'error', 'success');
     });
-    
     function showNotification (message, type = 'success') {
         document.getElementById('modal-notifications__text').innerHTML = message;
         document.getElementById('modal-notifications').classList.add('open', type);

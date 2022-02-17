@@ -6,7 +6,7 @@
 
 @section('content')
     <div id="container" class="url-content flex items-center justify-center bg-base">
-        <div class="">
+        <div>
             <canvas hidden="" id="qr-canvas" style="max-width: 100%; max-height: 100%"></canvas>
             <div id="btn-scan-qr" class="text-center mx-auto">
                 <svg class="mx-auto" style="width: 140px;position: relative;display: block;height: 140px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198.5 197.5"><defs><style>.cls-1{fill:#a2bd2f;}</style></defs><g id="Capa_2" data-name="Capa 2"><g id="Capa_1-2" data-name="Capa 1"><polygon class="cls-1" points="32.14 0 32.14 12.86 12.86 12.86 12.86 32.14 0 32.14 0 0 32.14 0"/><polygon class="cls-1" points="0 165.36 12.86 165.36 12.86 184.64 32.14 184.64 32.14 197.5 0 197.5 0 165.36"/><polygon class="cls-1" points="166.36 197.5 166.36 184.64 185.64 184.64 185.64 165.36 198.5 165.36 198.5 197.5 166.36 197.5"/><polygon class="cls-1" points="198.5 32.14 185.64 32.14 185.64 12.86 166.36 12.86 166.36 0 198.5 0 198.5 32.14"/></g></g></svg>

@@ -40,7 +40,7 @@
                         <form method="POST" action="{{ route('IPD') }}" name="form-IPD" class="line-col-center callback-form">
                             @csrf
                             <button class="btn--primary px-5">
-                                {{ __('Quiero un informe personalizado IPDª') }}
+                                {{ __('Quiero un informe personalizado IPD') }}<small>®</small>
                             </button>
                         </form>
                     </div>

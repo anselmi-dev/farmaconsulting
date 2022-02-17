@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::view('/qrv3', 'pages.home')->name('qrv3');
 
     // Route::get('/terms', [App\Http\Controllers\AppController::class, 'terms'])->name('terms');
+    Route::get('/qrs', [App\Http\Controllers\AppController::class, 'QRS'])->name('qrs');
     Route::get('/landings', [App\Http\Controllers\AppController::class, 'landings'])->name('landings');
     Route::get('/conditions', [App\Http\Controllers\AppController::class, 'conditions'])->name('conditions');
     Route::get('/noticias', [App\Http\Controllers\AppController::class, 'news'])->name('news');

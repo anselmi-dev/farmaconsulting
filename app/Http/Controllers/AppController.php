@@ -166,4 +166,142 @@ class AppController extends Controller
         
         return view('pages.landings', compact('views'));
     }
+
+    public function QRS ()
+    {
+
+        $qrs = [
+            'QR15' => [
+                'text' =>  'ESTAMOS CERCA DE
+                TI. PARA ATENDERTE
+                MEJOR, PARA
+                ENTENDERTE MEJOR',
+                'landing' =>  15
+            ],
+            'QR23' => [
+                'text' =>  'Así nos demostraron
+                su orgullo y vivencias
+                los clientes de
+                Farmaconsulting durante
+                la crisis sanitaria.',
+                'landing' =>  23
+            ],
+            'QR13' => [
+                'text' =>  'ESTAMOS CERCA DE TI. PARA ATENDERTE MEJOR, PARA ENTENDERTE MEJOR',
+                'landing' =>  13
+            ],
+            'QR1' => [
+                'text'    =>  'DALE VIDA A ESTE LIBRO Y COMIENZA A DARLE VIDA TAMBIÉN A TU PROYECTO',
+                'landing' =>  1
+            ],
+            'QR2' => [
+                'text'    =>  'ME VOY A JUBILAR Y LA FARMACIA ES MI PRINCIPAL PATRIMONIO',
+                'landing' => 2 
+            ],
+            'QR3' => [
+                'text'    =>  'QUERÍA QUE MIS HIJOS COGIERAN EL TESTIGO DE NUESTRA FARMACIA DE TODA LA VIDA Y DEJARLO MUY CLARO PARA SU FUTURO',
+                'landing' =>  3
+            ],
+            'QR4' => [
+                'text' =>  'QUERÍA CAMBIAR DE CIUDAD Y AMPLIAR MIS EXPECTATIVAS PROFESIONALES',
+                'landing' =>  4
+            ],
+            'QR5' => [
+                'text' =>  'BUSCABA UNA FARMACIA PARA REALIZAR MI SUEÑO PROFESIONAL',
+                'landing' =>  5
+            ],
+            'QR6' => [
+                'text' =>  'PORQUE LAS BUENAS RELACIONES SE BASAN EN LA CONFIANZA. CONÓCENOS MEJOR.',
+                'landing' =>  6
+            ],
+            'QR7' => [
+                'text' =>  'LÍDERES EN SUEÑOS CUMPLIDOS',
+                'landing' =>  7
+            ],
+            'QR8' => [
+                'text' =>  'TODO ES
+                TRANQUILIDAD
+                CUANDO TIENES
+                ALGUIEN DE
+                CONFIANZA A TU
+                LADO QUE SE OCUPA
+                DE TODO.
+                CUENTA CON ELLO.',
+                'landing' =>  8
+            ],
+            'QR9' => [
+                'text' =>  'TODO ES SEGURIDAD, EFICACIA Y ESPECIALIZACIÓN CUANDO CONFÍAS EN EL NÚMERO UNO.',
+                'landing' =>  9
+            ],
+            'QR10' => [
+                'text' =>  'TODO ES SEGURIDAD, EFICACIA Y ESPECIALIZACIÓN CUANDO CONFÍAS EN EL NÚMERO UNO.',
+                'landing' =>  10
+            ],
+            'QR11' => [
+                'text' =>  'TODO ES SEGURIDAD, EFICACIA Y ESPECIALIZACIÓN CUANDO CONFÍAS EN EL NÚMERO UNO.',
+                'landing' =>  11
+            ],
+            'QR12' => [
+                'text' =>  'ESTAMOS CERCA DE TI. PARA ATENDERTE MEJOR, PARA ENTENDERTE MEJOR',
+                'landing' =>  '12B'
+            ],
+            'QR14' => [
+                'text' =>  'ESTAMOS CERCA DE TI. PARA ATENDERTE MEJOR, PARA ENTENDERTE MEJOR',
+                'landing' =>  14
+            ],
+            'QR16' => [
+                'text' =>  'EN FARMACONSULTING TRATAMOS LA VENTA DE TU FARMACIA CON EL MÁS ALTO GRADO DE CONFIDENCIALIDAD, CUIDAMOS DE TU PATRIMONIO FUTURO Y LO HACEMOS BUSCANDO TU SEGURIDAD, CON TUS OBJETIVOS COMO MÁXIMA PRIORIDAD. Y, DE PRINCIPIO A FIN, ESTAREMOS MUY CERCA DE TI EN TODO EL PROCESO',
+                'landing' =>  16
+            ],
+            'QR17' => [
+                'text' =>  'Ahora que ya conoces los pasos del proceso
+                de venta de tu farmacia, ¿QUIERES SABER
+                CÓMO ESTÁ EL MERCADO EN ESTE MOMENTO?
+                Descárgate un breve resumen sobre el
+                INFORME DE LA DEMANDA a día de hoy. ',
+                'landing' =>  '17B'
+            ],
+            'QR18' => [
+                'text' =>  'Nuestro director del Departamento Jurídico, especialista en este campo, te explica algunos pormenores de este tipo de servicios.',
+                'landing' =>  18
+            ],
+            'QR19' => [
+                'text' =>  'Ahora que ya conoces los pasos del proceso de
+                transmisión familiar, ¿QUIERES SABER CÓMO ESTÁ
+                EL MERCADO EN ESTE MOMENTO?
+                Descárgate un breve resumen del Informe de la
+                Demanda a día de hoy.',
+                'landing' =>  19
+            ],
+            'QR20' => [
+                'text' =>  'En este vídeo te explicamos cómo
+                trabajamos, las diferentes posibilidades
+                de análisis, algunas cuestiones a tener
+                en cuenta y cómo optimizamos tu
+                inversión.',
+                'landing' =>  20
+            ],
+            'QR21' => [
+                'text' =>  'Ahora que ya conoces los pasos del proceso
+                de compra de una farmacia, ¿QUIERES SABER QUÉ
+                FARMACIAS HAY EN VENTA EN ESTE MOMENTO?
+                Accede a la mayor cartera de farmacias
+                a la venta de España.',
+                'landing' =>  21
+            ],
+            'QR22' => [
+                'text' =>  '¿Quieres hacer
+                una visita virtual
+                a nuestra nueva
+                sede?',
+                'landing' =>  22
+            ],
+            'QR24' => [
+                'text' =>  'TÚ TIENES UN SUEÑO. NOSOTROS UNA MISIÓN. ¿LE DAMOS VIDA A TU SUEÑO?',
+                'landing' =>  23
+            ],
+        ];
+
+        return view('pages.qrs', compact('qrs'));
+    }
 }
