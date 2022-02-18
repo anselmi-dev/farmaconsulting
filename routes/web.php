@@ -70,3 +70,7 @@ Route::middleware('landing.install')->group(function () {
     Route::view('instalacion-chrome', 'pages.landings.instalacion-chrome')->name('landingChrome');
     Route::view('instalacion-safari', 'pages.landings.instalacion-safari')->name('landingSafari');
 });
+
+Route::get('/phpinfo', function () {
+    return phpinfo();
+});

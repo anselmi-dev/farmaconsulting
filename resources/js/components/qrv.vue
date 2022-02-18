@@ -55,7 +55,15 @@ export default {
       this.pause();
       this.result = content;
       if (window.matchMedia('(display-mode: standalone)').matches) {  
-        window.location = '/code/6';
+        try {
+          if (this.result.includes('/code/1')) {
+            window.location = '/code/6';
+          } else {
+            window.location = this.result;
+          }
+        } catch (error) {
+            window.location = this.result;
+        }
       } else {
         window.location = this.result;
       } 
