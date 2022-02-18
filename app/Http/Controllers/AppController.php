@@ -172,10 +172,7 @@ class AppController extends Controller
 
         $qrs = [
             'QR15' => [
-                'text' =>  'ESTAMOS CERCA DE
-                TI. PARA ATENDERTE
-                MEJOR, PARA
-                ENTENDERTE MEJOR',
+                'text' =>  'NUESTROS GERENTES REGIONALES TE CUENTAN COMO COORDINAN LOCALMENTE TODOS LOS RECURSOS PARA ALCANZAR TU PROYECTO.',
                 'landing' =>  15
             ],
             'QR23' => [
