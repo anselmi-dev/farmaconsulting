@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}?v=229" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}?v=230" rel="stylesheet">
     <link href="{{ asset('plugins/notifications.css') }}" rel="stylesheet">
 
 
@@ -83,7 +83,7 @@
         </div>
     </div>
     
-    <script src="{{ asset('js/app.js?v=4') }}"></script>
+    <script src="{{ asset('js/app.js') }}?v=6"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
     
     @includeIf('layouts.parts.notifications')
