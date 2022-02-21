@@ -54,19 +54,19 @@ export default {
     async onDecode(content) {
       this.pause();
       this.result = content;
-      if (window.matchMedia('(display-mode: standalone)').matches) {  
-        try {
-          if (this.result.includes('/code/1')) {
-            window.location = '/code/6';
-          } else {
-            window.location = this.result;
-          }
-        } catch (error) {
-            window.location = this.result;
-        }
-      } else {
+      // if (window.matchMedia('(display-mode: standalone)').matches) {  
+      //   try {
+      //     if (this.result.includes('/code/1')) {
+      //       window.location = '/code/6';
+      //     } else {
+      //       window.location = this.result;
+      //     }
+      //   } catch (error) {
+      //       window.location = this.result;
+      //   }
+      // } else {
         window.location = this.result;
-      } 
+      // } 
       // await this.timeout(500)
       // this.unpause()
     },
