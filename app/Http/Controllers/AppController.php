@@ -171,10 +171,6 @@ class AppController extends Controller
     {
 
         $qrs = [
-            'QR15' => [
-                'text' =>  'NUESTROS GERENTES REGIONALES TE CUENTAN COMO COORDINAN LOCALMENTE TODOS LOS RECURSOS PARA ALCANZAR TU PROYECTO.',
-                'landing' =>  15
-            ],
             'QR23' => [
                 'text' =>  'Así nos demostraron
                 su orgullo y vivencias
@@ -184,7 +180,7 @@ class AppController extends Controller
                 'landing' =>  23
             ],
             'QR13' => [
-                'text' =>  'ESTAMOS CERCA DE TI. PARA ATENDERTE MEJOR, PARA ENTENDERTE MEJOR',
+                'text' =>  'TODO ES SEGURIDDAD, EFICACIA Y ESPECIALIZACIÓN CUANDO CONFÍAS EN EL NÚMERO UNO.',
                 'landing' =>  13
             ],
             'QR1' => [
@@ -239,11 +235,11 @@ class AppController extends Controller
                 'landing' =>  11
             ],
             'QR12' => [
-                'text' =>  'ESTAMOS CERCA DE TI. PARA ATENDERTE MEJOR, PARA ENTENDERTE MEJOR',
+                'text' =>  'TODO ES SEGURIDDAD, EFICACIA Y ESPECIALIZACIÓN CUANDO CONFÍAS EN EL NÚMERO UNO.',
                 'landing' =>  '12B'
             ],
             'QR14' => [
-                'text' =>  'ESTAMOS CERCA DE TI. PARA ATENDERTE MEJOR, PARA ENTENDERTE MEJOR',
+                'text' =>  'TODO ES SEGURIDDAD, EFICACIA Y ESPECIALIZACIÓN CUANDO CONFÍAS EN EL NÚMERO UNO.',
                 'landing' =>  14
             ],
             'QR16' => [
@@ -259,7 +255,7 @@ class AppController extends Controller
                 'landing' =>  '17B'
             ],
             'QR18' => [
-                'text' =>  'Nuestro director del Departamento Jurídico, especialista en este campo, te explica algunos pormenores de este tipo de servicios.',
+                'text' =>  'EL PROCESO DE TRANASMISIÓN FAMILIAR NO ESTAN SENCILLO COMO PUEDE PARECER. AUNQUE SE TRATE DE UNA OPERACIÓN CON ALGUIEN CERCANO, SON MUCHOS LOS ASPECTOS JURÍDICOS, FISCALES, FINANACIEROS Y ADMINISTRATIVOS E INCLUSO DE NEGOCIACIÓN A TRABAJAR PARA HACERLO DE MANERA SEGURA Y EFECTIVA.',
                 'landing' =>  18
             ],
             'QR19' => [
@@ -271,11 +267,7 @@ class AppController extends Controller
                 'landing' =>  19
             ],
             'QR20' => [
-                'text' =>  'En este vídeo te explicamos cómo
-                trabajamos, las diferentes posibilidades
-                de análisis, algunas cuestiones a tener
-                en cuenta y cómo optimizamos tu
-                inversión.',
+                'text' =>  'LA TRANSPARENCIA EN LA COMPRA DE FARMACIA ES VITAL. ANALIZAR CADA DETALLE DE LA QUE PODRÍA SER LA TUYA ES CRUCIAL PARA GARANTIZARTE LOS INGRESOSO FUTUROS Y EL CUMPLIMIENTO DE TU PROYECTO.',
                 'landing' =>  20
             ],
             'QR21' => [
