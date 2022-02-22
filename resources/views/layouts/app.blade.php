@@ -83,7 +83,7 @@
         </div>
     </div>
     
-    <script src="{{ asset('js/app.js') }}?v=12"></script>
+    <script src="{{ asset('js/app.js') }}?v=13"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
     
     @includeIf('layouts.parts.notifications')
