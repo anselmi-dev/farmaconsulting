@@ -119,7 +119,7 @@ class ContactController extends Controller
 
         Mail::to($this->to_email)->send(new InformeIPDMail(auth()->user()));
 
-        return response()->json(['success' => true, 'message' => 'Informe personalizado IPDª solicitado']);
+        return response()->json(['success' => true, 'message' => 'Informe personalizado IPD® solicitado']);
     }
 
     public function valoracionPost (Request $request)

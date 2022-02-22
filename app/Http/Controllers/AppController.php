@@ -171,6 +171,10 @@ class AppController extends Controller
     {
 
         $qrs = [
+            'QR15' => [
+                'text' =>  'NUESTROS GERENTES REGIONALES TE CUENTAN COMO COORDINAN LOCALMENTE TODOS LOS RECURSOS PARA ALCANZAR TU PROYECTO.',
+                'landing' =>  15
+            ],
             'QR23' => [
                 'text' =>  'Así nos demostraron
                 su orgullo y vivencias
@@ -180,12 +184,8 @@ class AppController extends Controller
                 'landing' =>  23
             ],
             'QR13' => [
-                'text' =>  'TODO ES SEGURIDDAD, EFICACIA Y ESPECIALIZACIÓN CUANDO CONFÍAS EN EL NÚMERO UNO.',
+                'text' =>  'TODO ES SEGURIDAD, EFICACIA Y ESPECIALIZACIÓN CUANDO CONFÍAS EN EL NÚMERO UNO.',
                 'landing' =>  13
-            ],
-            'QR1' => [
-                'text'    =>  'DALE VIDA A ESTE LIBRO Y COMIENZA A DARLE VIDA TAMBIÉN A TU PROYECTO',
-                'landing' =>  1
             ],
             'QR2' => [
                 'text'    =>  'ME VOY A JUBILAR Y LA FARMACIA ES MI PRINCIPAL PATRIMONIO',
@@ -235,11 +235,11 @@ class AppController extends Controller
                 'landing' =>  11
             ],
             'QR12' => [
-                'text' =>  'TODO ES SEGURIDDAD, EFICACIA Y ESPECIALIZACIÓN CUANDO CONFÍAS EN EL NÚMERO UNO.',
+                'text' =>  'TODO ES SEGURIDAD, EFICACIA Y ESPECIALIZACIÓN CUANDO CONFÍAS EN EL NÚMERO UNO.',
                 'landing' =>  '12B'
             ],
             'QR14' => [
-                'text' =>  'TODO ES SEGURIDDAD, EFICACIA Y ESPECIALIZACIÓN CUANDO CONFÍAS EN EL NÚMERO UNO.',
+                'text' =>  'TODO ES SEGURIDAD, EFICACIA Y ESPECIALIZACIÓN CUANDO CONFÍAS EN EL NÚMERO UNO.',
                 'landing' =>  14
             ],
             'QR16' => [
@@ -255,7 +255,7 @@ class AppController extends Controller
                 'landing' =>  '17B'
             ],
             'QR18' => [
-                'text' =>  'EL PROCESO DE TRANASMISIÓN FAMILIAR NO ESTAN SENCILLO COMO PUEDE PARECER. AUNQUE SE TRATE DE UNA OPERACIÓN CON ALGUIEN CERCANO, SON MUCHOS LOS ASPECTOS JURÍDICOS, FISCALES, FINANACIEROS Y ADMINISTRATIVOS E INCLUSO DE NEGOCIACIÓN A TRABAJAR PARA HACERLO DE MANERA SEGURA Y EFECTIVA.',
+                'text' =>  'EL PROCESO DE TRANSMISIÓN FAMILIAR NO ES TAN SENCILLO COMO PUEDE PARECER. AUNQUE SE TRATE DE UNA OPERACIÓN CON ALGUIEN CERCANO, SON MUCHOS LOS ASPECTOS JURÍDICOS, FISCALES, FINANCIEROS Y ADMINISTRATIVOS E INCLUSO DE NEGOCIACIÓN A TRABAJAR PARA HACERLO DE MANERA SEGURA Y EFECTIVA.',
                 'landing' =>  18
             ],
             'QR19' => [
@@ -267,7 +267,7 @@ class AppController extends Controller
                 'landing' =>  19
             ],
             'QR20' => [
-                'text' =>  'LA TRANSPARENCIA EN LA COMPRA DE FARMACIA ES VITAL. ANALIZAR CADA DETALLE DE LA QUE PODRÍA SER LA TUYA ES CRUCIAL PARA GARANTIZARTE LOS INGRESOSO FUTUROS Y EL CUMPLIMIENTO DE TU PROYECTO.',
+                'text' =>  'LA TRANSPARENCIA EN LA COMPRA DE FARMACIA ES VITAL. ANALIZAR CADA DETALLE DE LA QUE PODRÍA SER LA TUYA ES CRUCIAL PARA GARANTIZARTE LOS INGRESOS FUTUROS Y EL CUMPLIMIENTO DE TU PROYECTO.',
                 'landing' =>  20
             ],
             'QR21' => [
