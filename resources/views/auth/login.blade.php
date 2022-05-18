@@ -35,6 +35,7 @@
                                 </span>
                             @enderror
                         </div>
+
                         <div class="margin-bottom--xsmall w-full">
                             <label class="typography--small typography--white" for="password">Contraseña</label>
                             <input class="mt-2" type="password" required name="password" value="{{ old('password') }}" placeholder="{{ __('Contraseña') }}">
@@ -44,24 +45,15 @@
                                 </span>
                             @enderror
                         </div>
+
                         <div class="margin-bottom--2xlarge">
                             <a href="{{ route('reset-password.index') }}" class="typography--links">Recuperar contraseña</a>
                         </div>
-                        {{--
-                        <div class="margin-bottom--xsmall w-full">
-                            <label class="typography--small typography--white" for="catalog">Código de libro</label>
-                            <input class="mt-2" type="text" name="catalogue" value="{{ old('catalogue') }}" placeholder="{{ __('Código libro') }}">
-                            @error('cataloge')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        --}}
+
                         <div class="margin-bottom--3xlarge w-full">
                             <div class="line-row">
-                                <label for="save-data" class="custom-checkbox__container">
-                                    <input type="checkbox" name="save-data">
+                                <label for="remember_me" class="custom-checkbox__container">
+                                    <input type="checkbox" name="remember_me" id="remember_me">
                                     <span class="custom-checkbox__item"></span>
                                     <span class="custom-checkbox__check">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25" viewBox="0 0 12.362 8.25">
