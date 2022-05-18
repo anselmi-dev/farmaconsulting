@@ -30,7 +30,7 @@
     </div>
     <div class="wrapper">
         <div class="margin-bottom--4xlarge">
-            <form x-data="items()" method="POST" action="{{ route('valoracion.post') }}" name="form-valoracion" class="line-col-center callback-form">
+            <form x-data="items" method="POST" action="{{ route('valoracion.post') }}" name="form-valoracion" class="line-col-center callback-form">
                 @csrf
                 <div class="margin-bottom--medium w-full form-group">
                     <label for="option1" class="relative block border border-gray-200 p-3 rounded overflow-hidden">
@@ -102,6 +102,7 @@
                 </div>
 
                 <div class="message-form" id="from-general__status"></div>
+
                 <div class="w-full">
                     <button class="btn--primary" @clik="reset()">
                         {{ __('ENVIAR') }}
@@ -120,14 +121,14 @@
     </style>
 @endpush
 
-@push('scripts')
+@push('scripts-head')
     <script>
         const items = () => {
             return {
                 toggle: '',
                 init () {
+                    console.log('init')
                     this.$watch('toggle', () => {
-                        console.log(this.toggle);
                         switch (this.toggle) {
                             case '1':
                                 document.querySelector('[name="message_2"]').value = null;
@@ -143,79 +144,82 @@
                                 document.querySelector('[name="message_1"]').value = null;
                                 document.querySelector('[name="message_2"]').value = null;
                                 break;
-                        
+
                             default:
-                                console.log('1')
                                 break;
                         }
                     })
                 },
-                reset: function () {
+                reset () {
                     this.toggle = ''
                 },
             }
         }
+    </script>
+@endpush
 
+@push('scripts')
+    <script>
         (function() {
-            const constraints = {
-                message_1: {
-                    presence: function(value, attribute, validatorOptions, attributes, globalOptions) {
-                        if (attribute['option'] == '1' && attribute['message'] == null) {
-                            return '^Campo obligatorio';
-                        }
-                        return false;
-                    },
-                    length: {
-                        minimum: 3,
-                        message: 'El mensaje es demasiado corto (mínimo 3 caracteres)'
-                    }
-                },
-                message_2: {
-                    presence: function(value, attribute, validatorOptions, attributes, globalOptions) {
-                        if (attribute['option'] == '2' && attribute['message'] == null) {
-                            return '^Campo obligatorio';
-                        }
-                        return false;
-                    },
-                    length: {
-                        minimum: 3,
-                        message: 'El mensaje es demasiado corto (mínimo 3 caracteres)'
-                    }
-                },
-                message_3: {
-                    presence: function(value, attribute, validatorOptions, attributes, globalOptions) {
-                        if (attribute['option'] == '3' && attribute['message'] == null) {
-                            return '^Campo obligatorio';
-                        }
-                        return false;
-                    },
-                    length: {
-                        minimum: 3,
-                        message: 'El mensaje es demasiado corto (mínimo 3 caracteres)'
-                    }
-                },
-                option: {
-                    presence: {
-                        message: '^Campo obligatorio',
-                    }
-                },
-            };
+             const constraints = {
+                 message_1: {
+                     presence: function(value, attribute, validatorOptions, attributes, globalOptions) {
+                         if (attribute['option'] == '1' && attribute['message'] == null) {
+                             return '^Campo obligatorio';
+                         }
+                         return false;
+                     },
+                     length: {
+                         minimum: 3,
+                         message: 'El mensaje es demasiado corto (mínimo 3 caracteres)'
+                     }
+                 },
+                 message_2: {
+                     presence: function(value, attribute, validatorOptions, attributes, globalOptions) {
+                         if (attribute['option'] == '2' && attribute['message'] == null) {
+                             return '^Campo obligatorio';
+                         }
+                         return false;
+                     },
+                     length: {
+                         minimum: 3,
+                         message: 'El mensaje es demasiado corto (mínimo 3 caracteres)'
+                     }
+                 },
+                 message_3: {
+                     presence: function(value, attribute, validatorOptions, attributes, globalOptions) {
+                         if (attribute['option'] == '3' && attribute['message'] == null) {
+                             return '^Campo obligatorio';
+                         }
+                         return false;
+                     },
+                     length: {
+                         minimum: 3,
+                         message: 'El mensaje es demasiado corto (mínimo 3 caracteres)'
+                     }
+                 },
+                 option: {
+                     presence: {
+                         message: '^Campo obligatorio',
+                     }
+                 },
+             };
 
-            const form = document.querySelector('form[name="form-valoracion"]');
+             const form = document.querySelector('form[name="form-valoracion"]');
 
-            form.addEventListener("submit", function(ev) {
-                ev.preventDefault();
-                handleFormSubmit(form, ajaxForm, constraints);
-            });
+             form.addEventListener("submit", function(ev) {
+                 ev.preventDefault();
+                 handleFormSubmit(form, ajaxForm, constraints);
+             });
 
-            // Hook up the inputs to validate on the fly
-            var inputs = form.querySelectorAll('input, textarea, select');
-            for (var i = 0; i < inputs.length; ++i) {
-                inputs.item(i).addEventListener("change", function(ev) {
-                    var errors = validate(form, constraints) || {};
-                    showErrorsForInput(this, errors[this.name])
-                });
-            }
+             // Hook up the inputs to validate on the fly
+             var inputs = form.querySelectorAll('input, textarea, select');
+             for (var i = 0; i < inputs.length; ++i) {
+                 inputs.item(i).addEventListener("change", function(ev) {
+                     var errors = validate(form, constraints) || {};
+                     showErrorsForInput(this, errors[this.name])
+                 });
+             }
         })();
     </script>
 @endpush
