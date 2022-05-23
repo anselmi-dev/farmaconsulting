@@ -28,7 +28,7 @@
                         @csrf
                         <div class="margin-bottom--xsmall w-full">
                             <label class="typography--small typography--white" for="user">Usuario</label>
-                            <input class="mt-2" type="email" required name="email" value="{{ old('email') }}" placeholder="{{ __('Correo electrónico') }}">
+                            <input class="mt-2" type="email" required name="email" id="email" value="{{ old('email') }}" placeholder="{{ __('Correo electrónico') }}" autofocus>
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
 
                         <div class="margin-bottom--xsmall w-full">
                             <label class="typography--small typography--white" for="password">Contraseña</label>
-                            <input class="mt-2" type="password" required name="password" value="{{ old('password') }}" placeholder="{{ __('Contraseña') }}">
+                            <input class="mt-2" type="password" required name="password" id="password" value="{{ old('password') }}" placeholder="{{ __('Contraseña') }}">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -52,8 +52,8 @@
 
                         <div class="margin-bottom--3xlarge w-full">
                             <div class="line-row">
-                                <label for="remember_me" class="custom-checkbox__container">
-                                    <input type="checkbox" name="remember_me" id="remember_me">
+                                <label for="remember" class="custom-checkbox__container">
+                                    <input type="checkbox" name="remember" id="remember">
                                     <span class="custom-checkbox__item"></span>
                                     <span class="custom-checkbox__check">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25" viewBox="0 0 12.362 8.25">

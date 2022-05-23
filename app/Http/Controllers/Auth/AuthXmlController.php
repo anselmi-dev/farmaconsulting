@@ -55,6 +55,8 @@ class AuthXmlController extends Controller
      */
     public function authXml (LoginRequest $request)
     {
+        $remember = (!empty( $request->remember)) ? TRUE : FALSE;
+
         $xml = $this->catalogoLogin($request->email, md5($request->password), $request->catalogue);
 
         if ($xml['Error'] == -1 || $xml['Error'] == -10) {
@@ -63,7 +65,8 @@ class AuthXmlController extends Controller
 
         $user = $this->createOrUpdate($request->email, $request->password, $request->catalogue);
 
-        \Auth::login($user);
+        \Auth::login($user, $remember);
+        // \Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember);
 
         if ($rollback = $request->input('rollback')) {
             return \Redirect::to($rollback)->with('after_login', 'Te damos la bienvenida');
@@ -114,7 +117,7 @@ class AuthXmlController extends Controller
         $response = $this->EnvioNuevaClave($request->email);
         if ($response['Codigo'] != 0)
             return back()->withInput()->withErrors(['error' => $response['Msg']]);
-        
+
         return redirect()->route('login')->with(['success' => $response['Msg']]);
     }
 }
