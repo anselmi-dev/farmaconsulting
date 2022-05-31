@@ -2,7 +2,7 @@
     <div id="vimeo-screen-{{ $key }}">
         <div id="div-screen-{{ $key }}" class="div-screen w-full mx-auto">
             @if(isset($title) && !is_null($title))
-                <div class="text-2xl md:text-4xl text-center text-white text-white mt-10 mb-1">
+                <div class="div-screen-title text-2xl md:text-4xl text-center text-white text-white mt-10 mb-1">
                     {{ $title }}
                 </div>
             @endif
@@ -27,7 +27,7 @@
                         frameborder="0"
                         webkitallowfullscreen
                         mozallowfullscreen
-                        allowfullscreen 
+                        allowfullscreen
                         allow="autoplay">
                     </iframe>
                 </div>
