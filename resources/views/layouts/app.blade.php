@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,8 +18,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}?v=231" rel="stylesheet">
-    <link href="{{ asset('plugins/notifications.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}?v=232" rel="stylesheet">
+    <link href="{{ asset('plugins/notifications.css') }}?v=232" rel="stylesheet">
 
 
     <!-- Alpine Plugins -->
@@ -28,10 +27,11 @@
     <!-- Alpine Core -->
     {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
     <script src="{{ asset('js/alpine.js') }}"></script>
-    
+
     <style>
         [x-cloak] { display: none !important; }
     </style>
+
     @stack('styles')
 
     @laravelPWA
@@ -53,10 +53,8 @@
         }
     </script>
 </head>
-
 <body class="{{ Route::currentRouteName() }}">
     <div>
-
         @section('intro')
             @guest
                 @includeIf('layouts.parts.intro')
@@ -82,12 +80,12 @@
             @endauth
         </div>
     </div>
-    
+
     <script src="{{ asset('js/app.js') }}?v=13"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
-    
+
     @includeIf('layouts.parts.notifications')
-    
+
     <script>
         const slider = document.querySelectorAll('[toggle-slider]');
         for (let index = 0; index < slider.length; index++) {
@@ -219,7 +217,7 @@
                     }
                 });
             });
-            
+
             let checkeds = document.querySelectorAll('input[name="'+name_input+'"]:checked');
             let element_label = document.getElementById(id_label);
             let label_default = null;
@@ -246,5 +244,4 @@
     <!-- Scripts -->
     @stack('scripts')
 </body>
-
 </html>
