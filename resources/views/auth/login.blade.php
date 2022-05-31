@@ -28,7 +28,7 @@
                         @csrf
                         <div class="margin-bottom--xsmall w-full">
                             <label class="typography--small typography--white" for="user">Usuario</label>
-                            <input class="mt-2" type="email" required name="email" id="email" value="{{ old('email') }}" placeholder="{{ __('Correo electrónico') }}" autofocus>
+                            <input class="mt-2" type="email" required name="email" id="email" value="{{ old('email') }}" placeholder="{{ __('Correo electrónico') }}">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
