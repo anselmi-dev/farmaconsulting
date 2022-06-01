@@ -23,12 +23,25 @@
                     @php
                         $rollback = request('rollback');
                         $rollback = $rollback ? '?rollback='.$rollback : NULL;
+                        $cookie = \Cookie::get('auth_attempt');
+                        $email = null;
+                        $password = null;
+                        try {
+                            if ($cookie) {
+                                $cookie = explode('_@_', $cookie);
+                                $email = $cookie[0];
+                                $password = $cookie[1];
+                            }
+                        } catch (\Throwable $th) {
+                        }
                     @endphp
+                    <p>
+                    </p>
                     <form method="POST" action="{{ route('login.xml') }}{{ $rollback }}" class="line-col-center register-form">
                         @csrf
                         <div class="margin-bottom--xsmall w-full">
                             <label class="typography--small typography--white" for="user">Usuario</label>
-                            <input class="mt-2" type="email" required name="email" id="email" value="{{ old('email') }}" placeholder="{{ __('Correo electrónico') }}">
+                            <input class="mt-2" type="email" required name="email" id="email" value="{{ old('email', $email) }}" placeholder="{{ __('Correo electrónico') }}">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -38,7 +51,7 @@
 
                         <div class="margin-bottom--xsmall w-full">
                             <label class="typography--small typography--white" for="password">Contraseña</label>
-                            <input class="mt-2" type="password" required name="password" id="password" value="{{ old('password') }}" placeholder="{{ __('Contraseña') }}">
+                            <input class="mt-2" type="password" required name="password" id="password" value="{{ old('password', $password) }}" placeholder="{{ __('Contraseña') }}">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -53,7 +66,7 @@
                         <div class="margin-bottom--3xlarge w-full">
                             <div class="line-row">
                                 <label for="remember" class="custom-checkbox__container">
-                                    <input type="checkbox" name="remember" id="remember">
+                                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : NULL }}>
                                     <span class="custom-checkbox__item"></span>
                                     <span class="custom-checkbox__check">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12.362" height="8.25" viewBox="0 0 12.362 8.25">

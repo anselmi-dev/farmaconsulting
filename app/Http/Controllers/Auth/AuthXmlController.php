@@ -8,9 +8,11 @@ use App\Http\Requests\ResetPasswordRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use App\Traits\ApiFarmaconsulting;
-
 use App\Models\User;
+use Cookie;
 
 class AuthXmlController extends Controller
 {
@@ -55,7 +57,7 @@ class AuthXmlController extends Controller
      */
     public function authXml (LoginRequest $request)
     {
-        $remember = (!empty( $request->remember)) ? TRUE : FALSE;
+        $request->remember = (!empty($request->remember)) ? TRUE : FALSE;
 
         $xml = $this->catalogoLogin($request->email, md5($request->password), $request->catalogue);
 
@@ -65,8 +67,10 @@ class AuthXmlController extends Controller
 
         $user = $this->createOrUpdate($request->email, $request->password, $request->catalogue);
 
-        \Auth::login($user, $remember);
-        // \Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember);
+        \Auth::login($user, $request->remember);
+        // \Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember);
+
+        $this->setCookieAuth($request);
 
         if ($rollback = $request->input('rollback')) {
             return \Redirect::to($rollback)->with('after_login', 'Te damos la bienvenida');
@@ -119,5 +123,12 @@ class AuthXmlController extends Controller
             return back()->withInput()->withErrors(['error' => $response['Msg']]);
 
         return redirect()->route('login')->with(['success' => $response['Msg']]);
+    }
+
+    protected function setCookieAuth (Request $request)
+    {
+        if ($request->remember) {
+            Cookie::queue(Cookie::make('auth_attempt', $request->email.'_@_'.$request->password, 999999));
+        }
     }
 }
