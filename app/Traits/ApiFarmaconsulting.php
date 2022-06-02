@@ -39,7 +39,7 @@ trait ApiFarmaconsulting {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-          CURLOPT_URL => 'http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl',
+          CURLOPT_URL => 'https://fct2.gedeco.farmaconsulting.es/WS_FCT/FarmaService2.asmx?wsdl',
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => '',
           CURLOPT_MAXREDIRS => 10,
@@ -66,8 +66,11 @@ trait ApiFarmaconsulting {
         curl_close($curl);
 
         $parser = $this->transformXml($output);
-
-        return (array)$parser->CatalogoLoginResponse->CatalogoLoginResult;
+        try {
+            return (array)$parser->CatalogoLoginResponse->CatalogoLoginResult;
+        } catch (\Throwable $th) {
+            return $parser;
+        }
     }
 
     /**
@@ -83,7 +86,7 @@ trait ApiFarmaconsulting {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-          CURLOPT_URL => 'http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl',
+          CURLOPT_URL => 'https://fct2.gedeco.farmaconsulting.es/WS_FCT/FarmaService2.asmx?wsdl',
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => '',
           CURLOPT_MAXREDIRS => 10,
@@ -128,7 +131,7 @@ trait ApiFarmaconsulting {
      */
     public function datosUsuario ($user) {
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
+        curl_setopt($curl, CURLOPT_URL, "https://fct2.gedeco.farmaconsulting.es/WS_FCT/FarmaService2.asmx?wsdl");
         // SSL important
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -159,7 +162,7 @@ trait ApiFarmaconsulting {
      */
     protected function EnvioNuevaClave ($email) {
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
+        curl_setopt($curl, CURLOPT_URL, "https://fct2.gedeco.farmaconsulting.es/WS_FCT/FarmaService2.asmx?wsdl");
         // SSL important
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -186,17 +189,17 @@ trait ApiFarmaconsulting {
      *
      * @param   string  $email
      * @param   string  $password
-     * 
+     *
      * @method  POST
      * @return  response
      */
     protected function ClaveUpdate ($email, $password) {
-        
+
         $curl = curl_init();
-        
+
         $fileds = '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Body><ClaveUpdate xmlns="http://tempuri.org/"><Usuario>'.$email.'</Usuario><Passw>'.md5($password).'</Passw></ClaveUpdate></Body></Envelope>';
 
-        curl_setopt($curl, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
+        curl_setopt($curl, CURLOPT_URL, "https://fct2.gedeco.farmaconsulting.es/WS_FCT/FarmaService2.asmx?wsdl");
         // SSL important
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -208,7 +211,7 @@ trait ApiFarmaconsulting {
             'Authorization: Basic YXAxXzI6RmN0QWNicDEyMw=='
         ));
         curl_setopt($curl, CURLOPT_POSTFIELDS, $fileds);
-  
+
         $output = curl_exec($curl);
 
         curl_close($curl);
@@ -232,7 +235,7 @@ trait ApiFarmaconsulting {
 
         $curl = curl_init();
 
-        curl_setopt($curl, CURLOPT_URL, "http://gdgo.farmaconsulting.es/WS_GdGO/FarmaService2.asmx?wsdl");
+        curl_setopt($curl, CURLOPT_URL, "https://fct2.gedeco.farmaconsulting.es/WS_FCT/FarmaService2.asmx?wsdl");
         // SSL important
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -246,15 +249,15 @@ trait ApiFarmaconsulting {
         curl_setopt($curl, CURLOPT_POSTFIELDS, '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Body><RegistraEvento xmlns="http://tempuri.org/"><Usuario>'.$email.'</Usuario><Evento>'.$event.'</Evento><Dato>'.$code.'</Dato></RegistraEvento></Body></Envelope>');
 
         $output = curl_exec($curl);
-        
+
         curl_close($curl);
-        
+
         $parser = $this->transformXml($output);
 
         return (array)$parser->RegistraEventoResponse->RegistraEventoResult;
-    } 
+    }
 
-    
+
     protected function transformXml ($xml) {
         // converting
         $response1 = str_replace("<soap:Body>","",$xml);
