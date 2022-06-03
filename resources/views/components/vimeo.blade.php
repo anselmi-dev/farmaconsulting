@@ -2,8 +2,13 @@
     <div id="vimeo-screen-{{ $key }}">
         <div id="div-screen-{{ $key }}" class="div-screen w-full mx-auto">
             @if(isset($title) && !is_null($title))
-                <div class="div-screen-title text-2xl md:text-4xl text-center text-white text-white mt-10 mb-1">
+                <div class="div-screen-title text-2xl md:text-4xl text-center text-white text-white mt-10 mb-1 px-3">
                     {{ $title }}
+                    @if(isset($subtitle) && !is_null($subtitle))
+                        <div class="block w-full text-lg text-gray-100">
+                            {{ $subtitle }}
+                        </div>
+                    @endif
                 </div>
             @endif
             <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-10">
