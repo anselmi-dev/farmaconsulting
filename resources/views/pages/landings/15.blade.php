@@ -16,7 +16,7 @@
             'vimeo'    => 'https://player.vimeo.com/video/698655011?h=3311d714d8&byline=0&portrait=0&controls=0'
         ],
         [
-            'title'    => 'Gerente Zona Norte',
+            'title'    => 'Gerente Regional Norte',
             'subtitle' => '(País Vasco, Cantabria, Aragón, Navarra, La Rioja y norte de Castilla y León)',
             'vimeo'    => 'https://player.vimeo.com/video/675949945?h=1815d247e2&title=0&byline=0&portrait=0&controls=0'
         ],
