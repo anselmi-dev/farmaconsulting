@@ -33,6 +33,35 @@ class User extends Resource
         'id', 'name', 'email',
     ];
 
+    /**
+     * No able to create pages
+     *
+     * @param Request $request
+     */
+    public static function authorizedToCreate(Request $request)
+    {
+        return $request->user()->role == 'super';
+    }
+
+    /**
+     * No able to create pages
+     *
+     * @param Request $request
+     */
+    public function authorizedToUpdate(Request $request)
+    {
+        return $request->user()->role == 'super';
+    }
+
+    /**
+     * No able to create pages
+     *
+     * @param Request $request
+     */
+    public function authorizedToDelete(Request $request)
+    {
+        return $request->user()->role == 'super';
+    }
 
     /**
      * Get the displayable label of the resource.
