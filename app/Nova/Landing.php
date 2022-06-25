@@ -69,14 +69,6 @@ class Landing extends Resource
         return [
             // ID::make(__('ID'), 'id')->sortable(),
 
-            NovaDependencyContainer::make([
-                Text::make('Breadcrumb')->rules('required', function($attribute, $value, $fail) {
-                    if ($this->redirect) {
-                        return $fail(__('validation.required', ['attribute' => $attribute]));
-                    }
-                })->sortable(),
-            ])->dependsOn('redirect', 0),
-
             Select::make('Qr')->options([
                 '1' => 'QR1',
                 '2' => 'QR2',
@@ -104,6 +96,16 @@ class Landing extends Resource
                 '24' => 'QR24'
             ])->creationRules('unique:landings,qr')
             ->updateRules('unique:landings,qr,{{resourceId}}'),
+
+            Text::make('Breadcrumb')->onlyOnIndex(),
+
+            NovaDependencyContainer::make([
+                Text::make('Breadcrumb')->rules('required', function($attribute, $value, $fail) {
+                    if ($this->redirect) {
+                        return $fail(__('validation.required', ['attribute' => $attribute]));
+                    }
+                })->sortable(),
+            ])->dependsOn('redirect', 0),
 
             Boolean::make(__('Active'), 'active')->withMeta(['value' => $this->active ?? true])->sortable(),
 
