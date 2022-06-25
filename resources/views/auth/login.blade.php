@@ -35,8 +35,6 @@
                         } catch (\Throwable $th) {
                         }
                     @endphp
-                    <p>
-                    </p>
                     <form method="POST" action="{{ route('login.xml') }}{{ $rollback }}" class="line-col-center register-form">
                         @csrf
                         <div class="margin-bottom--xsmall w-full">
@@ -57,10 +55,6 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
-
-                        <div class="margin-bottom--2xlarge">
-                            <a href="{{ route('reset-password.index') }}" class="typography--links">Recuperar contraseña</a>
                         </div>
 
                         <div class="margin-bottom--3xlarge w-full">
@@ -98,6 +92,11 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="margin-bottom--2xlarge">
+                            <a href="{{ route('reset-password.index') }}" class="typography--links">Recuperar contraseña</a>
+                        </div>
+
                         <div class="w-full">
                             <button class="btn--primary">ENVIAR</button>
                         </div>

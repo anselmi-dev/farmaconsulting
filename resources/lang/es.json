@@ -30,5 +30,22 @@
     "If you did not receive the email": "Si no has recibido el email",
     "click here to request another": "pulsa aquí para que te enviemos otro",
     "All rights reserved.":  "Todos los derechos reservados.",
-    "validation.headermsg": "Los datos proporcionados no son válidos"
+    "validation.headermsg": "Los datos proporcionados no son válidos",
+    "Title": "Título",
+    "User": "Usuario",
+    "Users": "Usuarios",
+    "Content": "Contenido",
+    "Video": "Video",
+    "Add layout": "Agregar contenido",
+    "Subtitle": "subtitulo",
+    "Active": "Activo",
+    "Redirect": "Redirección",
+    "Contact": "Contacto",
+    "Contacts": "Contactos",
+    "Province": "Provincia",
+    "Lastname": "Apellido",
+    "Office": "Oficina",
+    "Appointment_date": "Fecha",
+    "Interested": "Interes",
+    "Message": "Mensaje"
 }

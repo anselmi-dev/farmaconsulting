@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Traits\ApiFarmaconsulting;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Landing;
 
 class AppController extends Controller
 {
@@ -134,11 +135,12 @@ class AppController extends Controller
      */
     public function landing ($landing)
     {
-        if ($landing == 24) {
-            return redirect()->route('contact');
-        }
-        if ($landing == 1) {
-            return redirect()->route('landingChrome');
+        $model_landing = Landing::where('qr', $landing)->where('active', true)->first();
+
+        if ($model_landing) {
+            if ($model_landing->redirect)
+                return redirect()->route($model_landing->redirect_url);
+            return view('pages.landings.nova', compact('landing'));
         }
 
         try {
@@ -152,6 +154,7 @@ class AppController extends Controller
         if (view()->exists($view)) {
             return view($view);
         }
+
         abort(404);
     }
 
@@ -163,7 +166,7 @@ class AppController extends Controller
     public function landings ()
     {
         $views = Storage::disk('views')->allFiles('/');
-        
+
         return view('pages.landings', compact('views'));
     }
 
@@ -189,7 +192,7 @@ class AppController extends Controller
             ],
             'QR2' => [
                 'text'    =>  'ME VOY A JUBILAR Y LA FARMACIA ES MI PRINCIPAL PATRIMONIO',
-                'landing' => 2 
+                'landing' => 2
             ],
             'QR3' => [
                 'text'    =>  'QUERÍA QUE MIS HIJOS COGIERAN EL TESTIGO DE NUESTRA FARMACIA DE TODA LA VIDA Y DEJARLO MUY CLARO PARA SU FUTURO',

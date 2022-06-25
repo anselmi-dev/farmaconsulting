@@ -36,7 +36,7 @@ class AuthXmlController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -61,8 +61,9 @@ class AuthXmlController extends Controller
 
         $xml = $this->catalogoLogin($request->email, md5($request->password), $request->catalogue);
 
-        if ($xml['Error'] == -1 || $xml['Error'] == -10) {
-            return \Redirect::back()->withInput($request->all())->withErrors([$xml['Msg']]);
+        if ((is_bool($xml) && !$xml) || $xml['Error'] == -1 || $xml['Error'] == -10) {
+            $msg = isset($xml['Msg']) ? $xml['Msg'] : 'Error al iniciar sesión';
+            return \Redirect::back()->withInput($request->all())->withErrors([$msg]);
         }
 
         $user = $this->createOrUpdate($request->email, $request->password, $request->catalogue);
