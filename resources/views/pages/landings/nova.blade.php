@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('nav-icon')
+    <a href="{{ route('home') }}">
+        @includeIf('layouts.icons.back')
+    </a>
+@endsection
+
 @section('breadcrumbs')
     <a href="{{ route('home') }}" class="text-primary">{{ __('Escaner') }}</a>/
     <span class="inline-block">{{ $landing->breadcrumb }}</span>

@@ -47,5 +47,12 @@
     "Office": "Oficina",
     "Appointment_date": "Fecha",
     "Interested": "Interes",
-    "Message": "Mensaje"
+    "Message": "Mensaje",
+    "Timezone": "Zona Horaria",
+    "Phone": "Teléfono",
+    "Email": "Correo",
+    "Provinces": "Provincias",
+    "Opinions": "Opiniones",
+    "Option": "Opción",
+    "Code": "Código"
 }

@@ -140,7 +140,8 @@ class AppController extends Controller
         if ($model_landing) {
             if ($model_landing->redirect)
                 return redirect()->route($model_landing->redirect_url);
-            return view('pages.landings.nova', compact('landing'));
+
+            return view('pages.landings.nova', ['landing' => $model_landing]);
         }
 
         try {

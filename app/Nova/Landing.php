@@ -81,12 +81,12 @@ class Landing extends Resource
                 '9' => 'QR9',
                 '10' => 'QR10',
                 '11' => 'QR11',
-                '12' => 'QR12',
+                '12B' => 'QR12B',
                 '13' => 'QR13',
                 '14' => 'QR14',
                 '15' => 'QR15',
                 '16' => 'QR16',
-                '17' => 'QR17',
+                '17B' => 'QR17B',
                 '18' => 'QR18',
                 '19' => 'QR19',
                 '20' => 'QR20',
@@ -94,7 +94,7 @@ class Landing extends Resource
                 '22' => 'QR22',
                 '23' => 'QR23',
                 '24' => 'QR24'
-            ])->creationRules('unique:landings,qr')
+            ])->rules('required')->creationRules('unique:landings,qr')
             ->updateRules('unique:landings,qr,{{resourceId}}'),
 
             Text::make('Breadcrumb')->onlyOnIndex(),
