@@ -58,6 +58,39 @@ class Landing extends Resource
         return __('Landing');
     }
 
+
+    /**
+     * No able to create pages
+     *
+     * @param Request $request
+     */
+    public static function authorizedToCreate(Request $request)
+    {
+        return false;
+        // return $request->user()->role == 'super';
+    }
+
+    /**
+     * No able to create pages
+     *
+     * @param Request $request
+     */
+    public function authorizedToUpdate(Request $request)
+    {
+        return true;
+    }
+
+
+    /**
+     * No able to create pages
+     *
+     * @param Request $request
+     */
+    public function authorizedToDelete(Request $request)
+    {
+        return false;
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
