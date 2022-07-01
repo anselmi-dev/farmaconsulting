@@ -232,7 +232,7 @@ trait ApiFarmaconsulting {
      */
     protected function RegistraEvento ($email, $code, $event = null) {
         $event = $event ?? 'Acceso QR';
-        logger('Error RegistraEvento ' . $email . ':QR' .  $code . ' event:' . $event);
+        logger('RegistraEvento ' . $email . ':QR' .  $code . ' event:' . $event);
 
         $curl = curl_init();
 
