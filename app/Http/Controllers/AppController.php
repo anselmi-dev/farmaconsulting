@@ -135,6 +135,12 @@ class AppController extends Controller
      */
     public function landing ($landing)
     {
+        try {
+            $this->RegistraEvento(auth()->user()->email, $landing);
+        } catch (\Throwable $th) {
+            logger('Error RegistraEvento ' . auth()->user()->email) . ':QR' .  $landing;
+        }
+
         $model_landing = Landing::where('qr', $landing)->where('active', true)->first();
 
         if ($model_landing) {
@@ -142,12 +148,6 @@ class AppController extends Controller
                 return redirect()->route($model_landing->redirect_url);
 
             return view('pages.landings.nova', ['landing' => $model_landing]);
-        }
-
-        try {
-            $this->RegistraEvento(auth()->user()->email, $landing);
-        } catch (\Throwable $th) {
-            logger('Error RegistraEvento ' . auth()->user()->email);
         }
 
         $view = 'pages.landings.'.$landing;
