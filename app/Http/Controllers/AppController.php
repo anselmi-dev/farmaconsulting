@@ -138,7 +138,7 @@ class AppController extends Controller
         try {
             $this->RegistraEvento(auth()->user()->email, $landing);
         } catch (\Throwable $th) {
-            logger('Error RegistraEvento ' . auth()->user()->email) . ':QR' .  $landing;
+            logger('Error RegistraEvento ' . auth()->user()->email  . ':QR' .  $landing);
         }
 
         $model_landing = Landing::where('qr', $landing)->where('active', true)->first();
