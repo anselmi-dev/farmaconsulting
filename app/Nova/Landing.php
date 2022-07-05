@@ -12,9 +12,12 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
 use Epartment\NovaDependencyContainer\HasDependencies;
 use Epartment\NovaDependencyContainer\NovaDependencyContainer;
+use OptimistDigital\NovaSortable\Traits\HasSortableRows;
 
 class Landing extends Resource
 {
+    use HasSortableRows;
+
     /**
      * The model the resource corresponds to.
      *
@@ -35,7 +38,7 @@ class Landing extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'qr', 'breadcrumb'
     ];
 
     /**
@@ -79,7 +82,6 @@ class Landing extends Resource
     {
         return true;
     }
-
 
     /**
      * No able to create pages
@@ -132,13 +134,16 @@ class Landing extends Resource
 
             Text::make('Breadcrumb')->onlyOnIndex(),
 
-            NovaDependencyContainer::make([
-                Text::make('Breadcrumb')->rules('required', function($attribute, $value, $fail) {
-                    if ($this->redirect) {
-                        return $fail(__('validation.required', ['attribute' => $attribute]));
-                    }
-                })->sortable(),
-            ])->dependsOn('redirect', 0),
+            Text::make(__('Texto del listado'), 'title')->hideFromIndex()->sortable(),
+
+            Text::make('Breadcrumb')->rules('required')->sortable(),
+            // NovaDependencyContainer::make([
+                // , function($attribute, $value, $fail) {
+                //     if ($this->redirect) {
+                //         return $fail(__('validation.required', ['attribute' => $attribute]));
+                //     }
+                // }
+            // ])->dependsOn('redirect', 0),
 
             Boolean::make(__('Active'), 'active')->withMeta(['value' => $this->active ?? true])->sortable(),
 
