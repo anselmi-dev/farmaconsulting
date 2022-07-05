@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Image;
@@ -161,7 +162,7 @@ class Landing extends Resource
 
             Text::make('Breadcrumb')->onlyOnIndex(),
 
-            Text::make(__('Texto del listado'), 'title')->hideFromIndex()->sortable()
+            Textarea::make(__('Texto del listado'), 'title')->hideFromIndex()->sortable()->rows(2)
             ->help(
                 'El título es para el listado de los QRs <a href="'.route('qrs').'" target="_blank">aquí</a>. <br>
                 NOTA: Dejar en blanco si desea que un QR no se muestre en el listado.
