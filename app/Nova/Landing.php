@@ -19,6 +19,15 @@ class Landing extends Resource
     use HasSortableRows;
 
     /**
+     * Default ordering for index query.
+     *
+     * @var array
+     */
+    public static $sort = [
+        'sort_order' => 'desc'
+    ];
+
+    /**
      * The model the resource corresponds to.
      *
      * @var string
@@ -91,6 +100,24 @@ class Landing extends Resource
     public function authorizedToDelete(Request $request)
     {
         return false;
+    }
+
+    /**
+     * Build an "index" query for the given resource.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        if (empty($request->get('orderBy'))) {
+            $query->getQuery()->orders = [];
+
+            return $query->orderBy(key(static::$sort), reset(static::$sort));
+        }
+
+        return $query;
     }
 
     /**
