@@ -136,14 +136,14 @@ class Landing extends Resource
 
             Text::make(__('Texto del listado'), 'title')->hideFromIndex()->sortable(),
 
-            Text::make('Breadcrumb')->rules('required')->sortable(),
-            // NovaDependencyContainer::make([
-                // , function($attribute, $value, $fail) {
-                //     if ($this->redirect) {
-                //         return $fail(__('validation.required', ['attribute' => $attribute]));
-                //     }
-                // }
-            // ])->dependsOn('redirect', 0),
+            NovaDependencyContainer::make([
+                Text::make('Breadcrumb')->rules('required', function($attribute, $value, $fail) {
+                    if ($this->redirect) {
+                        return $fail(__('validation.required', ['attribute' => $attribute]));
+                    }
+                })->sortable(),
+            ])->dependsOn('redirect', 0),
+
 
             Boolean::make(__('Active'), 'active')->withMeta(['value' => $this->active ?? true])->sortable(),
 
