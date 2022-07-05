@@ -161,7 +161,12 @@ class Landing extends Resource
 
             Text::make('Breadcrumb')->onlyOnIndex(),
 
-            Text::make(__('Texto del listado'), 'title')->hideFromIndex()->sortable(),
+            Text::make(__('Texto del listado'), 'title')->hideFromIndex()->sortable()
+            ->help(
+                'El título es para el listado de los QRs <a href="'.route('qrs').'" target="_blank">aquí</a>. <br>
+                NOTA: Dejar en blanco si desea que un QR no se muestre en el listado.
+                '
+            )->sortable(),
 
             NovaDependencyContainer::make([
                 Text::make('Breadcrumb')->rules('required', function($attribute, $value, $fail) {
