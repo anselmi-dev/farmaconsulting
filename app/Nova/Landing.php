@@ -203,6 +203,7 @@ class Landing extends Resource
 
             NovaDependencyContainer::make([
                 Flexible::make(__('Content'), 'content')
+                    ->confirmRemove('¿Está seguro de que desea eliminar este grupo?', 'SÍ', 'NO')
                     ->addLayout(__('Title'), 'title', [
                         Text::make(__('Title'), 'title')->rules('required'),
                         Text::make(__('Subtitle'), 'subtitle'),
